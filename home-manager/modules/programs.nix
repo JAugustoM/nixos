@@ -1,12 +1,14 @@
 { config, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    adwaita-fonts
     aria2
     bun
     dualsensectl
     imagemagick
     kew
     nodejs
+    pika-backup
     poppler
     resvg
     scrcpy

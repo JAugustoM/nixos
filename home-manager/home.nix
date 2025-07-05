@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixgl, ... }:
+{ config, lib, pkgs, ... }:
 {
   home.username = "jaugusto";
   home.homeDirectory = "/home/jaugusto";
@@ -8,5 +8,6 @@
     ./modules/programs.nix
     ./modules/session.nix
     ./modules/catppuccin.nix
+    ./modules/plasma-manager.nix
   ];
 }
