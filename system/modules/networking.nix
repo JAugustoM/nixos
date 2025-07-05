@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  networking.hostName = "nixos";
+  networking.hostName = "pluto";
 
   networking.networkmanager.enable = true;
 
