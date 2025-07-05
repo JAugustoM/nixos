@@ -1,0 +1,5 @@
+{
+  neo-tree = {
+    enable = true;
+  };
+}

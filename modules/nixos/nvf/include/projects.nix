@@ -1,0 +1,3 @@
+{
+  project-nvim.enable = true;
+}

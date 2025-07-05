@@ -1,0 +1,3 @@
+{
+  comment-nvim.enable = true;
+}

@@ -1,0 +1,7 @@
+{
+  keyboard = {
+    options = [
+      "caps:escape"
+    ];
+  };
+}
