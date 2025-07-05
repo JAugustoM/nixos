@@ -14,7 +14,11 @@
   users.users.jaugusto = {
     isNormalUser = true;
     description = "José Augusto";
-    extraGroups = [ "networkmanager" "wheel" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  users.groups = {
+    plugdev.members = [ "jaugusto" ];
   };
 
   nixpkgs.config.allowUnfree = true;

@@ -7,6 +7,7 @@
     catppuccin-cursors.mochaDark
     (catppuccin-kde.override { flavour = [ "mocha" ]; accents = [ "sapphire" ]; winDecStyles = [ "classic" ]; })
     dualsensectl
+    eloquent
     imagemagick
     kew
     nodejs
@@ -14,7 +15,7 @@
     poppler
     resvg
     scrcpy
-    tldr
+    tealdeer
     uv
     wl-clipboard
     youtube-music
