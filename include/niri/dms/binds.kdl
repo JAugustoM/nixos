@@ -1,0 +1,79 @@
+environment {
+  DMS_SCREENSHOT_EDITOR "satty"
+}
+
+binds {
+    XF86AudioRaiseVolume hotkey-overlay-title="Increase Audio" allow-when-locked=true { 
+        spawn-sh "dms ipc call audio increment 10";
+    }
+
+    XF86AudioLowerVolume hotkey-overlay-title="Decrease Audio" allow-when-locked=true {
+        spawn-sh "dms ipc call audio decrement 10"; 
+    }
+    XF86AudioMute hotkey-overlay-title="Mute Audio" allow-when-locked=true { 
+        spawn-sh "dms ipc call audio mute"; 
+    }
+
+    XF86AudioMicMute hotkey-overlay-title="Mute Mic" allow-when-locked=true { 
+        spawn-sh "dms ipc call audio micmute"; 
+    }
+
+    XF86AudioPlay hotkey-overlay-title="Toggle Track" allow-when-locked=true { 
+        spawn-sh "dms ipc call mpris playPause"; 
+    }
+    XF86AudioStop hotkey-overlay-title="Stop Track" allow-when-locked=true { 
+        spawn-sh "dms ipc call mpris stop"; 
+    }
+    XF86AudioPrev hotkey-overlay-title="Previous Track" allow-when-locked=true { 
+        spawn-sh "dms ipc call mpris previous"; 
+    }
+    XF86AudioNext hotkey-overlay-title="Next Track" allow-when-locked=true { 
+        spawn-sh "dms ipc call mpris next"; 
+    }
+
+    XF86MonBrightnessUp hotkey-overlay-title="Increase Brightness" allow-when-locked=true { 
+        spawn-sh "dms ipc call brightness increment 10 \"\""; 
+    }
+    XF86MonBrightnessDown hotkey-overlay-title="Decrease Brightness" allow-when-locked=true { 
+        spawn-sh "dms ipc call brightness decrement 10 \"\""; 
+    }
+
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn-sh "dms ipc call clipboard toggle";
+    }
+    Mod+M hotkey-overlay-title="Task Manager" {
+        spawn-sh "dms ipc call processlist focusOrToggle";
+    }
+    Mod+Comma hotkey-overlay-title="Settings" {
+        spawn-sh "dms ipc call settings focusOrToggle";
+    }
+    Mod+N hotkey-overlay-title="Notification Center" {
+        spawn-sh "dms ipc call notifications toggle";
+    }
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" {
+        spawn-sh "dms ipc call lock lock";
+    }
+    Mod+X hotkey-overlay-title="Power Menu" {
+        spawn-sh "dms ipc call powermenu toggle";
+    }
+
+    Mod+Space hotkey-overlay-title="Launcher Tooggle" {
+        spawn-sh "dms ipc call spotlight toggle";
+    }
+
+    Mod+Shift+H hotkey-overlay-title="Show Keybinds" {
+        spawn-sh "dms ipc call keybinds toggle niri";
+    }
+
+    Print hotkey-overlay-title="Print Selection" {
+        spawn-sh "dms ipc call niri screenshot";
+    }
+
+    Shift+Print hotkey-overlay-title="Print Screen" {
+        spawn-sh "dms ipc call niri screenshotScreen";
+    }
+
+    Ctrl+Print hotkey-overlay-title="Print Window" {
+        spawn-sh "dms ipc call niri screenshotWindow";
+    }
+}

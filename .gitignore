@@ -1,0 +1,6 @@
+notepad-session.json
+notepad-files/
+*.kdl.backup*
+.firstlaunch
+.changelog*
+appusage.json

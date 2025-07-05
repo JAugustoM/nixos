@@ -1,0 +1,9 @@
+layout {
+    gaps 5
+    background-color "transparent"
+}
+
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}

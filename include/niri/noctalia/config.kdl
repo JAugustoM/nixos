@@ -1,0 +1,50 @@
+// spawn-at-startup "noctalia-shell"
+
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
+layer-rule { 
+    match namespace="(toast|osd|noctalia-popup)" 
+    background-effect { 
+        blur false 
+    } 
+}
+
+layer-rule { 
+    match namespace="noctalia" 
+    background-effect { 
+        blur false 
+        xray false
+    } 
+}
+
+binds {
+    // Core Noctalia binds
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+
+    // Audio & Brightness
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+
+    Mod+X { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+V { spawn-sh "noctalia msg panel-toggle clipboard"; }
+
+    Print      { spawn-sh "noctalia msg screenshot-region"; }
+    Ctrl+Print { spawn-sh "noctalia msg screenshot-fullscreen"; }
+}
