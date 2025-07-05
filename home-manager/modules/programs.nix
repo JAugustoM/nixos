@@ -4,6 +4,8 @@
     adwaita-fonts
     aria2
     bun
+    catppuccin-cursors
+    catppuccin-kde
     dualsensectl
     imagemagick
     kew
