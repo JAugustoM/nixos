@@ -4,8 +4,8 @@
     adwaita-fonts
     aria2
     bun
-    catppuccin-cursors
-    catppuccin-kde
+    catppuccin-cursors.mochaDark
+    (catppuccin-kde.override { flavour = [ "mocha" ]; accents = [ "sapphire" ]; winDecStyles = [ "classic" ]; })
     dualsensectl
     imagemagick
     kew
