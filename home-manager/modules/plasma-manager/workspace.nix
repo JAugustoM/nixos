@@ -1,10 +1,10 @@
 {
   enableMiddleClickPaste = true;
   clickItemTo = "select";
-  colorScheme = "BreezeDark";
+  colorScheme = "CatppuccinMochaSapphire";
   cursor = {
     size = 24;
-    theme = "breeze_cursors";
+    theme = "catppuccin-mocha-dark-cursors";
   };
   lookAndFeel = "org.kde.breezedark.desktop";
   theme = "breeze-dark";
