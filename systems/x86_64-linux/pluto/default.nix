@@ -14,17 +14,25 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   modules = {
-    auto-cpufreq.enable = true;
+    auto-cpufreq.enable = false;
     bluetooth.enable = true;
     desktop.enable = true;
     printing.enable = true;
     sound.enable = true;
+    tlp.enable = true;
 
     networking.hostName = "pluto";
 
     bootloader = {
       luks = "luks-6e7b194c-818a-4d22-8d36-b50cf96c95b4";
       device = "/dev/disk/by-uuid/6e7b194c-818a-4d22-8d36-b50cf96c95b4";
+    };
+
+    flatpak = {
+      enable = true;
+      packages = [
+        "io.github.brunofin.Cohesion"
+      ];
     };
 
     user = {
@@ -35,7 +43,6 @@
     };
   };
 
-  # Install firefox.
   programs.firefox.enable = true;
 
   programs.nh = {

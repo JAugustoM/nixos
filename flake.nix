@@ -36,6 +36,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # Flatpak Nix
+    flatpak.url = "github:gmodena/nix-flatpak/latest";
   };
 
   outputs = inputs:
@@ -61,6 +64,7 @@
 
       systems.hosts.pluto.modules = with inputs; [
         auto-cpufreq.nixosModules.default
+        flatpak.nixosModules.nix-flatpak
       ];
 
       homes.modules = with inputs; [
