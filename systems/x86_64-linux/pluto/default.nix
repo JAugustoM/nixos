@@ -14,12 +14,14 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   modules = {
-    auto-cpufreq.enable = false;
+    amd-gpu.enable = true;
+    auto-cpufreq.enable = true;
     bluetooth.enable = true;
     desktop.enable = true;
+    nh.enable = true;
     printing.enable = true;
     sound.enable = true;
-    tlp.enable = true;
+    steam.enable = true;
 
     networking.hostName = "pluto";
 
@@ -44,16 +46,6 @@
   };
 
   programs.firefox.enable = true;
-
-  programs.nh = {
-    enable = true;
-    flake = "/home/jaugusto/.config/nixos";
-    clean = {
-      enable = true;
-      dates = "weekly";
-      extraArgs = "--keep 5";
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     gcc

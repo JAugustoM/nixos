@@ -7,6 +7,7 @@ let
   types = lib.types;
   moduleName = "user";
   cfg = config.modules.${moduleName};
+  newGroups = (builtins.listToAttrs (builtins.map (x: { name = "${x}"; value = { members = [ cfg.user ]; }; }) cfg.specialGroups));
 in
 {
   options = {
@@ -33,6 +34,7 @@ in
       };
     };
   };
+
   config = {
     users.users.${cfg.user} = {
       isNormalUser = true;
@@ -40,8 +42,6 @@ in
       extraGroups = cfg.extraGroups;
     };
 
-    # (builtins.listToAttrs builtins.map (x: { name = "${x}.members"; value = cfg.user; }) cfg.specialGroups);
-    users.groups.plugdev.members = [ cfg.userName ];
-
+    users.groups = newGroups;
   };
 }

@@ -1,0 +1,30 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  types = lib.types;
+  moduleName = "steam";
+  cfg = config.modules.${moduleName};
+in
+{
+  options = {
+    modules.${moduleName} = {
+      enable = lib.mkEnableOption "Enable Steam";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
+
+    programs.gamemode.enable = true;
+  };
+}
