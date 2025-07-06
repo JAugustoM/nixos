@@ -14,7 +14,7 @@
     ./conf/fish.nix
     ./conf/kitty.nix
     ./conf/lazygit.nix
-    # ./conf/neovim.nix
+    ./conf/neovim.nix
     ./conf/obsidian.nix
     ./conf/omp.nix
     ./conf/yazi.nix
