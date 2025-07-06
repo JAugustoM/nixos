@@ -2,7 +2,9 @@
   config,
   lib,
   options,
- namespace,
+  namespace,
+  inputs,
+  system,
   pkgs,
   ...
 }:
@@ -46,6 +48,7 @@
   };
 
   programs.firefox.enable = true;
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
     gcc
@@ -55,6 +58,7 @@
     rustup
     unzip
     wget
+    inputs.nix-alien.packages.${system}.nix-alien
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?

@@ -15,7 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix Hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Home Manager
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +48,9 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nix Alien
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
   outputs = inputs:
@@ -72,6 +78,13 @@
         auto-cpufreq.nixosModules.default
         flatpak.nixosModules.nix-flatpak
         nvf.nixosModules.default
+
+        # NixOS Hardware
+        nixos-hardware.nixosModules.common-cpu-amd
+        nixos-hardware.nixosModules.common-cpu-amd-pstate
+        nixos-hardware.nixosModules.common-cpu-amd-zenpower
+        nixos-hardware.nixosModules.common-gpu-amd
+        nixos-hardware.nixosModules.common-gpu-amd-southern-islands
       ];
 
       homes.modules = with inputs; [
