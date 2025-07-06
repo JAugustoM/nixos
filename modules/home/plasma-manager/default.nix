@@ -18,10 +18,10 @@ in
   config = lib.mkIf cfg.enable {
     programs.plasma = {
     enable = true;
-      fonts = import ./fonts.nix;
-      hotkeys = import ./hotkeys.nix;
-      workspace = import ./workspace.nix;
-      input = import ./input.nix;
+      fonts = import ./include/fonts.nix;
+      hotkeys = import ./include/hotkeys.nix;
+      workspace = import ./include/workspace.nix;
+      input = import ./include/input.nix;
     };
   };
 }

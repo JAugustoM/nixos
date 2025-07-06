@@ -39,6 +39,12 @@
 
     # Flatpak Nix
     flatpak.url = "github:gmodena/nix-flatpak/latest";
+
+    # NVF
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -65,6 +71,7 @@
       systems.hosts.pluto.modules = with inputs; [
         auto-cpufreq.nixosModules.default
         flatpak.nixosModules.nix-flatpak
+        nvf.nixosModules.default
       ];
 
       homes.modules = with inputs; [

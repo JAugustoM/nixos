@@ -19,6 +19,7 @@
     bluetooth.enable = true;
     desktop.enable = true;
     nh.enable = true;
+    nvf.enable = true;
     printing.enable = true;
     sound.enable = true;
     steam.enable = true;
