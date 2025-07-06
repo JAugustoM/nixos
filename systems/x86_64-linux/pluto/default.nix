@@ -20,10 +20,10 @@
     auto-cpufreq.enable = true;
     bluetooth.enable = true;
     desktop.enable = true;
+    gaming.enable = true;
     nh.enable = true;
     printing.enable = true;
     sound.enable = true;
-    steam.enable = true;
 
     networking.hostName = "pluto";
 
@@ -49,11 +49,11 @@
 
   programs.firefox.enable = true;
   programs.nix-ld.enable = true;
+  programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [
     gcc
     git
-    kdePackages.kdeconnect-kde
     python3
     rustup
     unzip

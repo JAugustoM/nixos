@@ -6,13 +6,13 @@
 }:
 let
   types = lib.types;
-  moduleName = "steam";
+  moduleName = "gaming";
   cfg = config.modules.${moduleName};
 in
 {
   options = {
     modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable Steam";
+      enable = lib.mkEnableOption "Enable gaming options";
     };
   };
 
@@ -26,5 +26,7 @@ in
     };
 
     programs.gamemode.enable = true;
+
+    environment.systemPackages = with pkgs; [ heroic lutris ];
   };
 }
