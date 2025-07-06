@@ -21,6 +21,7 @@ in
       fonts = import ./fonts.nix;
       hotkeys = import ./hotkeys.nix;
       workspace = import ./workspace.nix;
+      input = import ./input.nix;
     };
   };
 }
