@@ -16,8 +16,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   modules = {
-    amd-gpu.enable = true;
-    auto-cpufreq.enable = true;
     bluetooth.enable = true;
     desktop.enable = true;
     gaming.enable = true;
