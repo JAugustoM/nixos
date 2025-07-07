@@ -45,6 +45,7 @@
       poppler
       resvg
       scrcpy
+      stremio
       tealdeer
       uv
       wl-clipboard
