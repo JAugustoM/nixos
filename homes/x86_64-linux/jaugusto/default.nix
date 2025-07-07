@@ -50,6 +50,7 @@
       uv
       wl-clipboard
       youtube-music
+      zapzap
     ];
 
     sessionPath = [
