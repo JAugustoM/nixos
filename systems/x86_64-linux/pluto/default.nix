@@ -39,6 +39,13 @@
       ];
     };
 
+    udev = {
+      enable = true;
+      extraRules = with builtins; [
+        "${readFile ./include/udev/99-picotool.rules}"
+      ];
+    };
+
     user = {
       user = "jaugusto";
       userName = "José Augusto";
