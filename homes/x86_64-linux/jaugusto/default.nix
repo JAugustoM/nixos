@@ -31,14 +31,14 @@
     stateVersion = "25.05"; 
 
     packages = with pkgs; [
+      aspell
+      aspellDicts.pt_BR
       adwaita-fonts
       aria2
       bun
       catppuccin-cursors.mochaDark
       (catppuccin-kde.override { flavour = [ "mocha" ]; accents = [ "sapphire" ]; winDecStyles = [ "classic" ]; })
       dualsensectl
-      hunspell
-      hunspellDicts.pt_BR
       imagemagick
       kew
       nodejs
