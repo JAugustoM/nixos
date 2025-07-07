@@ -37,7 +37,8 @@
       catppuccin-cursors.mochaDark
       (catppuccin-kde.override { flavour = [ "mocha" ]; accents = [ "sapphire" ]; winDecStyles = [ "classic" ]; })
       dualsensectl
-      eloquent
+      hunspell
+      hunspellDicts.pt_BR
       imagemagick
       kew
       nodejs

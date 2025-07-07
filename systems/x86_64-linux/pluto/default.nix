@@ -56,6 +56,8 @@
   programs.nix-ld.enable = true;
   programs.kdeconnect.enable = true;
 
+  services.languagetool.enable = true;
+
   environment.systemPackages = with pkgs; [
     gcc
     git
