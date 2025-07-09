@@ -15,10 +15,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Disko
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix Hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # Home Manager
 
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,6 +78,7 @@
 
       systems.modules.nixos = with inputs; [
         lix-module.nixosModules.default
+        disko.nixosModules.disko
       ];
 
       systems.hosts.pluto.modules = with inputs; [

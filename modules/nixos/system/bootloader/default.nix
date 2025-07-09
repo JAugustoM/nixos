@@ -22,10 +22,31 @@ in
 
   config = {
     boot = {
+      initrd.luks.devices = {
+        cryptroot = {
+          device = "/dev/disk/by-partlabel/luks";
+          allowDiscards = true;
+        };
+      };
+
+      tmp = {
+        useTmpfs = true;
+        tmpfsSize = "50%";
+      };
+
       loader = {
-        systemd-boot = {
+        # systemd-boot = {
+        #   enable = true;
+        #   configurationLimit = 5;
+        # };
+        limine = {
+          style = {
+            wallpapers = [
+              pkgs.nixos-artwork.wallpapers.simple-dark-gray-bootloader.gnomeFilePath
+            ];
+          };
           enable = true;
-          configurationLimit = 5;
+          maxGenerations = 5;
         };
         efi.canTouchEfiVariables = true;
       };

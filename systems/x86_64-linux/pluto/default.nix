@@ -11,6 +11,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disk-config.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -22,6 +23,7 @@
     nh.enable = true;
     printing.enable = true;
     sound.enable = true;
+    zram.enable = true;
 
     networking.hostName = "pluto";
 
@@ -53,6 +55,11 @@
   programs.partition-manager.enable = true;
 
   services.languagetool.enable = true;
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = ["/"];
+  };
 
   environment.systemPackages = with pkgs; [
     gcc
