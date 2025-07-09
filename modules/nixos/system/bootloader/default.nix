@@ -17,18 +17,6 @@ in
         type = types.str;
         default = "latest";
       };
-
-      luks = lib.mkOption {
-        description = "";
-        type = types.str;
-        default = "";
-      };
-
-      device = lib.mkOption {
-        description = "";
-        type = types.str;
-        default = "";
-      };
     };
   };
 
@@ -43,7 +31,6 @@ in
       };
 
       kernelPackages = pkgs."linuxPackages_${cfg.linuxVersion}";
-      initrd.luks.devices.${cfg.luks}.device = cfg.device;
     };
   };
 }

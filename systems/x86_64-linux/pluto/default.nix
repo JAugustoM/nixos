@@ -25,11 +25,6 @@
 
     networking.hostName = "pluto";
 
-    bootloader = {
-      luks = "luks-6e7b194c-818a-4d22-8d36-b50cf96c95b4";
-      device = "/dev/disk/by-uuid/6e7b194c-818a-4d22-8d36-b50cf96c95b4";
-    };
-
     flatpak = {
       enable = true;
       packages = [
