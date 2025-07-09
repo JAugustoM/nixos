@@ -1,15 +1,30 @@
-{lib, ...}:
-with lib; rec {
-  mkOpt = type: default: description:
-    mkOption {inherit type default description;};
+{ lib, ... }:
+let
+  inherit (lib) toUpper genAttrs;
 
-  mkOpt' = type: default: mkOpt type default null;
-
-  mkBoolOpt = mkOpt types.bool;
-
-  mkBoolOpt' = mkOpt' types.bool;
-
-  enabled = {enable = true;};
-
-  disabled = {enable = false;};
+  mkWifiProfile = name: {
+    connection = {
+      id = name;
+      type = "wifi";
+      autoconnect = true;
+    };
+    wifi = {
+      mode = "infrastructure";
+      ssid = "$" + "${toUpper name}_SSID";
+    };
+    wifi-security = {
+      key-mgmt = "wpa-psk";
+      psk = "$" + "${toUpper name}_PSK";
+    };
+    ipv4 = {
+      method = "auto";
+    };
+    ipv6 = {
+      method = "auto";
+      addr-gen-mode = "stable-privacy";
+    };
+  };
+in
+{
+  mkWifiProfiles = profiles: genAttrs profiles mkWifiProfile;
 }

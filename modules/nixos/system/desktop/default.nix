@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  virtual,
   ...
 }:
 let
@@ -11,12 +12,36 @@ in
 {
   options = {
     modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable desktop enviroment";
+      enviroment = lib.mkOption {
+        description = "Desktop enviroment to use";
+        default = "plasma";
+        type = types.enum [
+          "cosmic"
+          "gnome"
+          "plasma"
+        ];
+      };
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    services.displayManager.sddm.enable = true;
-    services.desktopManager.plasma6.enable = true;
+  config = lib.mkIf (!virtual) {
+    services = lib.mkMerge [
+      (lib.mkIf (cfg.enviroment == "cosmic") {
+        desktopManager.cosmic.enable = true;
+        desktopManager.cosmic.xwayland.enable = true;
+        displayManager.cosmic-greeter.enable = true;
+      })
+      (lib.mkIf (cfg.enviroment == "gnome") {
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+      })
+      (lib.mkIf (cfg.enviroment == "plasma") {
+        displayManager.sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+        desktopManager.plasma6.enable = true;
+      })
+    ];
   };
 }

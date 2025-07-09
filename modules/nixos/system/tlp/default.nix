@@ -12,6 +12,11 @@ in
   options = {
     modules.${moduleName} = {
       enable = lib.mkEnableOption "Enable TLP";
+      settings = lib.mkOption {
+        type = types.attrsOf (types.either types.str types.int);
+        description = "TLP settings";
+        default = { };
+      };
     };
   };
 
@@ -19,6 +24,7 @@ in
     services.power-profiles-daemon.enable = false;
     services.tlp = {
       enable = true;
+      settings = cfg.settings;
     };
   };
 }

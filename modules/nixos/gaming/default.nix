@@ -23,10 +23,10 @@ in
       extraCompatPackages = with pkgs; [
         proton-ge-bin
       ];
+
+      platformOptimizations.enable = true;
     };
 
     programs.gamemode.enable = true;
-
-    environment.systemPackages = with pkgs; [ heroic lutris ];
   };
 }

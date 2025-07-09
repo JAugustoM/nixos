@@ -10,7 +10,7 @@
             ESP = {
               label = "boot";
               name = "ESP";
-              size = "1G";
+              size = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -27,7 +27,11 @@
                 name = "cryptroot";
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-L" "nixos" "-f" ];
+                  extraArgs = [
+                    "-L"
+                    "nixos"
+                    "-f"
+                  ];
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
@@ -35,6 +39,7 @@
                         "subvol=root"
                         "compress=zstd"
                         "noatime"
+                        "ssd"
                       ];
                     };
                     "/home" = {
@@ -43,6 +48,7 @@
                         "subvol=home"
                         "compress=zstd"
                         "noatime"
+                        "ssd"
                       ];
                     };
                     "/nix" = {
@@ -51,12 +57,18 @@
                         "subvol=nix"
                         "compress=zstd"
                         "noatime"
+                        "ssd"
                       ];
                     };
                     "/swap" = {
                       mountpoint = "/swap";
-                      mountOptions = ["subvol=swap" "noatime" "nodatacow" "compress=no"];
-                      swap.swapfile.size = "20G";
+                      mountOptions = [
+                        "subvol=swap"
+                        "noatime"
+                        "nodatacow"
+                        "compress=no"
+                      ];
+                      swap.swapfile.size = "18G";
                     };
                   };
                 };

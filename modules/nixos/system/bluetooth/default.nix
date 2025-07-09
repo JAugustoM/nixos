@@ -9,14 +9,10 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable bluetooth";
-    };
-  };
+  options = { };
 
-  config = lib.mkIf cfg.enable {
-    hardware.bluetooth = {
+  config = {
+    hardware.bluetooth = lib.mkDefault {
       enable = true;
       powerOnBoot = true;
       settings.General = {

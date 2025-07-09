@@ -1,1 +1,0 @@
-nvim $NH_FLAKE

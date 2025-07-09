@@ -17,10 +17,10 @@ in
 
   config = lib.mkIf cfg.enable {
     zramSwap = {
-      enable = true;
+      enable = lib.mkDefault true;
       algorithm = "zstd";
-       priority = 5;
-       memoryPercent = 50;
+      priority = 5;
+      memoryPercent = 50;
     };
   };
 }
