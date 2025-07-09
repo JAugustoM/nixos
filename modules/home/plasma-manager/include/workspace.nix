@@ -8,5 +8,5 @@
   };
   lookAndFeel = "org.kde.breezedark.desktop";
   theme = "breeze-dark";
-  wallpaper = ./media/City.jpg;
+  wallpaper = ../media/City.jpg;
 }

@@ -22,6 +22,8 @@ in
       hotkeys = import ./include/hotkeys.nix;
       workspace = import ./include/workspace.nix;
       input = import ./include/input.nix;
+      panels = import ./include/panels.nix;
+      configFile = import ./include/configFile.nix;
     };
   };
 }

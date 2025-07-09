@@ -25,6 +25,7 @@
     sound.enable = true;
     zram.enable = true;
 
+    bootloader.limineResolution = "1366x768";
     networking.hostName = "pluto";
 
     flatpak = {
