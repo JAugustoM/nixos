@@ -6,6 +6,17 @@
   pkgs,
   ... 
 }:
+let
+  catppuccin-kde = pkgs.catppuccin-kde.override {
+    flavour = [ "mocha" ];
+    accents = [ "sapphire" ];
+    winDecStyles = [ "classic" ];
+  };
+  vivaldi = pkgs.vivaldi.override {
+    proprietaryCodecs = true;
+    enableWidevine = true;
+  };
+in
 {
   imports = [
     ./conf/beets.nix
@@ -31,13 +42,11 @@
     stateVersion = "25.05"; 
 
     packages = with pkgs; [
-      aspell
-      aspellDicts.pt_BR
       adwaita-fonts
       aria2
       bun
       catppuccin-cursors.mochaDark
-      (catppuccin-kde.override { flavour = [ "mocha" ]; accents = [ "sapphire" ]; winDecStyles = [ "classic" ]; })
+      catppuccin-kde
       dualsensectl
       imagemagick
       kew
@@ -49,6 +58,7 @@
       stremio
       tealdeer
       uv
+      vivaldi
       wl-clipboard
       youtube-music
       zapzap
