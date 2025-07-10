@@ -1,3 +1,0 @@
-{
-  blink-cmp.enable = true;
-}

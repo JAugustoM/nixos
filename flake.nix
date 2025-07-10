@@ -49,12 +49,6 @@
     # Flatpak Nix
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
-    # NVF
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nix Alien
     nix-alien.url = "github:thiagokokada/nix-alien";
   };
@@ -76,15 +70,17 @@
         };
       };
 
+      overlays = with inputs; [
+        lix-module.overlays.default
+      ];
+
       systems.modules.nixos = with inputs; [
-        lix-module.nixosModules.default
         disko.nixosModules.disko
       ];
 
       systems.hosts.pluto.modules = with inputs; [
         auto-cpufreq.nixosModules.default
         flatpak.nixosModules.nix-flatpak
-        nvf.nixosModules.default
 
         # NixOS Hardware
         nixos-hardware.nixosModules.common-cpu-amd

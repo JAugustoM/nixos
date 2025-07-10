@@ -1,8 +1,4 @@
 { 
-  config,
-  lib,
-  options,
-  namespace,
   pkgs,
   ... 
 }:
@@ -11,10 +7,6 @@ let
     flavour = [ "mocha" ];
     accents = [ "sapphire" ];
     winDecStyles = [ "classic" ];
-  };
-  vivaldi = pkgs.vivaldi.override {
-    proprietaryCodecs = true;
-    enableWidevine = true;
   };
 in
 {
@@ -47,18 +39,21 @@ in
       bun
       catppuccin-cursors.mochaDark
       catppuccin-kde
+      deadnix
       dualsensectl
+      gdu
       imagemagick
       kew
+      nixd
       nodejs
       pika-backup
       poppler
       resvg
       scrcpy
+      statix
       stremio
       tealdeer
       uv
-      vivaldi
       wl-clipboard
       youtube-music
       zapzap
@@ -79,6 +74,7 @@ in
   programs = {
     bash.enable = true;
     bat.enable = true;
+    bottom.enable = true;
     fastfetch.enable = true;
     fd.enable = true;
     fzf.enable = true;
