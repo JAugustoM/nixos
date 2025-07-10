@@ -14,6 +14,7 @@
     ./disk-config.nix
   ];
 
+  nix.package = pkgs.lix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   modules = {
