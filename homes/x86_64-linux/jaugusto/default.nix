@@ -19,7 +19,7 @@ in
     ./conf/lazygit.nix
     ./conf/neovim.nix
     ./conf/obsidian.nix
-    ./conf/omp.nix
+    ./conf/starship.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
     ./conf/zellij.nix
@@ -46,6 +46,7 @@ in
       kew
       nixd
       nodejs
+      ocrmypdf
       pika-backup
       poppler
       resvg

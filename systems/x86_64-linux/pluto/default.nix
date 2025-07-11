@@ -23,8 +23,14 @@ in
     ./disk-config.nix
   ];
 
-  nix.package = pkgs.lix;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    package = pkgs.lix;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
+  
 
   modules = {
     bluetooth.enable = true;
@@ -65,6 +71,7 @@ in
   programs.kdeconnect.enable = true;
   programs.partition-manager.enable = true;
 
+  services.fwupd.enable = true;
   services.languagetool.enable = true;
   services.btrfs.autoScrub = {
     enable = true;
@@ -77,6 +84,7 @@ in
     git
     python3
     rustup
+    sbctl
     unzip
     wget
     nix-alien

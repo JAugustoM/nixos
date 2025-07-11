@@ -21,7 +21,7 @@ in
       flake = "/home/jaugusto/.config/nixos";
       clean = {
         enable = true;
-        dates = "weekly";
+        dates = "daily";
         extraArgs = "--keep 5";
       };
     };
