@@ -1,13 +1,22 @@
 {
-  config,
-  lib,
-  options,
-  namespace,
   inputs,
   system,
   pkgs,
   ...
 }:
+let
+  nix-alien = inputs.nix-alien.packages.${system}.nix-alien;
+  fenix = pkgs.fenix.stable.withComponents [ 
+    "rustc"
+    "cargo"
+    "rustfmt"
+    "rust-std"
+    "rust-docs"
+    "rust-analyzer"
+    "clippy"
+    "rust-src"
+  ];
+in 
 {
   imports = [
     ./hardware-configuration.nix
@@ -70,7 +79,8 @@
     rustup
     unzip
     wget
-    inputs.nix-alien.packages.${system}.nix-alien
+    nix-alien
+    fenix
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?

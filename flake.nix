@@ -51,6 +51,12 @@
 
     # Nix Alien
     nix-alien.url = "github:thiagokokada/nix-alien";
+
+    # Fenix Rust
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -72,6 +78,7 @@
 
       overlays = with inputs; [
         lix-module.overlays.default
+        fenix.overlays.default
       ];
 
       systems.modules.nixos = with inputs; [
