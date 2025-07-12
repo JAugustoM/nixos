@@ -15,6 +15,7 @@ in
     ./conf/direnv.nix
     ./conf/eza.nix
     ./conf/fish.nix
+    ./conf/freetube.nix
     ./conf/kitty.nix
     ./conf/lazygit.nix
     ./conf/neovim.nix
