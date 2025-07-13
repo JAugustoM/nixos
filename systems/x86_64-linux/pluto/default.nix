@@ -41,7 +41,6 @@ in
     sound.enable = true;
     zram.enable = true;
 
-    bootloader.limineResolution = "1366x768";
     networking.hostName = "pluto";
 
     flatpak = {
@@ -71,7 +70,6 @@ in
   programs.kdeconnect.enable = true;
   programs.partition-manager.enable = true;
 
-  services.fwupd.enable = true;
   services.languagetool.enable = true;
   services.btrfs.autoScrub = {
     enable = true;
@@ -84,7 +82,6 @@ in
     git
     python3
     rustup
-    sbctl
     unzip
     wget
     nix-alien
