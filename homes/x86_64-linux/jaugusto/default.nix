@@ -11,8 +11,10 @@ let
 in
 {
   imports = [
+    ./conf/bash.nix
     ./conf/beets.nix
     ./conf/direnv.nix
+    ./conf/distrobox.nix
     ./conf/eza.nix
     ./conf/fish.nix
     ./conf/freetube.nix
@@ -74,7 +76,6 @@ in
   };
 
   programs = {
-    bash.enable = true;
     bat.enable = true;
     bottom.enable = true;
     fastfetch.enable = true;
