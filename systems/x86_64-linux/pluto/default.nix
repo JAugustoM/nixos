@@ -37,6 +37,7 @@ in
     desktop.enable = true;
     gaming.enable = true;
     nh.enable = true;
+    podman.enable = true;
     printing.enable = true;
     sound.enable = true;
     zram.enable = true;
@@ -47,6 +48,7 @@ in
       enable = true;
       packages = [
         "io.github.brunofin.Cohesion"
+        "com.brave.Browser"
       ];
     };
 
