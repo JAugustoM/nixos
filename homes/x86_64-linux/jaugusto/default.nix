@@ -53,6 +53,7 @@ in
       pika-backup
       poppler
       resvg
+      rustlings
       scrcpy
       statix
       stremio
