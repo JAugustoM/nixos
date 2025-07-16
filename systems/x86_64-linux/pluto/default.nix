@@ -48,7 +48,6 @@ in
       enable = true;
       packages = [
         "io.github.brunofin.Cohesion"
-        "com.brave.Browser"
       ];
     };
 
