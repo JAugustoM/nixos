@@ -1,14 +1,4 @@
-{ 
-  pkgs,
-  ... 
-}:
-let
-  catppuccin-kde = pkgs.catppuccin-kde.override {
-    flavour = [ "mocha" ];
-    accents = [ "sapphire" ];
-    winDecStyles = [ "classic" ];
-  };
-in
+{ ... }:
 {
   imports = [
     ./conf/bash.nix
@@ -26,6 +16,11 @@ in
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
     ./conf/zellij.nix
+    ./packages/communication.nix
+    ./packages/customization.nix
+    ./packages/development.nix
+    ./packages/media.nix
+    ./packages/tools.nix
   ];
 
   modules = {
@@ -35,34 +30,6 @@ in
 
   home = {
     stateVersion = "25.05"; 
-
-    packages = with pkgs; [
-      adwaita-fonts
-      aria2
-      bun
-      catppuccin-cursors.mochaDark
-      catppuccin-kde
-      deadnix
-      dualsensectl
-      gdu
-      imagemagick
-      kew
-      nixd
-      nodejs
-      ocrmypdf
-      pika-backup
-      poppler
-      resvg
-      rustlings
-      scrcpy
-      statix
-      stremio
-      tealdeer
-      uv
-      wl-clipboard
-      youtube-music
-      zapzap
-    ];
 
     sessionPath = [
       "$HOME/.local/bin/"
