@@ -5,7 +5,6 @@
   ...
 }:
 let
-  nix-alien = inputs.nix-alien.packages.${system}.nix-alien;
   fenix = pkgs.fenix.stable.withComponents [ 
     "rustc"
     "cargo"
@@ -16,6 +15,10 @@ let
     "clippy"
     "rust-src"
   ];
+  ffmpeg-full = pkgs.ffmpeg-full.override {
+    withUnfree = true;
+  };
+  nix-alien = inputs.nix-alien.packages.${system}.nix-alien;
 in 
 {
   imports = [
@@ -24,7 +27,6 @@ in
   ];
 
   nix = {
-    package = pkgs.lix;
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
@@ -79,14 +81,15 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    fenix
+    ffmpeg-full
     gcc
     git
+    nix-alien
     python3
     rustup
     unzip
     wget
-    nix-alien
-    fenix
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
