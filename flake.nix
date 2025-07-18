@@ -15,6 +15,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Determinate Nix
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     # Disko
     disko = {
       url = "github:nix-community/disko/latest";
@@ -77,12 +80,13 @@
       };
 
       overlays = with inputs; [
-        lix-module.overlays.default
+        # lix-module.overlays.default
         fenix.overlays.default
       ];
 
       systems.modules.nixos = with inputs; [
         disko.nixosModules.disko
+        determinate.nixosModules.default
       ];
 
       systems.hosts.pluto.modules = with inputs; [
