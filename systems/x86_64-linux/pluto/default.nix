@@ -36,6 +36,8 @@ in
 
   modules = {
     bluetooth.enable = true;
+    cachix.enable = true;
+    catppuccin.enable = true;
     desktop.enable = true;
     gaming.enable = true;
     nh.enable = true;

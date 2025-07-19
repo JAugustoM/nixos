@@ -2,7 +2,7 @@
 {
   imports = [
     ./conf/bash.nix
-    ./conf/beets.nix
+    # ./conf/beets.nix
     ./conf/direnv.nix
     ./conf/distrobox.nix
     ./conf/eza.nix
@@ -51,6 +51,7 @@
     fzf.enable = true;
     gh.enable = true;
     jq.enable = true;
+    mangohud.enable = true;
     ripgrep.enable = true;
     zoxide.enable = true;
   };

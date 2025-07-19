@@ -9,12 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Lix
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Determinate Nix
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
@@ -80,7 +74,6 @@
       };
 
       overlays = with inputs; [
-        # lix-module.overlays.default
         fenix.overlays.default
       ];
 
@@ -91,6 +84,7 @@
 
       systems.hosts.pluto.modules = with inputs; [
         auto-cpufreq.nixosModules.default
+        catppuccin.nixosModules.catppuccin
         flatpak.nixosModules.nix-flatpak
 
         # NixOS Hardware

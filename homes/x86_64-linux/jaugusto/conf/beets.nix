@@ -12,7 +12,16 @@
         group_albums = true;
         bell = true;
       };
-      musicbrainz.genres = "yes";
+      musicbrainz = {
+        external_ids = {
+          discogs = true;
+          spotify = true;
+          bandcamp = true;
+          beatport = true;
+          deezer = true;
+          tidal = true;
+        };
+      };
       paths.default = "$albumartist/[$year]$atypes $album/$track $title";
       plugins = [
         "chroma"
@@ -25,7 +34,11 @@
         "scrub"
         "albumtypes"
         "thumbnails"
-        "lastgenre"
+        "discogs"
+        "spotify"
+        "deezer"
+        "autobpm"
+        "keyfinder"
       ];
       fetchart = {
         quality = 75;
