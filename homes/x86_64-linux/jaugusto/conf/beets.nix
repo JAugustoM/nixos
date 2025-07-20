@@ -38,7 +38,6 @@
         "spotify"
         "deezer"
         "autobpm"
-        "keyfinder"
       ];
       fetchart = {
         quality = 75;

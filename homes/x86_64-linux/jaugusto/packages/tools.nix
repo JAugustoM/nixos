@@ -5,6 +5,7 @@
     dualsensectl
     gdu
     imagemagick
+    keyfinder-cli
     ocrmypdf
     pika-backup
     poppler

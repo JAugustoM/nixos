@@ -2,7 +2,7 @@
 {
   imports = [
     ./conf/bash.nix
-    # ./conf/beets.nix
+    ./conf/beets.nix
     ./conf/direnv.nix
     ./conf/distrobox.nix
     ./conf/eza.nix
