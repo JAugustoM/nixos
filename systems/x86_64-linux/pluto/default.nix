@@ -71,8 +71,8 @@ in
   };
 
   programs.firefox.enable = true;
-  programs.nix-ld.enable = true;
   programs.kdeconnect.enable = true;
+  programs.nix-ld.enable = true;
   programs.partition-manager.enable = true;
 
   services.languagetool.enable = true;

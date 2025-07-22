@@ -8,7 +8,7 @@
       size = 12;
     };
     settings = {
-      shell = "fish";
+      shell = "nu";
       editor = "nvim";
     };
   };

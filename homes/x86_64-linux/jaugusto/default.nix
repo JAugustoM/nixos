@@ -3,6 +3,7 @@
   imports = [
     ./conf/bash.nix
     ./conf/beets.nix
+    ./conf/carapace.nix
     ./conf/direnv.nix
     ./conf/distrobox.nix
     ./conf/eza.nix
@@ -11,6 +12,7 @@
     ./conf/kitty.nix
     ./conf/lazygit.nix
     ./conf/neovim.nix
+    ./conf/nushell.nix
     ./conf/obsidian.nix
     ./conf/starship.nix
     ./conf/yazi.nix
