@@ -18,6 +18,7 @@ let
   ffmpeg-full = pkgs.ffmpeg-full.override {
     withUnfree = true;
   };
+  flakePath = "/home/jaugusto/.config/nixos";
   nix-alien = inputs.nix-alien.packages.${system}.nix-alien;
 in 
 {
@@ -40,13 +41,17 @@ in
     catppuccin.enable = true;
     desktop.enable = true;
     gaming.enable = true;
-    nh.enable = true;
     podman.enable = true;
     printing.enable = true;
     sound.enable = true;
     zram.enable = true;
 
     networking.hostName = "pluto";
+
+    nh = {
+      enable = true;
+      inherit flakePath;
+    };
 
     flatpak = {
       enable = true;

@@ -5,14 +5,14 @@
 }:
 let
   types = lib.types;
-  moduleName = "nh";
+  moduleName = "autoUpgrade";
   cfg = config.modules.${moduleName};
 in
 {
   options = {
     modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable nh";
-      flakePath = lib.mkOption {
+      enable = lib.mkEnableOption "Enable autoUpgrades";
+      flake = lib.mkOption {
         description = "Path of system flake";
         type = types.str;
         default = "/etc/nixos/";
@@ -21,14 +21,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.nh = {
+    system.autoUpgrade = {
       enable = true;
-      flake = cfg.flakePath;
-      clean = {
-        enable = true;
-        dates = "daily";
-        extraArgs = "--keep 5";
-      };
+      flake = cfg.flake;
+      flags = [
+        "--recreate-lock-file"
+        "--commit-lock-file"
+      ];
     };
   };
 }
