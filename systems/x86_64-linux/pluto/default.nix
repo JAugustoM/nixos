@@ -99,5 +99,12 @@ in
     wget
   ];
 
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    discover
+    elisa
+    kate
+    konsole
+  ];
+
   system.stateVersion = "25.05"; # Did you read the comment?
 }
