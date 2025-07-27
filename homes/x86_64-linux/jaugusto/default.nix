@@ -15,6 +15,7 @@
     ./conf/nushell.nix
     ./conf/obsidian.nix
     ./conf/starship.nix
+    ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
     ./conf/zellij.nix

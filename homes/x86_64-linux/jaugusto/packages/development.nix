@@ -4,6 +4,7 @@
     bun
     deadnix
     devenv
+    lldb
     nixd
     nodejs
     rustlings

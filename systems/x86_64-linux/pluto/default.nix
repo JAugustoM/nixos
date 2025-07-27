@@ -57,6 +57,7 @@ in
       enable = true;
       packages = [
         "io.github.brunofin.Cohesion"
+        "com.usebottles.bottles"
       ];
     };
 
@@ -102,7 +103,6 @@ in
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     discover
     elisa
-    kate
     konsole
   ];
 
