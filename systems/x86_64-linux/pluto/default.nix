@@ -57,7 +57,7 @@ in
       enable = true;
       packages = [
         "io.github.brunofin.Cohesion"
-        "com.usebottles.bottles"
+        "app.zen_browser.zen"
       ];
     };
 
@@ -76,10 +76,12 @@ in
     };
   };
 
-  programs.firefox.enable = true;
-  programs.kdeconnect.enable = true;
-  programs.nix-ld.enable = true;
-  programs.partition-manager.enable = true;
+  programs = {
+    firefox.enable = true;
+    kdeconnect.enable = true;
+    nix-ld.enable = true;
+    partition-manager.enable = true;
+  };
 
   services.languagetool.enable = true;
   services.btrfs.autoScrub = {

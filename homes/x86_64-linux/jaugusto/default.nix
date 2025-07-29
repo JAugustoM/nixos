@@ -43,6 +43,7 @@
 
     sessionVariables = {
       LANGUAGE = "en_US";
+      NIXOS_OZONE_WL = "1";
     };
   };
 
