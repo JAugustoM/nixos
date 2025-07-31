@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 {
   programs.yazi = {
     enable = true;
@@ -10,7 +10,7 @@
       };
       opener = {
         edit = [
-          { run = "nvim $0"; block = true; for = "unix"; }
+          { run = ''$EDITOR "$@"''; block = true; for = "unix"; }
         ];
       };
     };

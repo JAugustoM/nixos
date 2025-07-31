@@ -5,7 +5,7 @@
   ...
 }:
 let
-  fenix = pkgs.fenix.stable.withComponents [ 
+  fenix = pkgs.fenix.stable.withComponents [
     "rustc"
     "cargo"
     "rustfmt"
@@ -20,7 +20,7 @@ let
   };
   flakePath = "/home/jaugusto/.config/nixos";
   nix-alien = inputs.nix-alien.packages.${system}.nix-alien;
-in 
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -28,12 +28,15 @@ in
   ];
 
   nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
-  
 
   modules = {
     bluetooth.enable = true;
@@ -56,8 +59,10 @@ in
     flatpak = {
       enable = true;
       packages = [
+        "com.github.tchx84.Flatseal"
         "io.github.brunofin.Cohesion"
         "app.zen_browser.zen"
+        "com.usebottles.bottles"
       ];
     };
 
@@ -71,7 +76,10 @@ in
     user = {
       user = "jaugusto";
       userName = "José Augusto";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       specialGroups = [ "plugdev" ];
     };
   };
@@ -87,7 +95,7 @@ in
   services.btrfs.autoScrub = {
     enable = true;
     interval = "weekly";
-    fileSystems = ["/"];
+    fileSystems = [ "/" ];
   };
 
   environment.systemPackages = with pkgs; [

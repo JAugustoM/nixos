@@ -9,9 +9,9 @@
     ./conf/eza.nix
     ./conf/fish.nix
     ./conf/freetube.nix
+    ./conf/helix.nix
     ./conf/kitty.nix
     ./conf/lazygit.nix
-    ./conf/neovim.nix
     ./conf/nushell.nix
     ./conf/obsidian.nix
     ./conf/starship.nix

@@ -20,8 +20,6 @@ in
       enable = true;
       flavor = "mocha";
       accent = "sapphire";
-
-      nvim.enable = false;
     };
   };
 }
