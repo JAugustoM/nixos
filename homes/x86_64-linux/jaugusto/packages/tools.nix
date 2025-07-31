@@ -5,11 +5,14 @@
     dualsensectl
     gdu
     imagemagick
+    lldb
     ocrmypdf
     pika-backup
     poppler
+    proton-pass
     resvg
     tealdeer
+    unrar
     wl-clipboard
   ];
 }

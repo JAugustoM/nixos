@@ -49,6 +49,7 @@ in
     sound.enable = true;
     zram.enable = true;
 
+    boot.kernel = pkgs.linuxPackages_cachyos;
     networking.hostName = "pluto";
 
     nh = {
@@ -83,6 +84,8 @@ in
       specialGroups = [ "plugdev" ];
     };
   };
+
+  chaotic.nyx.nixPath.enable = true;
 
   programs = {
     firefox.enable = true;

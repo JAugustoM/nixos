@@ -2,6 +2,7 @@
   description = "My NixOS Config";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # Snowfall Lib
     snowfall-lib = {
@@ -62,7 +63,8 @@
     };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -70,7 +72,7 @@
       channels-config = {
         allowUnfree = true;
       };
-      
+
       snowfall = {
         namespace = "nixos";
         meta = {
@@ -93,6 +95,7 @@
         auto-cpufreq.nixosModules.default
         catppuccin.nixosModules.catppuccin
         flatpak.nixosModules.nix-flatpak
+        chaotic.nixosModules.default
 
         # NixOS Hardware
         nixos-hardware.nixosModules.common-cpu-amd

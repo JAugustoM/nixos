@@ -6,16 +6,15 @@
 }:
 let
   types = lib.types;
-  moduleName = "bootloader";
+  moduleName = "boot";
   cfg = config.modules.${moduleName};
 in
 {
   options = {
     modules.${moduleName} = {
-      linuxVersion = lib.mkOption {
+      kernel = lib.mkOption {
         description = "Linux Kernel version to use";
-        type = types.str;
-        default = "latest";
+        default = pkgs.linuxPackages_latest;
       };
     };
   };
@@ -43,7 +42,7 @@ in
         efi.canTouchEfiVariables = true;
       };
 
-      kernelPackages = pkgs."linuxPackages_${cfg.linuxVersion}";
+      kernelPackages = cfg.kernel;
     };
   };
 }

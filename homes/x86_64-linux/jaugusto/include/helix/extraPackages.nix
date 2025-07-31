@@ -8,7 +8,6 @@ with pkgs;
 
   # C/C++
   clang-tools
-  lldb
 
   # CMake
   neocmakelsp
@@ -35,7 +34,6 @@ with pkgs;
   nixfmt
 
   # Python
-  python313Packages.python-lsp-server
   ruff
 
   # Systemd
