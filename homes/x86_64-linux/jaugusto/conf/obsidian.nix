@@ -1,11 +1,12 @@
-{ config, lib, pkgs, ...}:
+{
+  ...
+}:
 {
   programs.obsidian = {
     enable = true;
     vaults = {
-      Jumpchain = {
-        target = "Documents/Obsidian/Jumpchain";
-      };
+      Jumpchain.target = "Documents/Obsidian/Jumpchain";
+      CYOA.target = "Documents/Obsidian/CYOA";
     };
   };
 }

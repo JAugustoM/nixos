@@ -35,12 +35,15 @@ in
         "nix-command"
         "flakes"
       ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
   };
 
   modules = {
     bluetooth.enable = true;
-    cachix.enable = true;
     catppuccin.enable = true;
     desktop.enable = true;
     gaming.enable = true;
@@ -49,7 +52,7 @@ in
     sound.enable = true;
     zram.enable = true;
 
-    boot.kernel = pkgs.linuxPackages_cachyos;
+    boot.loader = "limine";
     networking.hostName = "pluto";
 
     nh = {
@@ -85,8 +88,6 @@ in
     };
   };
 
-  chaotic.nyx.nixPath.enable = true;
-
   programs = {
     firefox.enable = true;
     kdeconnect.enable = true;
@@ -116,7 +117,6 @@ in
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     discover
     elisa
-    konsole
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?

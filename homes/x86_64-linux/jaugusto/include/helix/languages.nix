@@ -4,6 +4,15 @@
       command = "biome";
       args = [ "lsp-proxy" ];
     };
+    clangd = {
+      args = [
+        (
+          "--query-driver="
+          + "/nix/store/*gcc-arm-embedded*/bin/arm-none-eabi-gcc,"
+          + "/nix/store/*gcc-arm-embedded*/bin/arm-none-eabi-g++"
+        )
+      ];
+    };
     ltex-ls-plus.config = {
       ltex.language = "pt-BR";
       ltex.languageToolHttpServerUri = "http://localhost:8081/";

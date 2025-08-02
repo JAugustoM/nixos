@@ -33,12 +33,11 @@
   };
 
   keys.normal = {
-    A-x = "extend_to_line_bounds";
     X = "select_line_above";
+    A-q = ":write-quit-all";
   };
 
   keys.select = {
-    A-x = "extend_to_line_bounds";
     X = "select_line_above";
   };
 }

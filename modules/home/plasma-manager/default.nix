@@ -17,13 +17,14 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.plasma = {
-    enable = true;
+      enable = true;
+      configFile = import ./include/configFile.nix;
       fonts = import ./include/fonts.nix;
       hotkeys = import ./include/hotkeys.nix;
-      workspace = import ./include/workspace.nix;
       input = import ./include/input.nix;
+      kscreenlocker.appearance.wallpaper = ./media/City.jpg;
       panels = import ./include/panels.nix;
-      configFile = import ./include/configFile.nix;
+      workspace = import ./include/workspace.nix;
     };
   };
 }

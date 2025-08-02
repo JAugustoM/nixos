@@ -10,7 +10,7 @@
 
     settings = {
       shell = "nu";
-      editor = "nvim";
+      editor = "hx";
     };
 
     keybindings = {
