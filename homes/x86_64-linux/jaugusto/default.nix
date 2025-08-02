@@ -3,7 +3,6 @@
   imports = [
     ./conf/bash.nix
     ./conf/beets.nix
-    ./conf/carapace.nix
     ./conf/direnv.nix
     ./conf/distrobox.nix
     ./conf/eza.nix
@@ -32,7 +31,15 @@
   };
 
   home = {
-    stateVersion = "25.05"; 
+    stateVersion = "25.05";
+
+    file = {
+      Templates = {
+        enable = true;
+        source = ./include/files/Templates;
+        target = "Templates";
+      };
+    };
 
     sessionPath = [
       "$HOME/.local/bin/"
@@ -43,13 +50,13 @@
 
     sessionVariables = {
       LANGUAGE = "en_US";
-      NIXOS_OZONE_WL = "1";
     };
   };
 
   programs = {
     bat.enable = true;
     bottom.enable = true;
+    carapace.enable = true;
     fastfetch.enable = true;
     fd.enable = true;
     fzf.enable = true;

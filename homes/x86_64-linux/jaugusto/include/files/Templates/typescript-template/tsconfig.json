@@ -1,0 +1,12 @@
+{
+	"watchOptions": {
+		"excludeDirectories": ["node_modules", "final"]
+	},
+	"compilerOptions": {
+		"outDir": "build",
+		"rootDir": "src",
+		"target": "ES2021",
+		"strict": true,
+		"removeComments": true
+	}
+}
