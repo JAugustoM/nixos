@@ -1,6 +1,5 @@
 {
   inputs,
-  system,
   pkgs,
   ...
 }:
@@ -19,7 +18,6 @@ let
     withUnfree = true;
   };
   flakePath = "/home/jaugusto/.config/nixos";
-  nix-alien = inputs.nix-alien.packages.${system}.nix-alien;
 in
 {
   imports = [
@@ -91,7 +89,6 @@ in
   programs = {
     firefox.enable = true;
     kdeconnect.enable = true;
-    nix-ld.enable = true;
     partition-manager.enable = true;
   };
 
@@ -107,7 +104,6 @@ in
     ffmpeg-full
     gcc
     git
-    nix-alien
     python3
     rustup
     unzip

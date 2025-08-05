@@ -46,9 +46,6 @@
     # Flatpak Nix
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
-    # Nix Alien
-    nix-alien.url = "github:thiagokokada/nix-alien";
-
     # Fenix Rust
     fenix = {
       url = "github:nix-community/fenix";

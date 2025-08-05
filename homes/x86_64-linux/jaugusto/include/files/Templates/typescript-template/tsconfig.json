@@ -1,6 +1,8 @@
 {
 	"watchOptions": {
-		"excludeDirectories": ["node_modules", "final"]
+		"excludeDirectories": [
+			"node_modules"
+		]
 	},
 	"compilerOptions": {
 		"outDir": "build",

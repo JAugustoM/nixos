@@ -1,13 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bun
     devenv
-    nodejs
+    lldb
     rustlings
     scrcpy
     typescript
     uv
   ];
 }
-

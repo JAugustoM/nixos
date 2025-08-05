@@ -1,15 +1,15 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    affine
     aria2
     dualsensectl
     gdu
     imagemagick
-    lldb
+    img2pdf
     ocrmypdf
     pika-backup
     poppler
-    proton-pass
     resvg
     tealdeer
     unrar
