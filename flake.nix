@@ -30,12 +30,6 @@
     # Catppuccin Nix
     catppuccin.url = "github:catppuccin/nix";
 
-    # Auto-cpufreq
-    auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Plasma Manager
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
@@ -88,7 +82,6 @@
       ];
 
       systems.hosts.pluto.modules = with inputs; [
-        auto-cpufreq.nixosModules.default
         catppuccin.nixosModules.catppuccin
         flatpak.nixosModules.nix-flatpak
 
