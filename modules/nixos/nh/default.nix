@@ -24,7 +24,7 @@ in
     programs.nh = {
       enable = true;
       flake = cfg.flakePath;
-      clean = {
+      clean = lib.mkDefault {
         enable = true;
         dates = "daily";
         extraArgs = "--keep 5";

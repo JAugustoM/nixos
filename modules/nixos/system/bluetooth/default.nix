@@ -19,7 +19,7 @@ in
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;
-      settings.General = {
+      settings.General = lib.mkDefault {
         Enable = "Source,Sink,Media,Socket";
         Experimental = true;
       };

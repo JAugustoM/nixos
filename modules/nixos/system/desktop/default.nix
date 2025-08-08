@@ -12,15 +12,39 @@ in
   options = {
     modules.${moduleName} = {
       enable = lib.mkEnableOption "Enable desktop enviroment";
+      enviroment = lib.mkOption {
+        description = "Desktop enviroment to use";
+        default = "plasma";
+        type = types.enum [
+          "gnome"
+          "plasma"
+        ];
+      };
     };
   };
 
   config = lib.mkIf cfg.enable {
-    services.displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
+    services.displayManager = lib.mkMerge [
+      (lib.mkIf (cfg.enviroment == "plasma") {
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+      })
+      (lib.mkIf (cfg.enviroment == "gnome") {
+        gdm = {
+          enable = true;
+        };
+      })
+    ];
 
-    services.desktopManager.plasma6.enable = true;
+    services.desktopManager = lib.mkMerge [
+      (lib.mkIf (cfg.enviroment == "plasma") {
+        plasma6.enable = true;
+      })
+      (lib.mkIf (cfg.enviroment == "gnome") {
+        gnome.enable = true;
+      })
+    ];
   };
 }

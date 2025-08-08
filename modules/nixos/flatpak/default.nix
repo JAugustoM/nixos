@@ -15,7 +15,7 @@ in
       packages = lib.mkOption {
         description = "Flatpaks to install";
         type = types.listOf types.str;
-        default = [];
+        default = [ ];
       };
     };
   };
@@ -24,7 +24,7 @@ in
     services.flatpak = {
       enable = true;
       packages = cfg.packages;
-      update.auto = {
+      update.auto = lib.mkDefault {
         enable = true;
         onCalendar = "weekly";
       };

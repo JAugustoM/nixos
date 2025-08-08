@@ -45,12 +45,14 @@ in
     catppuccin.enable = true;
     desktop.enable = true;
     gaming.enable = true;
+    libvirtd.enable = true;
     podman.enable = true;
     printing.enable = true;
     sound.enable = true;
     zram.enable = true;
 
     boot.loader = "limine";
+    hardware.ssdEnable = true;
     networking.hostName = "pluto";
 
     nh = {
@@ -81,6 +83,7 @@ in
       extraGroups = [
         "networkmanager"
         "wheel"
+        "libvirtd"
       ];
       specialGroups = [ "plugdev" ];
     };
@@ -104,6 +107,7 @@ in
     ffmpeg-full
     gcc
     git
+    gnome-boxes
     python3
     rustup
     unzip

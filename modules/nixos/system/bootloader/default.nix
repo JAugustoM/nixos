@@ -29,33 +29,33 @@ in
 
   config = {
     boot = {
-      initrd.luks.devices = {
+      initrd.luks.devices = lib.mkDefault {
         cryptroot = {
           device = "/dev/disk/by-partlabel/luks";
           allowDiscards = true;
         };
       };
 
-      tmp = {
+      tmp = lib.mkDefault {
         useTmpfs = true;
         tmpfsSize = "50%";
       };
 
-      loader =
-        if cfg.loader == "limine" then
-          {
-            limine = {
-              style.wallpapers = [ ./include/nix-wallpaper-nineish-catppuccin-mocha.png ];
-              enable = true;
-              maxGenerations = 5;
-            };
-            efi.canTouchEfiVariables = true;
-          }
-        else
-          {
-            systemd-boot.enable = true;
-            efi.canTouchEfiVariables = true;
+      loader = lib.mkMerge [
+        (lib.mkIf (cfg.loader == "systemd-boot") {
+          systemd-boot.enable = true;
+        })
+        (lib.mkIf (cfg.loader == "limine") {
+          limine = {
+            style.wallpapers = lib.mkDefault [ ./include/nix-wallpaper-nineish-catppuccin-mocha.png ];
+            enable = true;
+            maxGenerations = lib.mkDefault 5;
           };
+        })
+        {
+          efi.canTouchEfiVariables = true;
+        }
+      ];
 
       kernelPackages = cfg.kernel;
     };

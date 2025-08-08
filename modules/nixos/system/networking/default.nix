@@ -23,6 +23,6 @@ in
   config = {
     networking.hostName = cfg.hostName;
 
-    networking.networkmanager.enable = true;
+    networking.networkmanager.enable = lib.mkDefault true;
   };
 }
