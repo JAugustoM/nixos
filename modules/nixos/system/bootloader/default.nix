@@ -43,11 +43,13 @@ in
 
       loader = lib.mkMerge [
         (lib.mkIf (cfg.loader == "systemd-boot") {
-          systemd-boot.enable = true;
+          systemd-boot = {
+            enable = true;
+            configurationLimit = lib.mkDefault 5;
+          };
         })
         (lib.mkIf (cfg.loader == "limine") {
           limine = {
-            style.wallpapers = lib.mkDefault [ ./include/nix-wallpaper-nineish-catppuccin-mocha.png ];
             enable = true;
             maxGenerations = lib.mkDefault 5;
           };

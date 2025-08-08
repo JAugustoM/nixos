@@ -45,10 +45,10 @@ in
     catppuccin.enable = true;
     desktop.enable = true;
     gaming.enable = true;
-    libvirtd.enable = true;
     podman.enable = true;
     printing.enable = true;
     sound.enable = true;
+    tlp.enable = true;
     zram.enable = true;
 
     boot.loader = "limine";
@@ -107,7 +107,6 @@ in
     ffmpeg-full
     gcc
     git
-    gnome-boxes
     python3
     rustup
     unzip
