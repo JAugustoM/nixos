@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     affine
-    anytype
     aria2
     dualsensectl
     gdu

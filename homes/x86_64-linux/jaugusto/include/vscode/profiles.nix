@@ -13,17 +13,17 @@ let
     "ltex.language" = "pt-BR";
     "ltex.languageToolHttpServerUri" = "http://localhost:8081/";
   };
-  defaultExtensios = pkgs.nix4vscode.forVscode [
-    "aaron-bond.better-comments"
-    "christian-kohler.path-intellisense"
-    "DavidAnson.vscode-markdownlint"
-    "IBM.output-colorizer"
-    "mkhl.direnv"
-    "streetsidesoftware.code-spell-checker"
-    "streetsidesoftware.code-spell-checker-portuguese-brazilian"
-    "usernamehw.errorlens"
-    "yzhang.markdown-all-in-one"
-  ];
+  # defaultExtensios = pkgs.nix4vscode.forVscode [
+  #   "aaron-bond.better-comments"
+  #   "christian-kohler.path-intellisense"
+  #   "DavidAnson.vscode-markdownlint"
+  #   "IBM.output-colorizer"
+  #   "mkhl.direnv"
+  #   "streetsidesoftware.code-spell-checker"
+  #   "streetsidesoftware.code-spell-checker-portuguese-brazilian"
+  #   "usernamehw.errorlens"
+  #   "yzhang.markdown-all-in-one"
+  # ];
 in
 {
   default = {
@@ -37,27 +37,27 @@ in
   Rust = {
     userSettings = defaultSettings;
 
-    extensions =
-      defaultExtensios
-      ++ pkgs.nix4vscode.forVscode [
-        "fill-labs.dependi"
-        "rust-lang.rust-analyzer"
-        "tamasfe.even-better-toml"
-        "vadimcn.vscode-lldb"
-      ];
+    # extensions =
+    #   defaultExtensios
+    #   ++ pkgs.nix4vscode.forVscode [
+    #     "fill-labs.dependi"
+    #     "rust-lang.rust-analyzer"
+    #     "tamasfe.even-better-toml"
+    #     "vadimcn.vscode-lldb"
+    #   ];
   };
 
   Web = {
     userSettings = defaultSettings;
 
-    extensions =
-      defaultExtensios
-      ++ pkgs.nix4vscode.forVscode [
-        "christian-kohler.npm-intellisense"
-        "esbenp.prettier-vscode"
-        "xabikos.JavaScriptSnippets"
-        "yandeu.five-server"
-        "yoavbls.pretty-ts-errors"
-      ];
+    # extensions =
+    #   defaultExtensios
+    #   ++ pkgs.nix4vscode.forVscode [
+    #     "christian-kohler.npm-intellisense"
+    #     "esbenp.prettier-vscode"
+    #     "xabikos.JavaScriptSnippets"
+    #     "yandeu.five-server"
+    #     "yoavbls.pretty-ts-errors"
+    #   ];
   };
 }

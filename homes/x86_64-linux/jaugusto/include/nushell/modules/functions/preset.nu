@@ -20,4 +20,5 @@ export def ts [
   mkdir $name
   cd $name
   cp -r ~/Templates/typescript-template/* .
+  devenv init 
 }

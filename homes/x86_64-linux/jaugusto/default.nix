@@ -8,15 +8,16 @@
     ./conf/eza.nix
     ./conf/fish.nix
     ./conf/freetube.nix
+    ./conf/git.nix
     ./conf/helix.nix
     ./conf/kitty.nix
     ./conf/lazygit.nix
     ./conf/nushell.nix
     ./conf/obsidian.nix
     ./conf/starship.nix
-    ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
+    ./conf/zed-editor.nix
     ./conf/zellij.nix
     ./packages/communication.nix
     ./packages/customization.nix
@@ -32,14 +33,6 @@
 
   home = {
     stateVersion = "25.05";
-
-    file = {
-      Templates = {
-        enable = true;
-        source = ./include/files/Templates;
-        target = "Templates";
-      };
-    };
 
     sessionPath = [
       "$HOME/.local/bin/"

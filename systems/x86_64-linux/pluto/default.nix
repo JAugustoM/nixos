@@ -105,10 +105,7 @@ in
   environment.systemPackages = with pkgs; [
     fenix
     ffmpeg-full
-    gcc
-    git
     python3
-    rustup
     unzip
     wget
   ];
@@ -116,6 +113,10 @@ in
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     discover
     elisa
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.iosevka
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
