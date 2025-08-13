@@ -24,6 +24,7 @@ in
           "limine"
         ];
       };
+      enableSecureBoot = lib.mkEnableOption "Enable Secure Boot";
     };
   };
 
@@ -52,6 +53,7 @@ in
           limine = {
             enable = true;
             maxGenerations = lib.mkDefault 5;
+            secureBoot.enable = cfg.enableSecureBoot;
           };
         })
         {
@@ -61,5 +63,9 @@ in
 
       kernelPackages = cfg.kernel;
     };
+
+    environment.systemPackages = lib.mkIf (cfg.loader == "limine") [
+      pkgs.sbctl
+    ];
   };
 }

@@ -10,15 +10,9 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      ssdEnable = lib.mkEnableOption "Enable ssd options";
-    };
-  };
+  options = { };
 
   config = {
-    services.fstrim.enable = cfg.ssdEnable;
-
     hardware = lib.mkDefault {
       enableRedistributableFirmware = true;
     };

@@ -51,13 +51,21 @@ in
     tlp.enable = true;
     zram.enable = true;
 
-    boot.loader = "limine";
-    hardware.ssdEnable = true;
     networking.hostName = "pluto";
+
+    boot = {
+      enableSecureBoot = false;
+      loader = "limine";
+    };
 
     nh = {
       enable = true;
       inherit flakePath;
+    };
+
+    storage = {
+      enableFstrim = true;
+      enableAutoScrub = true;
     };
 
     flatpak = {
@@ -96,18 +104,11 @@ in
   };
 
   services.languagetool.enable = true;
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
-  };
 
   environment.systemPackages = with pkgs; [
     fenix
     ffmpeg-full
     python3
-    unzip
-    wget
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
