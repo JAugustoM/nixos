@@ -47,10 +47,10 @@
     };
 
     # Nix4VSCode
-    # nix4vscode = {
-    #   url = "github:nix-community/nix4vscode";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nix4vscode = {
+      url = "github:nix-community/nix4vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -73,7 +73,7 @@
 
       overlays = with inputs; [
         fenix.overlays.default
-        # nix4vscode.overlays.default
+        nix4vscode.overlays.default
       ];
 
       systems.modules.nixos = with inputs; [

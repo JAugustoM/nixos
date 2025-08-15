@@ -8,7 +8,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    adwaita-fonts
     catppuccin-cursors.mochaDark
     catppuccin-kde
   ];

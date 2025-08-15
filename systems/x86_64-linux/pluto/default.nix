@@ -99,9 +99,12 @@ in
   programs = {
     kdeconnect.enable = true;
     partition-manager.enable = true;
+    zsh.enable = true;
   };
 
   services.languagetool.enable = true;
+
+  users.defaultUserShell = pkgs.zsh;
 
   environment.systemPackages = with pkgs; [
     fenix
@@ -116,6 +119,7 @@ in
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
+    adwaita-fonts
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?

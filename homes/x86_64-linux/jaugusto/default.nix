@@ -15,10 +15,11 @@
     ./conf/nushell.nix
     ./conf/obsidian.nix
     ./conf/starship.nix
+    ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
-    ./conf/zed-editor.nix
     ./conf/zellij.nix
+    ./conf/zsh.nix
     ./packages/communication.nix
     ./packages/customization.nix
     ./packages/development.nix
