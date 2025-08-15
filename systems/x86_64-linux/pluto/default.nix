@@ -44,6 +44,7 @@ in
     bluetooth.enable = true;
     catppuccin.enable = true;
     desktop.enable = true;
+    firefox.enable = true;
     gaming.enable = true;
     podman.enable = true;
     printing.enable = true;
@@ -71,9 +72,7 @@ in
     flatpak = {
       enable = true;
       packages = [
-        "com.github.tchx84.Flatseal"
         "io.github.brunofin.Cohesion"
-        "app.zen_browser.zen"
         "com.usebottles.bottles"
       ];
     };
@@ -98,7 +97,6 @@ in
   };
 
   programs = {
-    firefox.enable = true;
     kdeconnect.enable = true;
     partition-manager.enable = true;
   };
