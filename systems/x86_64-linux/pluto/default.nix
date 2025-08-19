@@ -74,6 +74,7 @@ in
       packages = [
         "io.github.brunofin.Cohesion"
         "com.usebottles.bottles"
+        "com.opera.Opera"
       ];
     };
 
