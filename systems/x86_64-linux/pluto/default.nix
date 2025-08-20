@@ -44,7 +44,6 @@ in
     bluetooth.enable = true;
     catppuccin.enable = true;
     desktop.enable = true;
-    firefox.enable = true;
     gaming.enable = true;
     podman.enable = true;
     printing.enable = true;
@@ -72,7 +71,6 @@ in
     flatpak = {
       enable = true;
       packages = [
-        "io.github.brunofin.Cohesion"
         "com.usebottles.bottles"
         "com.opera.Opera"
       ];

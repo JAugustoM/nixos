@@ -27,7 +27,11 @@
                 name = "cryptroot";
                 content = {
                   type = "btrfs";
-                  extraArgs = [ "-L" "nixos" "-f" ];
+                  extraArgs = [
+                    "-L"
+                    "nixos"
+                    "-f"
+                  ];
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
@@ -56,9 +60,9 @@
                     "/swap" = {
                       mountpoint = "/swap";
                       mountOptions = [
-                        "subvol=swap" 
-                        "noatime" 
-                        "nodatacow" 
+                        "subvol=swap"
+                        "noatime"
+                        "nodatacow"
                         "compress=no"
                       ];
                       swap.swapfile.size = "20G";

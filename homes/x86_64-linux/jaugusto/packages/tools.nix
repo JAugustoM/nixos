@@ -7,6 +7,7 @@
     gdu
     imagemagick
     img2pdf
+    obsidian
     ocrmypdf
     pika-backup
     poppler
