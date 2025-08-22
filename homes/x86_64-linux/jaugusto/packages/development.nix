@@ -2,8 +2,8 @@
 {
   home.packages = with pkgs; [
     devenv
-    jetbrains.clion
-    rustlings
+    gcc
+    rustup
     uv
   ];
 }

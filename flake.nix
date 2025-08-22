@@ -40,12 +40,6 @@
     # Flatpak Nix
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
-    # Fenix Rust
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nix4VSCode
     nix4vscode = {
       url = "github:nix-community/nix4vscode";
@@ -72,7 +66,6 @@
       };
 
       overlays = with inputs; [
-        fenix.overlays.default
         nix4vscode.overlays.default
       ];
 

@@ -4,16 +4,6 @@
   ...
 }:
 let
-  fenix = pkgs.fenix.stable.withComponents [
-    "rustc"
-    "cargo"
-    "rustfmt"
-    "rust-std"
-    "rust-docs"
-    "rust-analyzer"
-    "clippy"
-    "rust-src"
-  ];
   ffmpeg-full = pkgs.ffmpeg-full.override {
     withUnfree = true;
   };
@@ -106,7 +96,6 @@ in
   users.defaultUserShell = pkgs.zsh;
 
   environment.systemPackages = with pkgs; [
-    fenix
     ffmpeg-full
     python3
   ];
@@ -117,7 +106,6 @@ in
   ];
 
   fonts.packages = with pkgs; [
-    nerd-fonts.iosevka
     adwaita-fonts
   ];
 
