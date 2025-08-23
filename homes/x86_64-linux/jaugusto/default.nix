@@ -18,7 +18,6 @@
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
     ./conf/zellij.nix
-    ./conf/zsh.nix
     ./packages/communication.nix
     ./packages/customization.nix
     ./packages/development.nix

@@ -35,6 +35,7 @@ in
     catppuccin.enable = true;
     desktop.enable = true;
     gaming.enable = true;
+    libvirtd.enable = true;
     podman.enable = true;
     printing.enable = true;
     sound.enable = true;
@@ -88,15 +89,13 @@ in
   programs = {
     kdeconnect.enable = true;
     partition-manager.enable = true;
-    zsh.enable = true;
   };
 
   services.languagetool.enable = true;
 
-  users.defaultUserShell = pkgs.zsh;
-
   environment.systemPackages = with pkgs; [
     ffmpeg-full
+    gnome-boxes
     python3
   ];
 
