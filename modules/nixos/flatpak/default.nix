@@ -9,21 +9,11 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable Flatpaks";
-      packages = lib.mkOption {
-        description = "Flatpaks to install";
-        type = types.listOf types.str;
-        default = [ ];
-      };
-    };
-  };
+  options = { };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     services.flatpak = {
-      enable = true;
-      packages = cfg.packages;
+      enable = lib.mkDefault true;
       update.auto = lib.mkDefault {
         enable = true;
         onCalendar = "weekly";

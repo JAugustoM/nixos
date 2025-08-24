@@ -10,18 +10,13 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      enableFstrim = lib.mkEnableOption "Enable fstrim";
-      enableAutoScrub = lib.mkEnableOption "Enable btrfs auto scrub";
-    };
-  };
+  options = { };
 
   config = {
-    services.fstrim.enable = cfg.enableFstrim;
+    services.fstrim.enable = lib.mkDefault true;
 
     services.btrfs.autoScrub = {
-      enable = cfg.enableAutoScrub;
+      enable = lib.mkDefault true;
       interval = "weekly";
       fileSystems = [ "/" ];
     };

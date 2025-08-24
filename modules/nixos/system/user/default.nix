@@ -7,7 +7,6 @@ let
   types = lib.types;
   moduleName = "user";
   cfg = config.modules.${moduleName};
-  newGroups = (builtins.listToAttrs (builtins.map (x: { name = "${x}"; value = { members = [ cfg.user ]; }; }) cfg.specialGroups));
 in
 {
   options = {
@@ -25,12 +24,12 @@ in
       extraGroups = lib.mkOption {
         description = "Groups to add user";
         type = types.listOf types.str;
-        default = [];
+        default = [ ];
       };
       specialGroups = lib.mkOption {
         description = "Groups to create and add user";
         type = types.listOf types.str;
-        default = [];
+        default = [ ];
       };
     };
   };
@@ -42,6 +41,15 @@ in
       extraGroups = cfg.extraGroups;
     };
 
-    users.groups = newGroups;
+    users.groups = (
+      builtins.listToAttrs (
+        builtins.map (x: {
+          name = "${x}";
+          value = {
+            members = [ cfg.user ];
+          };
+        }) cfg.specialGroups
+      )
+    );
   };
 }

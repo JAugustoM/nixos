@@ -17,7 +17,7 @@ in
 
   config = lib.mkIf cfg.enable {
     services.power-profiles-daemon.enable = false;
-    services.tlp = lib.mkForce {
+    services.tlp = {
       enable = true;
       settings = {
         # Disk Options

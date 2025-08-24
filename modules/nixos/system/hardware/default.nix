@@ -13,8 +13,8 @@ in
   options = { };
 
   config = {
-    hardware = lib.mkDefault {
-      enableRedistributableFirmware = true;
+    hardware = {
+      enableRedistributableFirmware = lib.mkDefault true;
     };
   };
 }

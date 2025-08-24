@@ -9,12 +9,8 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable Printing";
-    };
-  };
-  config = lib.mkIf cfg.enable {
-    services.printing.enable = true;
+  options = { };
+  config = {
+    services.printing.enable = lib.mkDefault true;
   };
 }

@@ -7,7 +7,6 @@ let
   ffmpeg-full = pkgs.ffmpeg-full.override {
     withUnfree = true;
   };
-  flakePath = "/home/jaugusto/.config/nixos";
 in
 {
   imports = [
@@ -31,48 +30,14 @@ in
   };
 
   modules = {
-    bluetooth.enable = true;
     catppuccin.enable = true;
-    desktop.enable = true;
     gaming.enable = true;
     libvirtd.enable = true;
     podman.enable = true;
-    printing.enable = true;
-    sound.enable = true;
     tlp.enable = true;
-    zram.enable = true;
 
+    boot.loader = "limine";
     networking.hostName = "pluto";
-
-    boot = {
-      enableSecureBoot = false;
-      loader = "limine";
-    };
-
-    nh = {
-      enable = true;
-      inherit flakePath;
-    };
-
-    storage = {
-      enableFstrim = true;
-      enableAutoScrub = true;
-    };
-
-    flatpak = {
-      enable = true;
-      packages = [
-        "com.usebottles.bottles"
-        "com.opera.Opera"
-      ];
-    };
-
-    udev = {
-      enable = true;
-      extraRules = with builtins; [
-        "${readFile ./include/udev/99-picotool.rules}"
-      ];
-    };
 
     user = {
       user = "jaugusto";
@@ -86,12 +51,10 @@ in
     };
   };
 
-  programs = {
-    kdeconnect.enable = true;
-    partition-manager.enable = true;
-  };
-
-  services.languagetool.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    discover
+    elisa
+  ];
 
   environment.systemPackages = with pkgs; [
     ffmpeg-full
@@ -99,14 +62,27 @@ in
     python3
   ];
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    discover
-    elisa
-  ];
-
   fonts.packages = with pkgs; [
     adwaita-fonts
   ];
+
+  programs = {
+    kdeconnect.enable = true;
+    partition-manager.enable = true;
+  };
+
+  services.flatpak.packages = [
+    "com.usebottles.bottles"
+    "com.opera.Opera"
+  ];
+
+  services.languagetool.enable = true;
+
+  services.udev.extraRules =
+    with builtins;
+    (concatStringsSep "\n" [
+      "${readFile ./include/udev/99-picotool.rules}"
+    ]);
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }

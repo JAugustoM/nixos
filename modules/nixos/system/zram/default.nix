@@ -9,15 +9,11 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable zram";
-    };
-  };
+  options = { };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     zramSwap = {
-      enable = true;
+      enable = lib.mkDefault true;
       algorithm = "zstd";
       priority = 5;
       memoryPercent = 50;

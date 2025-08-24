@@ -9,15 +9,11 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = {
-    modules.${moduleName} = {
-      enable = lib.mkEnableOption "Enable sound";
-    };
-  };
-  config = lib.mkIf cfg.enable {
-    services.pulseaudio.enable = false;
-    security.rtkit.enable = true;
-    services.pipewire = {
+  options = { };
+  config = {
+    services.pulseaudio.enable = lib.mkDefault false;
+    security.rtkit.enable = lib.mkDefault true;
+    services.pipewire = lib.mkDefault {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
