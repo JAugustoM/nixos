@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -38,6 +39,7 @@ in
 
     boot.loader = "limine";
     networking.hostName = "pluto";
+    nh.flake = "/home/jaugusto/.config/nixos";
 
     user = {
       user = "jaugusto";
@@ -78,11 +80,9 @@ in
 
   services.languagetool.enable = true;
 
-  services.udev.extraRules =
-    with builtins;
-    (concatStringsSep "\n" [
-      "${readFile ./include/udev/99-picotool.rules}"
-    ]);
+  services.udev.extraRules = lib.nixos.concatUdevRules [
+    ./include/udev/99-picotool.rules
+  ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }
