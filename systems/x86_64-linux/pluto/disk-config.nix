@@ -10,7 +10,7 @@
             ESP = {
               label = "boot";
               name = "ESP";
-              size = "1G";
+              size = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -65,7 +65,7 @@
                         "nodatacow"
                         "compress=no"
                       ];
-                      swap.swapfile.size = "20G";
+                      swap.swapfile.size = "18G";
                     };
                   };
                 };

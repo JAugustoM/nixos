@@ -3,6 +3,7 @@
   imports = [
     ./conf/bash.nix
     ./conf/beets.nix
+    ./conf/catppuccin.nix
     ./conf/direnv.nix
     ./conf/distrobox.nix
     ./conf/eza.nix
@@ -26,7 +27,6 @@
   ];
 
   modules = {
-    catppuccin.enable = true;
     plasma-manager.enable = true;
   };
 
