@@ -1,12 +1,10 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bison
+    ciscoPacketTracer8
+    dbeaver-bin
     devenv
-    flex
     gcc
-    jetbrains.clion
-    jre
     rustup
     uv
   ];

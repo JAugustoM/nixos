@@ -33,7 +33,7 @@ in
   modules = {
     catppuccin.enable = true;
     gaming.enable = true;
-    libvirtd.enable = true;
+    nix-ld.enable = true;
     podman.enable = true;
     tlp.enable = true;
 
@@ -48,8 +48,11 @@ in
         "networkmanager"
         "wheel"
         "libvirtd"
+        "podman"
       ];
-      specialGroups = [ "plugdev" ];
+      specialGroups = [
+        "plugdev"
+      ];
     };
   };
 
@@ -58,10 +61,8 @@ in
     elisa
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     ffmpeg-full
-    gnome-boxes
-    python3
   ];
 
   fonts.packages = with pkgs; [
@@ -73,16 +74,18 @@ in
     partition-manager.enable = true;
   };
 
-  services.flatpak.packages = [
-    "com.usebottles.bottles"
-    "com.opera.Opera"
-  ];
+  services = {
+    languagetool.enable = true;
 
-  services.languagetool.enable = true;
+    flatpak.packages = [
+      "com.usebottles.bottles"
+      "com.opera.Opera"
+    ];
 
-  services.udev.extraRules = lib.nixos.concatUdevRules [
-    ./include/udev/99-picotool.rules
-  ];
+    udev.extraRules = lib.nixos.concatUdevRules [
+      ./include/udev/99-picotool.rules
+    ];
+  };
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }
