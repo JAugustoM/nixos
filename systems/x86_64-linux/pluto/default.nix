@@ -8,6 +8,10 @@ let
   ffmpeg-full = pkgs.ffmpeg-full.override {
     withUnfree = true;
   };
+  vivaldi = pkgs.vivaldi.override {
+    proprietaryCodecs = true;
+    enableWidevine = true;
+  };
 in
 {
   imports = [
@@ -63,6 +67,7 @@ in
 
   environment.systemPackages = [
     ffmpeg-full
+    vivaldi
   ];
 
   fonts.packages = with pkgs; [
@@ -79,7 +84,7 @@ in
 
     flatpak.packages = [
       "com.usebottles.bottles"
-      "com.opera.Opera"
+      "com.stremio.Stremio"
     ];
 
     udev.extraRules = lib.nixos.concatUdevRules [
