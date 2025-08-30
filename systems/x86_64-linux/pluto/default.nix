@@ -8,6 +8,10 @@ let
   ffmpeg-full = pkgs.ffmpeg-full.override {
     withUnfree = true;
   };
+  vivaldi = pkgs.vivaldi.override {
+    proprietaryCodecs = true;
+    enableWidevine = true;
+  };
 in
 {
   imports = [
@@ -33,7 +37,6 @@ in
   modules = {
     catppuccin.enable = true;
     gaming.enable = true;
-    nix-ld.enable = true;
     podman.enable = true;
     tlp.enable = true;
 
@@ -63,6 +66,7 @@ in
 
   environment.systemPackages = [
     ffmpeg-full
+    vivaldi
   ];
 
   fonts.packages = with pkgs; [
@@ -71,6 +75,7 @@ in
 
   programs = {
     kdeconnect.enable = true;
+    nix-ld.enable = true;
     partition-manager.enable = true;
   };
 
@@ -79,7 +84,7 @@ in
 
     flatpak.packages = [
       "com.usebottles.bottles"
-      "com.opera.Opera"
+      "com.stremio.Stremio"
     ];
 
     udev.extraRules = lib.nixos.concatUdevRules [
