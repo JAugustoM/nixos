@@ -34,6 +34,7 @@ with pkgs;
   nixfmt
 
   # Python
+  python313Packages.python-lsp-server
   ruff
 
   # Systemd

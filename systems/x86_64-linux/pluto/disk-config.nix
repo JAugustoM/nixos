@@ -39,6 +39,7 @@
                         "subvol=root"
                         "compress=zstd"
                         "noatime"
+                        "ssd"
                       ];
                     };
                     "/home" = {
@@ -47,6 +48,7 @@
                         "subvol=home"
                         "compress=zstd"
                         "noatime"
+                        "ssd"
                       ];
                     };
                     "/nix" = {
@@ -55,6 +57,7 @@
                         "subvol=nix"
                         "compress=zstd"
                         "noatime"
+                        "ssd"
                       ];
                     };
                     "/swap" = {

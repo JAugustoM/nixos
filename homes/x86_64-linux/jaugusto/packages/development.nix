@@ -5,6 +5,7 @@
     dbeaver-bin
     devenv
     gcc
+    jetbrains.pycharm-community-bin
     rustup
     uv
   ];
