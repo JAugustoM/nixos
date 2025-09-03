@@ -6,6 +6,7 @@
     devenv
     gcc
     jetbrains.pycharm-community-bin
+    kicad
     rustup
     uv
   ];
