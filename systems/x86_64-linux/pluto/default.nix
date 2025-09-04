@@ -20,6 +20,7 @@ in
   ];
 
   nix = {
+    package = pkgs.lixPackageSets.stable.lix;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
       auto-optimise-store = true;
