@@ -2,6 +2,7 @@
   description = "My NixOS Config";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     # Snowfall Lib
     snowfall-lib = {
@@ -68,6 +69,7 @@
 
       systems.modules.nixos = with inputs; [
         disko.nixosModules.disko
+        determinate.nixosModules.default
       ];
 
       systems.hosts.pluto.modules = with inputs; [
