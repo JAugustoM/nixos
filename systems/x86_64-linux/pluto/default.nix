@@ -67,6 +67,7 @@ in
   environment.systemPackages = [
     ffmpeg-full
     vivaldi
+    pkgs.mosquitto
   ];
 
   fonts.packages = with pkgs; [
