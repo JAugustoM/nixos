@@ -19,9 +19,9 @@
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
     ./conf/zellij.nix
-    ./packages/communication.nix
     ./packages/customization.nix
     ./packages/development.nix
+    ./packages/gui.nix
     ./packages/media.nix
     ./packages/tools.nix
   ];
