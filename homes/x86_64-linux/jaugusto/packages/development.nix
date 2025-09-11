@@ -2,11 +2,9 @@
 {
   home.packages = with pkgs; [
     ciscoPacketTracer8
-    dbeaver-bin
+    clang-tools
     devenv
     gcc
-    jetbrains.pycharm-community-bin
-    kicad
     rustup
     uv
   ];

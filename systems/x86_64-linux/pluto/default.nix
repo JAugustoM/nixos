@@ -61,13 +61,11 @@ in
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     discover
-    elisa
   ];
 
   environment.systemPackages = [
     ffmpeg-full
     vivaldi
-    pkgs.mosquitto
   ];
 
   fonts.packages = with pkgs; [
@@ -86,6 +84,7 @@ in
     flatpak.packages = [
       "com.usebottles.bottles"
       "com.stremio.Stremio"
+      "org.kicad.KiCad"
     ];
 
     udev.extraRules = lib.nixos.concatUdevRules [
