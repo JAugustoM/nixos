@@ -1,14 +1,12 @@
 { ... }:
 {
   imports = [
-    ./conf/bash.nix
     ./conf/beets.nix
     ./conf/catppuccin.nix
     ./conf/direnv.nix
     ./conf/distrobox.nix
     ./conf/eza.nix
     ./conf/fish.nix
-    ./conf/freetube.nix
     ./conf/git.nix
     ./conf/helix.nix
     ./conf/kitty.nix
@@ -22,7 +20,6 @@
     ./packages/customization.nix
     ./packages/development.nix
     ./packages/gui.nix
-    ./packages/media.nix
     ./packages/tools.nix
   ];
 

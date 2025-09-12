@@ -11,7 +11,7 @@
 
   catppuccin.vscode.profiles = {
     default = { };
-    "Flex/Bison" = { };
+    Bison = { };
     Rust = { };
     Web = { };
   };

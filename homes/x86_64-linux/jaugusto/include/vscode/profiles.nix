@@ -36,7 +36,7 @@ in
     extensions = defaultExtensios;
   };
 
-  "Flex/Bison" = {
+  Bison = {
     userSettings = defaultSettings;
 
     extensions =
