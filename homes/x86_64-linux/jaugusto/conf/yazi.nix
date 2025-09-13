@@ -10,7 +10,11 @@
       };
       opener = {
         edit = [
-          { run = ''$EDITOR "$@"''; block = true; for = "unix"; }
+          {
+            run = ''hx "$@"'';
+            block = true;
+            for = "unix";
+          }
         ];
       };
     };

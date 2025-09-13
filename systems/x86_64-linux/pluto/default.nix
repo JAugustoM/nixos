@@ -37,6 +37,7 @@ in
   modules = {
     catppuccin.enable = true;
     gaming.enable = true;
+    office.enable = true;
     podman.enable = true;
     tlp.enable = true;
 
