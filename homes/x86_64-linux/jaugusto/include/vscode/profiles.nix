@@ -34,6 +34,7 @@ in
 
     userSettings = defaultSettings;
     extensions = defaultExtensios;
+    keybindings = import ../../include/vscode/keybindings.nix;
   };
 
   Bison = {
@@ -43,6 +44,7 @@ in
       defaultExtensios
       ++ pkgs.nix4vscode.forOpenVsx [
         "llvm-vs-code-extensions.vscode-clangd"
+        "ms-vscode.cmake-tools"
       ]
       ++ pkgs.nix4vscode.forVscode [
         "daohong-emilio.yash"
