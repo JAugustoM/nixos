@@ -20,6 +20,8 @@ in
       enable = true;
       flavor = "mocha";
       accent = "sapphire";
+
+      cache.enable = true;
     };
   };
 }

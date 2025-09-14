@@ -1,3 +1,6 @@
+let
+  flake = "/home/jaugusto/.config/nixos";
+in
 {
   language-server = {
     biome = {
@@ -17,6 +20,21 @@
       ltex.language = "pt-BR";
       ltex.languageToolHttpServerUri = "http://localhost:8081/";
       ltex.completionEnabled = true;
+    };
+    nixd.config = {
+      nixpkgs = {
+        expr = "import (builtins.getFlake (builtins.toString ${flake})).inputs.nixpkgs { }";
+      };
+
+      options = {
+        nixos = {
+          expr = "(builtins.getFlake (builtins.toString ${flake})).nixosConfigurations.pluto.options";
+        };
+        home-manager = {
+          expr = "(builtins.getFlake (builtins.toString ${flake})).nixosConfigurations.pluto.options.home-manager.users.type.getSubOptions []";
+        };
+
+      };
     };
     rust-analyzer.config = {
       cargo = {

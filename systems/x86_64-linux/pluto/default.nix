@@ -38,6 +38,7 @@ in
     catppuccin.enable = true;
     gaming.enable = true;
     office.enable = true;
+    plymouth.enable = true;
     podman.enable = true;
     tlp.enable = true;
 

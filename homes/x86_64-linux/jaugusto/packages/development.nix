@@ -5,6 +5,8 @@
     clang-tools
     devenv
     gcc
+    nixd
+    nixfmt
     rustup
     uv
   ];

@@ -19,6 +19,7 @@ let
     "christian-kohler.path-intellisense"
     "genuitecllc.codetogether"
     "IBM.output-colorizer"
+    "jnoortheen.nix-ide"
     "mkhl.direnv"
     "nefrob.vscode-just-syntax"
     "streetsidesoftware.code-spell-checker"
@@ -43,8 +44,8 @@ in
     extensions =
       defaultExtensios
       ++ pkgs.nix4vscode.forOpenVsx [
-        "llvm-vs-code-extensions.vscode-clangd"
         "ms-vscode.cmake-tools"
+        "llvm-vs-code-extensions.vscode-clangd"
       ]
       ++ pkgs.nix4vscode.forVscode [
         "daohong-emilio.yash"
