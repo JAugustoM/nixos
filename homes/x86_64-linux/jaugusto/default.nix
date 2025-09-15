@@ -31,14 +31,10 @@
     stateVersion = "25.05";
 
     sessionPath = [
-      "$HOME/.local/bin/"
-      "$HOME/bin/"
-      "$HOME/.cargo/bin/"
+      "/home/jaugusto/.local/bin/"
+      "/home/jaugusto/bin/"
+      "/home/jaugusto/.cargo/bin/"
     ];
-
-    sessionVariables = {
-      LANGUAGE = "en_US";
-    };
   };
 
   programs = {

@@ -44,6 +44,10 @@ in
     extensions =
       defaultExtensios
       ++ pkgs.nix4vscode.forOpenVsx [
+        "EricSia.pythonsnippets3"
+        "ms-python.black-formatter"
+        "ms-python.debugpy"
+        "ms-python.python"
         "ms-vscode.cmake-tools"
         "llvm-vs-code-extensions.vscode-clangd"
       ]

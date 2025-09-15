@@ -11,7 +11,7 @@
       opener = {
         edit = [
           {
-            run = ''hx "$@"'';
+            run = ''$EDITOR "$@"'';
             block = true;
             for = "unix";
           }
