@@ -5,12 +5,9 @@
     dualsensectl
     gdu
     imagemagick
-    img2pdf
-    ocrmypdf
     poppler
     resvg
     tealdeer
-    unrar
     wl-clipboard
   ];
 }

@@ -8,6 +8,10 @@ let
     "editor.fontFamily" = "'Adwaita Mono', 'Droid Sans Mono', 'monospace', monospace";
     "editor.fontLigatures" = true;
     "editor.formatOnSave" = true;
+    "files.exclude" = {
+      "**/.devenv/" = true;
+      "**/.direnv/" = true;
+    };
     "git.autofetch" = true;
     "terminal.integrated.defaultProfile.linux" = "fish";
     "direnv.restart.automatic" = true;

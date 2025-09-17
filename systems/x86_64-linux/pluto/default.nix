@@ -41,6 +41,7 @@ in
     plymouth.enable = true;
     podman.enable = true;
     tlp.enable = true;
+    tlp.settings = import ./include/tlpSettings.nix;
 
     boot.loader = "limine";
     networking.hostName = "pluto";

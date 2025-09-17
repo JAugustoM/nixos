@@ -4,6 +4,7 @@
     obsidian
     pika-backup
     protonvpn-gui
+    scanmem
     zapzap
   ];
 }
