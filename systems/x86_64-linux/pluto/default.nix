@@ -87,7 +87,6 @@ in
     flatpak.packages = [
       "com.usebottles.bottles"
       "com.stremio.Stremio"
-      "org.kicad.KiCad"
     ];
 
     udev.extraRules = lib.nixos.concatUdevRules [

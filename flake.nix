@@ -2,47 +2,33 @@
   description = "My NixOS Config";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
-    # Snowfall Lib
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    snowfall-lib.url = "github:snowfallorg/lib";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Disko
-    disko = {
-      url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Nix Hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # Home Manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Catppuccin Nix
     catppuccin.url = "github:catppuccin/nix";
 
-    # Plasma Manager
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
+    plasma-manager.url = "github:nix-community/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+    plasma-manager.inputs.home-manager.follows = "home-manager";
 
-    # Flatpak Nix
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
-    # Nix4VSCode
-    nix4vscode = {
-      url = "github:nix-community/nix4vscode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix4vscode.url = "github:nix-community/nix4vscode";
+    nix4vscode.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -87,6 +73,7 @@
       homes.modules = with inputs; [
         plasma-manager.homeModules.plasma-manager
         catppuccin.homeModules.catppuccin
+        nix-index-database.homeModules.nix-index
       ];
     };
 }

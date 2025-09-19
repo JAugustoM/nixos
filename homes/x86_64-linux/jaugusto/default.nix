@@ -47,6 +47,7 @@
     gh.enable = true;
     jq.enable = true;
     mangohud.enable = true;
+    nix-index.enable = true;
     ripgrep.enable = true;
     zoxide.enable = true;
   };
