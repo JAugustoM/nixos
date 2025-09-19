@@ -54,6 +54,7 @@ in
         "ms-python.python"
         "ms-vscode.cmake-tools"
         "llvm-vs-code-extensions.vscode-clangd"
+        "vadimcn.vscode-lldb"
       ]
       ++ pkgs.nix4vscode.forVscode [
         "daohong-emilio.yash"
