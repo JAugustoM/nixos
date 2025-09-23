@@ -9,9 +9,13 @@ let
   cfg = config.modules.${moduleName};
 in
 {
-  options = { };
+  options = {
+    modules.${moduleName} = {
+      enable = lib.mkEnableOption "Enable flatpak";
+    };
+  };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     services.flatpak = {
       enable = lib.mkDefault true;
       update.auto = lib.mkDefault {

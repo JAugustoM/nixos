@@ -19,10 +19,8 @@ in
   config = lib.mkIf cfg.enable {
     virtualisation.containers.enable = true;
     virtualisation = {
-      podman = {
-        enable = true;
-        dockerCompat = true;
-      };
+      podman.enable = true;
+
     };
     environment.systemPackages = with pkgs; [
       podman-compose

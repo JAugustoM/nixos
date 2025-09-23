@@ -4,7 +4,6 @@
     ./conf/beets.nix
     ./conf/catppuccin.nix
     ./conf/direnv.nix
-    ./conf/distrobox.nix
     ./conf/eza.nix
     ./conf/fish.nix
     ./conf/git.nix

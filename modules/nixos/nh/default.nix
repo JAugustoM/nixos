@@ -12,6 +12,7 @@ in
 {
   options = {
     modules.${moduleName} = {
+      enable = lib.mkEnableOption "Enable nh";
       flake = lib.mkOption {
         description = "Path to system flake";
         type = types.str;
@@ -19,7 +20,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     programs.nh = {
       enable = lib.mkDefault true;
       flake = cfg.flake;

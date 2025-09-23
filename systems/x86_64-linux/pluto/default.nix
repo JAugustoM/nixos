@@ -36,6 +36,8 @@ in
 
   modules = {
     catppuccin.enable = true;
+    docker.enable = true;
+    flatpak.enable = true;
     gaming.enable = true;
     office.enable = true;
     plymouth.enable = true;
@@ -43,8 +45,11 @@ in
     tlp.enable = true;
     tlp.settings = import ./include/tlpSettings.nix;
 
+    boot.kernel = pkgs.linuxPackages_cachyos;
     boot.loader = "limine";
     networking.hostName = "pluto";
+
+    nh.enable = true;
     nh.flake = "/home/jaugusto/.config/nixos";
 
     user = {
@@ -53,8 +58,9 @@ in
       extraGroups = [
         "networkmanager"
         "wheel"
-        "libvirtd"
+        "docker"
         "podman"
+        "libvirtd"
       ];
       specialGroups = [
         "plugdev"

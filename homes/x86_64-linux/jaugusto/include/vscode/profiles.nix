@@ -26,6 +26,7 @@ let
     "jnoortheen.nix-ide"
     "mkhl.direnv"
     "nefrob.vscode-just-syntax"
+    "SanjulaGanepola.github-local-actions"
     "streetsidesoftware.code-spell-checker"
     "streetsidesoftware.code-spell-checker-portuguese-brazilian"
     "usernamehw.errorlens"

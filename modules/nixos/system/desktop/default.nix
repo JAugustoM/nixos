@@ -22,7 +22,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     services = lib.mkMerge [
       (lib.mkIf (cfg.enviroment == "plasma") {
         displayManager.sddm = {

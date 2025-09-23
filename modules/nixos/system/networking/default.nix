@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -20,7 +19,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     networking.hostName = cfg.hostName;
 
     networking.networkmanager.enable = lib.mkDefault true;

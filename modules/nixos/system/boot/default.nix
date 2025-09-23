@@ -28,7 +28,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     boot = {
       initrd.luks.devices = lib.mkDefault {
         cryptroot = {

@@ -11,7 +11,7 @@ in
 {
   options = { };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     hardware.bluetooth = lib.mkDefault {
       enable = true;
       powerOnBoot = true;

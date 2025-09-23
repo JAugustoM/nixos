@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -12,7 +11,7 @@ in
 {
   options = { };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     services.fstrim.enable = lib.mkDefault true;
 
     services.btrfs.autoScrub = {

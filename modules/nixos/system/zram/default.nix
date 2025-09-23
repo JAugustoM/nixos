@@ -11,7 +11,7 @@ in
 {
   options = { };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     zramSwap = {
       enable = lib.mkDefault true;
       algorithm = "zstd";

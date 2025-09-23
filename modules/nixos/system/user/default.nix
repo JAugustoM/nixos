@@ -34,7 +34,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!config.modules.iso.isIso) {
     users.users.${cfg.user} = {
       isNormalUser = true;
       description = cfg.userName;

@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     snowfall-lib.url = "github:snowfallorg/lib";
@@ -55,19 +57,22 @@
 
       systems.modules.nixos = with inputs; [
         disko.nixosModules.disko
+        chaotic.nixosModules.default
         determinate.nixosModules.default
+        catppuccin.nixosModules.catppuccin
+        flatpak.nixosModules.nix-flatpak
       ];
 
       systems.hosts.pluto.modules = with inputs; [
-        catppuccin.nixosModules.catppuccin
-        flatpak.nixosModules.nix-flatpak
-
-        # NixOS Hardware
         nixos-hardware.nixosModules.common-cpu-amd
         nixos-hardware.nixosModules.common-cpu-amd-pstate
         nixos-hardware.nixosModules.common-cpu-amd-zenpower
         nixos-hardware.nixosModules.common-gpu-amd
         nixos-hardware.nixosModules.common-gpu-amd-southern-islands
+      ];
+
+      systems.hosts.iso.modules = with inputs; [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
       ];
 
       homes.modules = with inputs; [
