@@ -10,5 +10,8 @@
     lfs.enable = true;
     userEmail = "joseaugustomoraes@protonmail.com";
     userName = "José Moraes";
+    extraConfig = {
+      credential.helper = "store";
+    };
   };
 }

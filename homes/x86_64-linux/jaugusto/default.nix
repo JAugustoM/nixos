@@ -6,16 +6,17 @@
     ./conf/direnv.nix
     ./conf/eza.nix
     ./conf/fish.nix
+    # ./conf/ghostty.nix
     ./conf/git.nix
     ./conf/helix.nix
     ./conf/kitty.nix
     ./conf/lazygit.nix
-    ./conf/nushell.nix
+    # ./conf/nushell.nix
     ./conf/starship.nix
     ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
-    ./conf/zellij.nix
+    # ./conf/zellij.nix
     ./packages/customization.nix
     ./packages/development.nix
     ./packages/gui.nix

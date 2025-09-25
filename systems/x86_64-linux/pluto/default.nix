@@ -79,6 +79,7 @@ in
 
   fonts.packages = with pkgs; [
     adwaita-fonts
+    nerd-fonts.iosevka
   ];
 
   programs = {
