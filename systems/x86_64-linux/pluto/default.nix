@@ -47,6 +47,7 @@ in
 
     boot.kernel = pkgs.linuxPackages_cachyos;
     boot.loader = "limine";
+    desktop.enviroment = "plasma";
     networking.hostName = "pluto";
 
     nh.enable = true;
@@ -79,14 +80,11 @@ in
 
   fonts.packages = with pkgs; [
     adwaita-fonts
-    nerd-fonts.iosevka
   ];
 
-  programs = {
-    kdeconnect.enable = true;
-    nix-ld.enable = true;
-    partition-manager.enable = true;
-  };
+  programs.kdeconnect.enable = true;
+  programs.nix-ld.enable = true;
+  programs.partition-manager.enable = true;
 
   services = {
     languagetool.enable = true;

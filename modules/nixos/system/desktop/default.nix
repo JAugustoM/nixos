@@ -15,6 +15,7 @@ in
         description = "Desktop enviroment to use";
         default = "plasma";
         type = types.enum [
+          "cosmic"
           "gnome"
           "plasma"
         ];
@@ -24,18 +25,20 @@ in
 
   config = lib.mkIf (!config.modules.iso.isIso) {
     services = lib.mkMerge [
+      (lib.mkIf (cfg.enviroment == "cosmic") {
+        displayManager.cosmic-greeter.enable = true;
+        desktopManager.cosmic.enable = true;
+      })
+      (lib.mkIf (cfg.enviroment == "gnome") {
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+      })
       (lib.mkIf (cfg.enviroment == "plasma") {
         displayManager.sddm = {
           enable = true;
           wayland.enable = true;
         };
         desktopManager.plasma6.enable = true;
-      })
-      (lib.mkIf (cfg.enviroment == "gnome") {
-        displayManager.gdm = {
-          enable = true;
-        };
-        desktopManager.gnome.enable = true;
       })
     ];
   };
