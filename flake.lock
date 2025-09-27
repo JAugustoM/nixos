@@ -227,6 +227,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "flatpak": {
       "locked": {
         "lastModified": 1739444422,
@@ -297,11 +315,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758928860,
-        "narHash": "sha256-ZqaRdd+KoR54dNJPtd7UX4O0X+02YItnTpQVu28lSVI=",
+        "lastModified": 1758985165,
+        "narHash": "sha256-bzthrGCHUDzUHH9F3eNl5LG5rfg4ig9x3TGjjUE23qA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bc2afee55bc5d3b825287829d6592b9cc1405aad",
+        "rev": "11cc3d55ded3346a8195000ddeadde782a611e56",
         "type": "github"
       },
       "original": {
@@ -577,7 +595,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
         "plasma-manager": "plasma-manager",
-        "snowfall-lib": "snowfall-lib"
+        "snowfall-lib": "snowfall-lib",
+        "winboat": "winboat"
       }
     },
     "rust-overlay": {
@@ -651,6 +670,42 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "winboat": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758809110,
+        "narHash": "sha256-1sjdxXWCIONg0WJxXLad8TrxmqUQhAIQ0T3IIJzcKf4=",
+        "owner": "TibixDev",
+        "repo": "winboat",
+        "rev": "d543f5d89f0260c00603bec57ded626e60176b11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TibixDev",
+        "repo": "winboat",
         "type": "github"
       }
     }

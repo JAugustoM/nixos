@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   ...
@@ -19,21 +18,6 @@ in
     ./disk-config.nix
   ];
 
-  nix = {
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
-    };
-  };
-
   modules = {
     catppuccin.enable = true;
     docker.enable = true;
@@ -47,7 +31,6 @@ in
 
     boot.kernel = pkgs.linuxPackages_cachyos;
     boot.loader = "limine";
-    desktop.enviroment = "plasma";
     networking.hostName = "pluto";
 
     nh.enable = true;
@@ -88,10 +71,11 @@ in
 
   services = {
     languagetool.enable = true;
+    winboat.enable = true;
 
     flatpak.packages = [
-      "com.usebottles.bottles"
       "com.stremio.Stremio"
+      "io.github.giantpinkrobots.flatsweep"
     ];
 
     udev.extraRules = lib.nixos.concatUdevRules [

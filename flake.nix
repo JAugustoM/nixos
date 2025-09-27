@@ -31,6 +31,9 @@
 
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    winboat.url = "github:TibixDev/winboat";
+    winboat.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -69,6 +72,8 @@
         nixos-hardware.nixosModules.common-cpu-amd-zenpower
         nixos-hardware.nixosModules.common-gpu-amd
         nixos-hardware.nixosModules.common-gpu-amd-southern-islands
+
+        winboat.nixosModules.x86_64-linux.default
       ];
 
       systems.hosts.iso.modules = with inputs; [
