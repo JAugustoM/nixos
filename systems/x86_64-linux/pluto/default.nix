@@ -57,6 +57,7 @@ in
   ];
 
   environment.systemPackages = [
+    pkgs.mosquitto
     ffmpeg-full
     vivaldi
   ];
@@ -71,7 +72,6 @@ in
 
   services = {
     languagetool.enable = true;
-    winboat.enable = true;
 
     flatpak.packages = [
       "com.stremio.Stremio"
@@ -82,6 +82,9 @@ in
       ./include/udev/99-picotool.rules
     ];
   };
+
+  networking.firewall.allowedTCPPorts = [ 1883 ];
+  networking.firewall.allowedUDPPorts = [ 1883 ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }

@@ -41,6 +41,7 @@
     bat.enable = true;
     bottom.enable = true;
     carapace.enable = true;
+    distrobox.enable = true;
     fastfetch.enable = true;
     fd.enable = true;
     fzf.enable = true;
