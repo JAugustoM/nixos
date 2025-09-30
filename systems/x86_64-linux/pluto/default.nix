@@ -24,6 +24,8 @@ in
     };
   };
 
+  home-manager.backupFileExtension = "bak";
+
   modules = {
     catppuccin.enable = true;
     docker.enable = true;
