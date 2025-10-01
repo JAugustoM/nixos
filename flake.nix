@@ -72,7 +72,7 @@
       ];
 
       systems.hosts.iso.modules = with inputs; [
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
       ];
 
       homes.modules = with inputs; [

@@ -26,8 +26,9 @@ in
   config = lib.mkIf (!config.modules.iso.isIso) {
     services = lib.mkMerge [
       (lib.mkIf (cfg.enviroment == "cosmic") {
-        displayManager.cosmic-greeter.enable = true;
         desktopManager.cosmic.enable = true;
+        desktopManager.cosmic.xwayland.enable = true;
+        displayManager.cosmic-greeter.enable = true;
       })
       (lib.mkIf (cfg.enviroment == "gnome") {
         displayManager.gdm.enable = true;

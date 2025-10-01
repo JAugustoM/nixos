@@ -13,5 +13,8 @@
     yazi
   ];
 
-  snowfallorg.users.jaugusto.create = false;
+  snowfallorg.users.jaugusto = {
+    create = false;
+    home.enable = false;
+  };
 }
