@@ -6,7 +6,6 @@
     ./conf/direnv.nix
     ./conf/eza.nix
     ./conf/fish.nix
-    # ./conf/ghostty.nix
     ./conf/git.nix
     ./conf/helix.nix
     ./conf/kitty.nix
@@ -16,10 +15,10 @@
     ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
-    # ./conf/zellij.nix
     ./packages/customization.nix
     ./packages/development.nix
     ./packages/gui.nix
+    ./packages/lsp.nix
     ./packages/tools.nix
   ];
 

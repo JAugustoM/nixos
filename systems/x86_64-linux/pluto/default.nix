@@ -3,15 +3,6 @@
   lib,
   ...
 }:
-let
-  ffmpeg-full = pkgs.ffmpeg-full.override {
-    withUnfree = true;
-  };
-  vivaldi = pkgs.vivaldi.override {
-    proprietaryCodecs = true;
-    enableWidevine = true;
-  };
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -64,9 +55,8 @@ in
     discover
   ];
 
-  environment.systemPackages = [
-    ffmpeg-full
-    vivaldi
+  environment.systemPackages = with pkgs; [
+    (ffmpeg-full.override { withUnfree = true; })
   ];
 
   fonts.packages = with pkgs; [
@@ -81,6 +71,7 @@ in
     languagetool.enable = true;
 
     flatpak.packages = [
+      "app.zen_browser.zen"
       "com.stremio.Stremio"
       "io.github.giantpinkrobots.flatsweep"
     ];
