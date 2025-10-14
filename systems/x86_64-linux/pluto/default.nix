@@ -15,7 +15,25 @@
     };
   };
 
-  home-manager.backupFileExtension = "bak";
+  home-manager = {
+    backupFileExtension = "bak";
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
+  users.users.jaugusto = {
+    isNormalUser = true;
+    description = "José Augusto";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+      "plugdev"
+      "docker"
+      "podman"
+      "libvirtd"
+    ];
+  };
 
   modules = {
     catppuccin.enable = true;
@@ -34,21 +52,6 @@
 
     nh.enable = true;
     nh.flake = "/home/jaugusto/.config/nixos";
-
-    user = {
-      user = "jaugusto";
-      userName = "José Augusto";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "docker"
-        "podman"
-        "libvirtd"
-      ];
-      specialGroups = [
-        "plugdev"
-      ];
-    };
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -79,6 +82,7 @@
     ];
 
     udev.extraRules = lib.nixos.concatUdevRules [
+      ./include/udev/60-openocd.rules
       ./include/udev/99-picotool.rules
     ];
   };

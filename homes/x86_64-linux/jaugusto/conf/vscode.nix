@@ -12,6 +12,7 @@
   catppuccin.vscode.profiles = {
     default = { };
     Bison = { };
+    Embedded = { };
     Rust = { };
     Web = { };
   };
