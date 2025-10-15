@@ -10,6 +10,7 @@
     ./conf/helix.nix
     ./conf/kitty.nix
     ./conf/lazygit.nix
+    ./conf/lutris.nix
     ./conf/starship.nix
     ./conf/vscode.nix
     ./conf/yazi.nix

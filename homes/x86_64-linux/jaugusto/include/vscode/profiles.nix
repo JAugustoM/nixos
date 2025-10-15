@@ -67,11 +67,8 @@ in
 
     extensions =
       defaultExtensios
-      ++ pkgs.nix4vscode.forOpenVsx [
-        "ms-vscode.cmake-tools"
-        "llvm-vs-code-extensions.vscode-clangd"
-      ]
       ++ pkgs.nix4vscode.forVscode [
+        "ms-vscode.cmake-tools"
         "ms-vscode.cpptools"
         "platformio.platformio-ide"
       ];

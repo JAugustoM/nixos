@@ -28,7 +28,6 @@
       "networkmanager"
       "wheel"
       "dialout"
-      "plugdev"
       "docker"
       "podman"
       "libvirtd"
@@ -81,9 +80,8 @@
       "io.github.giantpinkrobots.flatsweep"
     ];
 
-    udev.extraRules = lib.nixos.concatUdevRules [
-      ./include/udev/60-openocd.rules
-      ./include/udev/99-picotool.rules
+    udev.packages = with pkgs; [
+      platformio-core.udev
     ];
   };
 
