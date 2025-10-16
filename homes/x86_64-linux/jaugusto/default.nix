@@ -38,7 +38,7 @@
 
   programs = {
     bat.enable = true;
-    bottom.enable = true;
+    btop.enable = true;
     carapace.enable = true;
     distrobox.enable = true;
     fastfetch.enable = true;

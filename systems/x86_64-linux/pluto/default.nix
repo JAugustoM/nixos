@@ -45,8 +45,10 @@
     tlp.enable = true;
     tlp.settings = import ./include/tlpSettings.nix;
 
-    boot.kernel = pkgs.linuxPackages_cachyos;
     boot.loader = "limine";
+    boot.enableSecureBoot = true;
+    boot.kernel = pkgs.linuxPackages_cachyos;
+
     networking.hostName = "pluto";
 
     nh.enable = true;
@@ -59,6 +61,7 @@
 
   environment.systemPackages = with pkgs; [
     (ffmpeg-full.override { withUnfree = true; })
+    toybox
   ];
 
   fonts.packages = with pkgs; [
@@ -84,6 +87,12 @@
       platformio-core.udev
     ];
   };
+
+  boot.loader.limine.extraEntries = ''
+    /Windows
+      protocol: efi
+      path: uuid(ade8f4cb-b193-4a2b-8d17-12c28aac1034):/EFI/Microsoft/Boot/bootmgfw.efi
+  '';
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }

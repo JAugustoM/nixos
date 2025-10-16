@@ -24,4 +24,6 @@
 
   # USB
   USB_EXCLUDE_BTUSB = 1;
+
+  USB_DENYLIST = "1a86:7523";
 }
