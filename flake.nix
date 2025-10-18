@@ -34,7 +34,7 @@
   };
 
   outputs =
-    inputs:
+    inputs@{ self, ... }:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -44,7 +44,7 @@
       };
 
       snowfall = {
-        namespace = "nixos";
+        namespace = "local";
         meta = {
           name = "pluto";
           title = "My Awesome Flake";
@@ -53,6 +53,7 @@
 
       overlays = with inputs; [
         nix4vscode.overlays.default
+        self.overlays.ffmpeg-full
       ];
 
       systems.modules.nixos = with inputs; [

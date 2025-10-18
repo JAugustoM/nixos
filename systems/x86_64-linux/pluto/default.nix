@@ -60,7 +60,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (ffmpeg-full.override { withUnfree = true; })
+    ffmpeg-full
     toybox
   ];
 
@@ -84,7 +84,9 @@
     ];
 
     udev.packages = with pkgs; [
-      platformio-core.udev
+      local.openocd-udev-rules
+      local.picotool-udev-rules
+      local.platformio-udev-rules
     ];
   };
 
