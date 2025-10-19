@@ -8,9 +8,11 @@
       ".direnv"
     ];
     lfs.enable = true;
-    userEmail = "joseaugustomoraes@protonmail.com";
-    userName = "José Moraes";
-    extraConfig = {
+
+    settings = {
+      user.email = "joseaugustomoraes@protonmail.com";
+      user.name = "José Moraes";
+
       credential.helper = "store";
     };
   };

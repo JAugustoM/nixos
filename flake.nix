@@ -13,8 +13,6 @@
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -31,6 +29,8 @@
 
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
   };
 
   outputs =
@@ -53,23 +53,15 @@
 
       overlays = with inputs; [
         nix4vscode.overlays.default
-        self.overlays.ffmpeg-full
       ];
 
       systems.modules.nixos = with inputs; [
-        disko.nixosModules.disko
+        catppuccin.nixosModules.catppuccin
         chaotic.nixosModules.default
         determinate.nixosModules.default
-        catppuccin.nixosModules.catppuccin
+        disko.nixosModules.disko
         flatpak.nixosModules.nix-flatpak
-      ];
-
-      systems.hosts.pluto.modules = with inputs; [
-        nixos-hardware.nixosModules.common-cpu-amd
-        nixos-hardware.nixosModules.common-cpu-amd-pstate
-        nixos-hardware.nixosModules.common-cpu-amd-zenpower
-        nixos-hardware.nixosModules.common-gpu-amd
-        nixos-hardware.nixosModules.common-gpu-amd-southern-islands
+        nixos-facter-modules.nixosModules.facter
       ];
 
       systems.hosts.iso.modules = with inputs; [

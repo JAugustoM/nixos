@@ -9,7 +9,6 @@
     ./conf/git.nix
     ./conf/helix.nix
     ./conf/kitty.nix
-    ./conf/lazygit.nix
     ./conf/lutris.nix
     ./conf/starship.nix
     ./conf/vscode.nix
@@ -42,10 +41,9 @@
     carapace.enable = true;
     distrobox.enable = true;
     fastfetch.enable = true;
-    fd.enable = true;
     fzf.enable = true;
     gh.enable = true;
-    jq.enable = true;
+    gitui.enable = true;
     mangohud.enable = true;
     nix-index.enable = true;
     ripgrep.enable = true;

@@ -5,9 +5,10 @@
 }:
 {
   imports = [
-    ./hardware-configuration.nix
     ./disk-config.nix
   ];
+
+  facter.reportPath = ./facter.json;
 
   specialisation = {
     Cosmic.configuration = {
@@ -61,7 +62,6 @@
 
   environment.systemPackages = with pkgs; [
     ffmpeg-full
-    toybox
   ];
 
   fonts.packages = with pkgs; [
@@ -90,11 +90,8 @@
     ];
   };
 
-  boot.loader.limine.extraEntries = ''
-    /Windows
-      protocol: efi
-      path: uuid(ade8f4cb-b193-4a2b-8d17-12c28aac1034):/EFI/Microsoft/Boot/bootmgfw.efi
-  '';
+  networking.firewall.allowedTCPPorts = [ 1883 ];
+  networking.firewall.allowedUDPPorts = [ 1883 ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }

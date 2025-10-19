@@ -20,7 +20,7 @@
       "ctrl+n" = "launch --location=vsplit --cwd=current";
       "ctrl+m" = "launch --location=hsplit --cwd=current";
       "ctrl+e" = "launch --type=overlay --cwd=current hx .";
-      "ctrl+g" = "launch --type=overlay --cwd=current lazygit";
+      "ctrl+g" = "launch --type=overlay --cwd=current gitui";
       "ctrl+f" = "toggle_layout stack";
 
       "alt+h" = "neighboring_window left";

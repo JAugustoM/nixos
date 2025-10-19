@@ -17,6 +17,7 @@ let
     "direnv.restart.automatic" = true;
     "ltex.language" = "pt-BR";
     "ltex.languageToolHttpServerUri" = "http://localhost:8081/";
+    "extensions.ignoreRecommendations" = true;
   };
   defaultExtensios = pkgs.nix4vscode.forOpenVsx [
     "aaron-bond.better-comments"
@@ -68,7 +69,6 @@ in
     extensions =
       defaultExtensios
       ++ pkgs.nix4vscode.forVscode [
-        "ms-vscode.cmake-tools"
         "ms-vscode.cpptools"
         "platformio.platformio-ide"
       ];

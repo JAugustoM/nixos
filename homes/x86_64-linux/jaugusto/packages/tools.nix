@@ -6,8 +6,8 @@
     dualsensectl
     gdu
     imagemagick
-    poppler
-    resvg
+    mosquitto
+    putty
     tealdeer
     wl-clipboard
   ];
