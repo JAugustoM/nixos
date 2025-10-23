@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  virtual,
   ...
 }:
 let
@@ -19,7 +20,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!virtual) {
     networking.hostName = cfg.hostName;
 
     networking.networkmanager.enable = lib.mkDefault true;

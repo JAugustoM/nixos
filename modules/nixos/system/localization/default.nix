@@ -1,12 +1,13 @@
 {
   lib,
   config,
+  virtual,
   ...
 }:
 {
   options = { };
 
-  config = {
+  config = lib.mkIf (!virtual) {
     time.timeZone = "America/Sao_Paulo";
 
     i18n.defaultLocale = "en_US.UTF-8";

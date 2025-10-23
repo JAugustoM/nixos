@@ -12,6 +12,7 @@
 
   specialisation = {
     Cosmic.configuration = {
+      environment.etc."specialisation".text = "Cosmic";
       modules.desktop.enviroment = "cosmic";
     };
   };

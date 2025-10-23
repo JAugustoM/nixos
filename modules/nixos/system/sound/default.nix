@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  virtual,
   ...
 }:
 let
@@ -10,7 +11,7 @@ let
 in
 {
   options = { };
-  config = {
+  config = lib.mkIf (!virtual) {
     services.pulseaudio.enable = lib.mkDefault false;
     security.rtkit.enable = lib.mkDefault true;
     services.pipewire = lib.mkDefault {

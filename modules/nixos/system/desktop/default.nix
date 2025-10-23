@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  virtual,
   ...
 }:
 let
@@ -23,7 +24,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!virtual) {
     services = lib.mkMerge [
       (lib.mkIf (cfg.enviroment == "cosmic") {
         desktopManager.cosmic.enable = true;

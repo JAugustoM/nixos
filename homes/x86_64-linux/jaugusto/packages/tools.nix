@@ -6,8 +6,7 @@
     dualsensectl
     gdu
     imagemagick
-    mosquitto
-    putty
+    nix-output-monitor
     tealdeer
     wl-clipboard
   ];

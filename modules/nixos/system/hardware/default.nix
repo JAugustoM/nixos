@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  virtual,
   ...
 }:
 let
@@ -11,7 +12,7 @@ in
 {
   options = { };
 
-  config = {
+  config = lib.mkIf (!virtual) {
     hardware = {
       enableRedistributableFirmware = lib.mkDefault true;
     };

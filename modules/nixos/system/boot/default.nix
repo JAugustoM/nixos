@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  virtual,
   ...
 }:
 let
@@ -28,7 +29,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (!virtual) {
     boot = {
       initrd.luks.devices = lib.mkDefault {
         cryptroot = {
