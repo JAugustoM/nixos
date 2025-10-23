@@ -10,7 +10,7 @@ let
 in
 {
   options = { };
-  config = lib.mkIf (!config.modules.iso.isIso) {
+  config = {
     services.pulseaudio.enable = lib.mkDefault false;
     security.rtkit.enable = lib.mkDefault true;
     services.pipewire = lib.mkDefault {

@@ -19,7 +19,7 @@ in
     };
   };
 
-  config = lib.mkIf (!config.modules.iso.isIso) {
+  config = {
     networking.hostName = cfg.hostName;
 
     networking.networkmanager.enable = lib.mkDefault true;

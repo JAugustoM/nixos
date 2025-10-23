@@ -11,7 +11,7 @@ in
 {
   options = { };
 
-  config = lib.mkIf (!config.modules.iso.isIso) {
+  config = {
     services.fstrim.enable = lib.mkDefault true;
 
     services.btrfs.autoScrub = {

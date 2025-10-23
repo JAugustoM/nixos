@@ -31,10 +31,13 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+
+    auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
+    auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    inputs@{ self, ... }:
+    inputs@{ ... }:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -56,16 +59,13 @@
       ];
 
       systems.modules.nixos = with inputs; [
+        auto-cpufreq.nixosModules.default
         catppuccin.nixosModules.catppuccin
         chaotic.nixosModules.default
         determinate.nixosModules.default
         disko.nixosModules.disko
         flatpak.nixosModules.nix-flatpak
         nixos-facter-modules.nixosModules.facter
-      ];
-
-      systems.hosts.iso.modules = with inputs; [
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
       ];
 
       homes.modules = with inputs; [

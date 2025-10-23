@@ -23,7 +23,7 @@ in
     };
   };
 
-  config = lib.mkIf (!config.modules.iso.isIso) {
+  config = {
     services = lib.mkMerge [
       (lib.mkIf (cfg.enviroment == "cosmic") {
         desktopManager.cosmic.enable = true;

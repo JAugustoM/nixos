@@ -36,6 +36,7 @@
   };
 
   modules = {
+    auto-cpufreq.enable = true;
     catppuccin.enable = true;
     docker.enable = true;
     flatpak.enable = true;
@@ -43,8 +44,7 @@
     office.enable = true;
     plymouth.enable = true;
     podman.enable = true;
-    tlp.enable = true;
-    tlp.settings = import ./include/tlpSettings.nix;
+    zram.enable = true;
 
     boot.loader = "limine";
     boot.enableSecureBoot = true;
@@ -68,13 +68,16 @@
     adwaita-fonts
   ];
 
-  programs.kdeconnect.enable = true;
-  programs.nix-ld.enable = true;
-  programs.partition-manager.enable = true;
+  programs = {
+    kdeconnect.enable = true;
+    nix-ld.enable = true;
+    partition-manager.enable = true;
+  };
 
   services = {
     fwupd.enable = true;
     languagetool.enable = true;
+    thermald.enable = true;
 
     flatpak.packages = [
       "app.zen_browser.zen"
@@ -89,9 +92,6 @@
       local.platformio-udev-rules
     ];
   };
-
-  networking.firewall.allowedTCPPorts = [ 1883 ];
-  networking.firewall.allowedUDPPorts = [ 1883 ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }

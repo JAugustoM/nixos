@@ -10,7 +10,7 @@ let
 in
 {
   options = { };
-  config = lib.mkIf (!config.modules.iso.isIso) {
+  config = {
     services.printing.enable = lib.mkDefault true;
   };
 }
