@@ -82,6 +82,7 @@
 
     flatpak.packages = [
       "app.zen_browser.zen"
+      "com.github.tchx84.Flatseal"
       "com.stremio.Stremio"
       "com.usebottles.bottles"
       "io.github.giantpinkrobots.flatsweep"
