@@ -81,11 +81,12 @@
     thermald.enable = true;
 
     flatpak.packages = [
-      "app.zen_browser.zen"
-      "com.github.tchx84.Flatseal"
-      "com.stremio.Stremio"
       "com.usebottles.bottles"
+      "com.github.tchx84.Flatseal"
       "io.github.giantpinkrobots.flatsweep"
+      "com.gitlab.newsflash"
+      "com.stremio.Stremio"
+      "app.zen_browser.zen"
     ];
 
     udev.packages = with pkgs; [

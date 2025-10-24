@@ -18,10 +18,6 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    plasma-manager.url = "github:nix-community/plasma-manager";
-    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
-    plasma-manager.inputs.home-manager.follows = "home-manager";
-
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
     nix4vscode.url = "github:nix-community/nix4vscode";
@@ -37,6 +33,8 @@
 
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-maid.url = "github:viperML/nix-maid";
   };
 
   outputs =
@@ -72,7 +70,6 @@
       ];
 
       homes.modules = with inputs; [
-        plasma-manager.homeModules.plasma-manager
         catppuccin.homeModules.catppuccin
         nix-index-database.homeModules.nix-index
       ];
