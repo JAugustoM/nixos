@@ -12,6 +12,7 @@
     ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
+    ./conf/zsh.nix
     ./packages/development.nix
     ./packages/gui.nix
     ./packages/lsp.nix

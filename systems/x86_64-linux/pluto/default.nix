@@ -60,6 +60,7 @@
     kdeconnect.enable = true;
     nix-ld.enable = true;
     partition-manager.enable = true;
+    zsh.enable = true;
   };
 
   services = {
@@ -99,6 +100,7 @@
     useUserPackages = true;
   };
 
+  users.defaultUserShell = pkgs.zsh;
   users.users.jaugusto = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.initial_hashed_password.path;

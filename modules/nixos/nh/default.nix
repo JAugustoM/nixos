@@ -22,7 +22,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.nh = {
-      enable = lib.mkDefault true;
+      enable = true;
       flake = cfg.flake;
       clean = {
         enable = true;

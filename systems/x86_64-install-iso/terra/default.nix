@@ -12,7 +12,13 @@
   networking.networkmanager.enable = lib.mkForce false;
   networking.wireless.enable = true;
 
-  console.keyMap = "br-abnt2";
+  console = {
+    packages = with pkgs; [
+      nerd-fonts.iosevka
+    ];
+    font = "Iosevka Nerd Font";
+    keyMap = "br-abnt2";
+  };
 
   environment.systemPackages = with pkgs; [
     git
