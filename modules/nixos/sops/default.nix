@@ -1,6 +1,6 @@
 {
   config,
-  system,
+  pkgs,
   lib,
   ...
 }:
@@ -9,6 +9,7 @@ let
   cfg = config.modules.${moduleName};
   inherit (lib) types;
   inherit (config.networking) hostName;
+  inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
   options = {

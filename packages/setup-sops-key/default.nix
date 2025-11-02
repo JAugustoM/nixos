@@ -17,7 +17,6 @@ writeShellApplication {
   ];
 
   text = ''
-    #!${bash}/bin/bash
     set -e # Exit immediately if a command fails
 
     # --- Configuration ---

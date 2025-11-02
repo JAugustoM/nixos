@@ -1,6 +1,6 @@
 {
   config,
-  system,
+  pkgs,
   lib,
   ...
 }:
@@ -8,6 +8,7 @@ let
   moduleName = "sops";
   cfg = config.homeModules.${moduleName};
   inherit (lib) types;
+  inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
   options = {

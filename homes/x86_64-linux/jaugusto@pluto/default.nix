@@ -8,10 +8,12 @@
     ./conf/git.nix
     ./conf/helix.nix
     ./conf/kitty.nix
+    ./conf/nushell.nix
     ./conf/starship.nix
     ./conf/vscode.nix
     ./conf/yazi.nix
     ./conf/yt-dlp.nix
+    ./conf/zed-editor.nix
     ./conf/zsh.nix
     ./packages/development.nix
     ./packages/gui.nix

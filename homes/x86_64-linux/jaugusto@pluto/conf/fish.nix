@@ -14,8 +14,5 @@
       check-flake = ''nix repl --expr "builtins.getFlake (builtins.toString $NH_FLAKE)"'';
       flakeup = "nix flake update --flake $NH_FLAKE";
     };
-
-    functions = import ../include/fish/functions.nix;
-    interactiveShellInit = builtins.readFile ../include/fish/shell_init.fish;
   };
 }

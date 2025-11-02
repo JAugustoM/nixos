@@ -7,7 +7,7 @@
     line-number = "relative";
     rulers = [ 120 ];
     shell = [
-      "nu"
+      "fish"
       "-c"
     ];
     true-color = true;

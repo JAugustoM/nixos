@@ -1,4 +1,4 @@
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense,kitten' # optional
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense,kitten'
 $env.PATH ++= [
   '~/bin'
   '~/.cargo/bin'

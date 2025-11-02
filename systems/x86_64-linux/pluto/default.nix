@@ -83,9 +83,7 @@
     ];
 
     udev.packages = with pkgs; [
-      local.openocd-udev-rules
-      local.picotool-udev-rules
-      local.platformio-udev-rules
+      platformio-core.udev
     ];
   };
 
