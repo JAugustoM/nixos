@@ -37,10 +37,6 @@
 
     nh.enable = true;
     nh.flake = "/home/jaugusto/.config/nixos";
-
-    sops.enable = true;
-    sops.keyPath = "/home/jaugusto/.config/sops/age/keys.txt";
-    # sops.keyPath = "/var/lib/sops/keys.txt";
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -87,11 +83,6 @@
     ];
   };
 
-  sops.secrets = {
-    initial_hashed_password.neededForUsers = true;
-    github_token = { };
-  };
-
   home-manager = {
     backupFileExtension = "bak";
     useGlobalPkgs = true;
@@ -101,7 +92,6 @@
   users.defaultUserShell = pkgs.zsh;
   users.users.jaugusto = {
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.initial_hashed_password.path;
     description = "José Augusto";
     extraGroups = [
       "networkmanager"
@@ -117,10 +107,6 @@
     hostName = "pluto";
     networkmanager.enable = true;
   };
-
-  nix.extraOptions = ''
-    !include ${config.sops.secrets.github_token.path}
-  '';
 
   fileSystems."/data" = {
     device = "/dev/disk/by-label/Data";

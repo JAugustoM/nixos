@@ -1,6 +1,5 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
-  sops.secrets.git = { };
 
   programs.git = {
     enable = true;
@@ -11,11 +10,9 @@
     ];
     lfs.enable = true;
 
-    includes = [
-      { path = config.sops.secrets.git.path; }
-    ];
-
     settings = {
+      user.email = "joseaugustomoraes@protonmail.com";
+      user.name = "José Moraes";
       credential.helper = "store";
     };
   };

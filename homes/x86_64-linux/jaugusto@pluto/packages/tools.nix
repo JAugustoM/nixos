@@ -1,14 +1,13 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    age
     aria2
+    bitwarden-cli
     caligula
     dualsensectl
     gdu
     imagemagick
     nix-output-monitor
-    sops
     rsgain
     tealdeer
     unrar

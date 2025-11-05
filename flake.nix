@@ -23,9 +23,6 @@
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     # Configuration
     catppuccin.url = "github:catppuccin/nix";
 
@@ -75,13 +72,11 @@
         nix-gaming.nixosModules.pipewireLowLatency
         nix-gaming.nixosModules.platformOptimizations
         nixos-facter-modules.nixosModules.facter
-        sops-nix.nixosModules.sops
       ];
 
       homes.modules = with inputs; [
         catppuccin.homeModules.catppuccin
         nix-index-database.homeModules.nix-index
-        sops-nix.homeManagerModules.sops
       ];
     };
 }

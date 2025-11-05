@@ -24,8 +24,5 @@
     git
     helix
     yazi
-    # Installation Helper Scripts
-    local.cleanup-sops-key
-    local.setup-sops-key
   ];
 }

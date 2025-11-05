@@ -31,13 +31,6 @@
     ];
   };
 
-  homeModules = {
-    sops.enable = true;
-    sops.hostName = host;
-    sops.keyPath = "/home/jaugusto/.config/sops/age/keys.txt";
-    # sops.keyPath = "/var/lib/sops/keys.txt";
-  };
-
   programs = {
     bat.enable = true;
     btop.enable = true;
