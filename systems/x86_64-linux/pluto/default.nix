@@ -57,6 +57,11 @@
     nix-ld.enable = true;
     partition-manager.enable = true;
     zsh.enable = true;
+
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   services = {
@@ -73,6 +78,7 @@
       "com.usebottles.bottles"
       "com.github.tchx84.Flatseal"
       "io.github.giantpinkrobots.flatsweep"
+      "io.github.zaedus.spider"
       "com.gitlab.newsflash"
       "com.stremio.Stremio"
       "app.zen_browser.zen"

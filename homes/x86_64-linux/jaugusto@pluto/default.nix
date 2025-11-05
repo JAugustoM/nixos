@@ -31,6 +31,10 @@
     ];
   };
 
+  homeModules = {
+    backup.enable = true;
+  };
+
   programs = {
     bat.enable = true;
     btop.enable = true;
