@@ -8,6 +8,7 @@
     gdu
     imagemagick
     nix-output-monitor
+    pass
     rsgain
     tealdeer
     unrar
