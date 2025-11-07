@@ -56,6 +56,11 @@
     partition-manager.enable = true;
     zsh.enable = true;
 
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
