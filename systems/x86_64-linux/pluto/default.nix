@@ -29,7 +29,6 @@
 
     boot.loader = "limine";
     boot.enableSecureBoot = true;
-    boot.kernel = pkgs.linuxPackages_cachyos;
 
     networking.hostName = "pluto";
 
