@@ -4,8 +4,10 @@
     enable = true;
 
     extensions = [
+      "codebook"
       "git_firefly"
       "neocmake"
+      "markdown-oxide"
       "nix"
       "tombi"
       "toml"
@@ -60,5 +62,13 @@
         detect_venv.on.activate_script = "fish";
       };
     };
+  };
+
+  xdg.configFile."codebook" = {
+    enable = true;
+    target = "codebook/codebook.toml";
+    text = ''
+      dictionaries = ["en_us", "pt_br"]
+    '';
   };
 }

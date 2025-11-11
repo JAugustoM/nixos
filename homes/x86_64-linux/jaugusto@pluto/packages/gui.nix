@@ -8,6 +8,7 @@
     quodlibet-full
     lrcget
     veracrypt
+    ytmdesktop
     zapzap
   ];
 }
