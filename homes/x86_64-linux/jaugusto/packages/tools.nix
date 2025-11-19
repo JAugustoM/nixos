@@ -1,0 +1,16 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    aria2
+    caligula
+    dualsensectl
+    gdu
+    imagemagick
+    nix-output-monitor
+    pass
+    rsgain
+    tealdeer
+    unrar
+    wl-clipboard
+  ];
+}
