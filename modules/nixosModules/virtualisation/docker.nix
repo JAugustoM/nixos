@@ -1,9 +1,13 @@
-{ ... }:
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.docker = {
-    virtualisation = {
-      docker.enable = true;
-      docker.storageDriver = "btrfs";
-    };
-  };
+  flake.modules.nixos.docker = moduleWithSystem (
+    perSystem@{ ... }:
+    nixos@{ ... }:
+    {
+      virtualisation = {
+        docker.enable = true;
+        docker.storageDriver = "btrfs";
+      };
+    }
+  );
 }

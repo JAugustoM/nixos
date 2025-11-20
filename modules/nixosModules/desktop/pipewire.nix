@@ -1,16 +1,20 @@
-{ ... }:
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.desktop = {
-    services.pulseaudio.enable = false;
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
+  flake.modules.nixos.desktop = moduleWithSystem (
+    perSystem@{ ... }:
+    nixos@{ ... }:
+    {
+      services.pulseaudio.enable = false;
+      security.rtkit.enable = true;
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        jack.enable = true;
 
-      lowLatency.enable = true;
-    };
-  };
+        lowLatency.enable = true;
+      };
+    }
+  );
 }

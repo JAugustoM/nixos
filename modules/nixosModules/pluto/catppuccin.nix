@@ -1,14 +1,18 @@
-{ ... }:
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.pluto = {
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "sapphire";
+  flake.modules.nixos.pluto = moduleWithSystem (
+    perSystem@{ ... }:
+    nixos@{ ... }:
+    {
+      catppuccin = {
+        enable = true;
+        flavor = "mocha";
+        accent = "sapphire";
 
-      cache.enable = true;
+        cache.enable = true;
 
-      sddm.enable = false;
-    };
-  };
+        sddm.enable = false;
+      };
+    }
+  );
 }

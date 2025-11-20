@@ -1,6 +1,10 @@
-{ ... }:
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.ssd = {
-    services.fstrim.enable = true;
-  };
+  flake.modules.nixos.ssd = moduleWithSystem (
+    perSystem@{ ... }:
+    nixos@{ ... }:
+    {
+      services.fstrim.enable = true;
+    }
+  );
 }

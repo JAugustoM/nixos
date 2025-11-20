@@ -1,12 +1,16 @@
-{ ... }:
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.default = {
-    programs.nh = {
-      enable = true;
-      clean = {
+  flake.modules.nixos.default = moduleWithSystem (
+    perSystem@{ ... }:
+    nixos@{ ... }:
+    {
+      programs.nh = {
         enable = true;
-        extraArgs = "--keep 5";
+        clean = {
+          enable = true;
+          extraArgs = "--keep 5";
+        };
       };
-    };
-  };
+    }
+  );
 }

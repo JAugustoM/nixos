@@ -1,12 +1,16 @@
-{ ... }:
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.desktop = {
-    services.flatpak = {
-      enable = true;
-      update.auto = {
+  flake.modules.nixos.desktop = moduleWithSystem (
+    perSystem@{ ... }:
+    nixos@{ ... }:
+    {
+      services.flatpak = {
         enable = true;
-        onCalendar = "weekly";
+        update.auto = {
+          enable = true;
+          onCalendar = "weekly";
+        };
       };
-    };
-  };
+    }
+  );
 }
