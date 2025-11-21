@@ -17,7 +17,6 @@ let
   externalModules = with inputs; [
     auto-cpufreq.nixosModules.default
     catppuccin.nixosModules.catppuccin
-    chaotic.nixosModules.default
     determinate.nixosModules.default
     disko.nixosModules.disko
     flatpak.nixosModules.nix-flatpak
