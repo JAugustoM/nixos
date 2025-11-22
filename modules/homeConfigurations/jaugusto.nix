@@ -1,18 +1,27 @@
-{ inputs, moduleWithSystem, ... }:
+{ inputs, withSystem, ... }:
 {
-  flake.modules.nixos.jaugusto = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    nixos@{ ... }:
-    {
-      home-manager = {
-        backupFileExtension = "bak";
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.jaugusto = import ../../homes/x86_64-linux/jaugusto/home.nix {
-          inherit inputs;
-          inherit pkgs;
+  flake.homeConfigurations.jaugusto = withSystem "x86_64-linux" (
+    ctx@{ system, ... }:
+    let
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "ciscoPacketTracer8-8.2.2"
+          ];
         };
       };
+      config = [ ../../homes/x86_64-linux/jaugusto/home.nix ];
+      externalModules = with inputs; [
+        catppuccin.homeModules.catppuccin
+        nix-index-database.homeModules.nix-index
+      ];
+    in
+    inputs.home-manager.lib.homeManagerConfiguration {
+
+      inherit pkgs;
+      modules = config ++ externalModules;
     }
   );
 }

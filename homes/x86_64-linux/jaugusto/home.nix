@@ -1,9 +1,5 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 let
-  extenalImports = with inputs; [
-    catppuccin.homeModules.catppuccin
-    nix-index-database.homeModules.nix-index
-  ];
   configuration = [
     ./conf/catppuccin.nix
     ./conf/direnv.nix
@@ -28,7 +24,7 @@ let
   ];
 in
 {
-  imports = extenalImports ++ configuration ++ packages;
+  imports = configuration ++ packages;
 
   home = {
     username = "jaugusto";

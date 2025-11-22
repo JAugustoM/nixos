@@ -4,8 +4,8 @@
     enable = true;
 
     shellAbbrs = {
-      nob = "nh os boot";
       nos = "nh os switch";
+      nhs = "nh home switch";
       nca = "nh clean all --keep 5";
     };
 

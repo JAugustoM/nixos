@@ -7,7 +7,6 @@ let
     desktop
     docker
     gaming
-    jaugusto
     laptop
     pluto
     podman
