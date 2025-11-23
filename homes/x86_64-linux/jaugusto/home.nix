@@ -1,4 +1,9 @@
-{ ... }:
+{
+  inputs,
+  system,
+  pkgs,
+  ...
+}:
 let
   configuration = [
     ./conf/catppuccin.nix
@@ -7,6 +12,7 @@ let
     ./conf/fish.nix
     ./conf/git.nix
     ./conf/helix.nix
+    ./conf/keepassxc.nix
     ./conf/kitty.nix
     ./conf/nushell.nix
     ./conf/starship.nix
@@ -16,6 +22,7 @@ let
     ./conf/zed-editor.nix
     ./conf/zsh.nix
   ];
+
   packages = [
     ./packages/development.nix
     ./packages/gui.nix
@@ -38,6 +45,8 @@ in
 
     stateVersion = "25.05";
   };
+
+  xdg.autostart.enable = true;
 
   programs = {
     bat.enable = true;

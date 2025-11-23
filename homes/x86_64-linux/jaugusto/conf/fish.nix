@@ -10,7 +10,7 @@
     };
 
     shellAliases = {
-      build-iso = ''nom build "$NH_FLAKE"#install-isoConfigurations.terra'';
+      build-iso = ''nom build "$NH_FLAKE"#nixosConfigurations.terra.config.formats.install-iso'';
       check-flake = ''nix repl --expr "builtins.getFlake (builtins.toString $NH_FLAKE)"'';
       flakeup = "nix flake update --flake $NH_FLAKE";
     };

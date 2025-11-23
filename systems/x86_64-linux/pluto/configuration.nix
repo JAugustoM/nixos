@@ -2,7 +2,6 @@
   pkgs,
   ...
 }:
-
 {
   imports = [
     ./disk-config.nix
@@ -30,6 +29,7 @@
   ];
 
   programs = {
+    firefox.enable = true;
     kdeconnect.enable = true;
     nh.flake = "/home/jaugusto/.config/nixos";
     nix-ld.enable = true;
@@ -60,7 +60,6 @@
       "org.gnome.World.PikaBackup"
       "io.github.zaedus.spider"
       "com.stremio.Stremio"
-      "app.zen_browser.zen"
     ];
 
     udev.packages = with pkgs; [

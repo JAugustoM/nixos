@@ -11,7 +11,6 @@ let
     pluto
     podman
     ssd
-    zram
   ];
   externalModules = with inputs; [
     auto-cpufreq.nixosModules.default
@@ -19,7 +18,6 @@ let
     determinate.nixosModules.default
     disko.nixosModules.disko
     flatpak.nixosModules.nix-flatpak
-    home-manager.nixosModules.home-manager
     nix-gaming.nixosModules.pipewireLowLatency
     nix-gaming.nixosModules.platformOptimizations
     nixos-facter-modules.nixosModules.facter
