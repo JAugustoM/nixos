@@ -16,6 +16,7 @@
           allowUnfree = true;
         };
       };
+      inherit (builtins) readFile;
     in
     {
       imports = [
@@ -42,6 +43,8 @@
           settings = {
             "extensions.autoDisableScopes" = 0;
           };
+
+          extraConfig = readFile ./user.js;
 
           search = {
             force = true;
