@@ -1,9 +1,11 @@
-{ moduleWithSystem, ... }:
+{ inputs, moduleWithSystem, ... }:
 {
-  flake.modules.nixos.laptop = moduleWithSystem (
+  flake.modules.nixos.pluto = moduleWithSystem (
     perSystem@{ ... }:
     nixos@{ ... }:
     {
+      imports = [ inputs.auto-cpufreq.nixosModules.default ];
+
       services.power-profiles-daemon.enable = false;
 
       programs.auto-cpufreq = {

@@ -4,14 +4,10 @@
     perSystem@{ ... }:
     nixos@{ ... }:
     {
-      catppuccin = {
+      services.btrfs.autoScrub = {
         enable = true;
-        flavor = "mocha";
-        accent = "sapphire";
-
-        cache.enable = true;
-
-        sddm.enable = false;
+        interval = "weekly";
+        fileSystems = [ "/" ];
       };
     }
   );

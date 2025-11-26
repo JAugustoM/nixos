@@ -1,23 +1,14 @@
 { inputs, withSystem, ... }:
 {
   flake.homeConfigurations.jaugusto = withSystem "x86_64-linux" (
-    ctx@{ system, ... }:
+    ctx@{ pkgs, ... }:
     let
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          permittedInsecurePackages = [
-            "ciscoPacketTracer8-8.2.2"
-          ];
-        };
-      };
       config = [ ../../homes/x86_64-linux/jaugusto/home.nix ];
       internalModules = with inputs.self.modules.homeManager; [
         jaugusto
+        stylix-dracula
       ];
       externalModules = with inputs; [
-        catppuccin.homeModules.catppuccin
         nix-index-database.homeModules.nix-index
       ];
     in

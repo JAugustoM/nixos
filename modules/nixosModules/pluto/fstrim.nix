@@ -1,6 +1,6 @@
 { moduleWithSystem, ... }:
 {
-  flake.modules.nixos.ssd = moduleWithSystem (
+  flake.modules.nixos.pluto = moduleWithSystem (
     perSystem@{ ... }:
     nixos@{ ... }:
     {

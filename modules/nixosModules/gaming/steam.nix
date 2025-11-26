@@ -1,9 +1,11 @@
-{ moduleWithSystem, ... }:
+{ inputs, moduleWithSystem, ... }:
 {
   flake.modules.nixos.gaming = moduleWithSystem (
     perSystem@{ pkgs, ... }:
     nixos@{ ... }:
     {
+      imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
+
       programs.steam = {
         enable = true;
         gamescopeSession.enable = true;

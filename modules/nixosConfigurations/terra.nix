@@ -5,7 +5,6 @@ let
     default
   ];
   externalModules = with inputs; [
-    determinate.nixosModules.default
     nixos-generators.nixosModules.all-formats
     "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
   ];

@@ -2,24 +2,16 @@
 let
   config = [ ../../systems/x86_64-linux/pluto/configuration.nix ];
   internalModules = with inputs.self.modules.nixos; [
-    btrfs
     default
     desktop
     docker
     gaming
-    laptop
     pluto
     podman
-    ssd
+    stylix-dracula
   ];
   externalModules = with inputs; [
-    auto-cpufreq.nixosModules.default
-    catppuccin.nixosModules.catppuccin
-    determinate.nixosModules.default
     disko.nixosModules.disko
-    flatpak.nixosModules.nix-flatpak
-    nix-gaming.nixosModules.pipewireLowLatency
-    nix-gaming.nixosModules.platformOptimizations
     nixos-facter-modules.nixosModules.facter
   ];
 in

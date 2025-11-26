@@ -6,7 +6,6 @@
 }:
 let
   configuration = [
-    ./conf/catppuccin.nix
     ./conf/direnv.nix
     ./conf/eza.nix
     ./conf/fish.nix

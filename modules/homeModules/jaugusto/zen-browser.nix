@@ -1,21 +1,9 @@
-{ inputs, withSystem, ... }:
+{ inputs, moduleWithSystem, ... }:
 {
-  flake.modules.homeManager.jaugusto = withSystem "x86_64-linux" (
-    ctx@{
-      system,
-      inputs',
-      ...
-    }:
+  flake.modules.homeManager.jaugusto = moduleWithSystem (
+    perSystem@{ ... }:
+    home@{ pkgs, ... }:
     let
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        overlays = [
-          inputs.nur.overlays.default
-        ];
-        config = {
-          allowUnfree = true;
-        };
-      };
       inherit (builtins) readFile;
     in
     {
@@ -44,7 +32,7 @@
             "extensions.autoDisableScopes" = 0;
           };
 
-          extraConfig = readFile ./user.js;
+          extraConfig = readFile ./include/user.js;
 
           search = {
             force = true;

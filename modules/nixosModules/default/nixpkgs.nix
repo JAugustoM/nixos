@@ -4,6 +4,8 @@
     perSystem@{ ... }:
     nixos@{ ... }:
     {
+      imports = [ inputs.determinate.nixosModules.default ];
+
       nix = {
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
         settings = {

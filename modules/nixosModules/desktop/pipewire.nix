@@ -1,9 +1,10 @@
-{ moduleWithSystem, ... }:
+{ inputs, moduleWithSystem, ... }:
 {
   flake.modules.nixos.desktop = moduleWithSystem (
     perSystem@{ ... }:
     nixos@{ ... }:
     {
+      imports = [ inputs.nix-gaming.nixosModules.pipewireLowLatency ];
       services.pulseaudio.enable = false;
       security.rtkit.enable = true;
       services.pipewire = {

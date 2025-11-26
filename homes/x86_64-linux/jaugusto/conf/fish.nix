@@ -5,7 +5,7 @@
 
     shellAbbrs = {
       nos = "nh os switch";
-      nhs = "nh home switch";
+      nhs = "nh home switch --backup-extension bak";
       nca = "nh clean all --keep 5";
     };
 

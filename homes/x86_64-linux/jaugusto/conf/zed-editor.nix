@@ -37,11 +37,13 @@
       };
 
       lsp = {
-        clangd = {
-          arguments = [
-            "-background-index"
-            "-compile-commands-dir=build"
-          ];
+        clangd.arguments = [
+          "-background-index"
+          "-compile-commands-dir=build"
+        ];
+        nil.settings.nix.flake = {
+          autoArchive = true;
+          autoEvalInputs = true;
         };
       };
 
