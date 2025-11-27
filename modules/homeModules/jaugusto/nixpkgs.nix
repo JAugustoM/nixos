@@ -6,6 +6,7 @@
     {
       nixpkgs = {
         overlays = with inputs; [
+          nix4vscode.overlays.default
           nur.overlays.default
         ];
         config = {

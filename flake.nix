@@ -13,8 +13,6 @@
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
 
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
     home-manager.url = "github:nix-community/home-manager";

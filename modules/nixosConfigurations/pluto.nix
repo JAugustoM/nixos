@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  config = [ ../../systems/x86_64-linux/pluto/configuration.nix ];
+  config = [ ../../systems/pluto/configuration.nix ];
   internalModules = with inputs.self.modules.nixos; [
     default
     desktop

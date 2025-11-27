@@ -1,7 +1,7 @@
 keys:
   - &jaugusto_key age10s0ym34x66hshr35qhgm2lrmrhm9x3d7zwd55e50yr6jkkwjyqss7mtt7u
 creation_rules:
-  - path_regex: homes/x86_64-linux/jaugusto/secrets.yaml$
+  - path_regex: homes/jaugusto/secrets.yaml$
     key_groups:
       - age:
           - *jaugusto_key

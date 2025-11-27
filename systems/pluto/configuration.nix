@@ -16,30 +16,28 @@
     };
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "ciscoPacketTracer8-8.2.2"
-  ];
-
   environment.systemPackages = with pkgs; [
-    (ffmpeg-full.override { withUnfree = true; })
-  ];
-
-  fonts.packages = with pkgs; [
-    adwaita-fonts
+    ffmpeg-full
   ];
 
   programs = {
     firefox.enable = true;
     kdeconnect.enable = true;
-    nh.flake = "/home/jaugusto/.config/nixos";
     nix-ld.enable = true;
     partition-manager.enable = true;
     zsh.enable = true;
+
+    nh.flake = "/home/jaugusto/.config/nixos";
 
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
     };
+  };
+
+  security.sudo-rs = {
+    enable = true;
+    execWheelOnly = true;
   };
 
   services = {

@@ -4,8 +4,6 @@
     perSystem@{ ... }:
     nixos@{ ... }:
     {
-      imports = [ inputs.determinate.nixosModules.default ];
-
       nix = {
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
         settings = {
@@ -23,8 +21,8 @@
 
       nixpkgs = {
         config.allowUnfree = true;
-        overlays = with inputs; [
-          nix4vscode.overlays.default
+        overlays = [
+          inputs.self.overlays.ffmpeg-full
         ];
       };
     }

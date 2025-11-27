@@ -10,8 +10,6 @@
     {
       sops.secrets."borgmatic_passphrase" = { };
 
-      sops.secrets."borgmatic_healthchecks" = { };
-
       home.packages = [ pkgs.borgmatic ];
 
       services.borgmatic = {
@@ -54,7 +52,7 @@
             ];
             storage.extraConfig = {
               compression = "auto,zstd,7";
-              healthchecks.ping_url = "{credential file ${config.sops.secrets."borgmatic_healthchecks".path}}";
+              healthchecks.ping_url = "https://hc-ping.com/3d0e8f5e-b357-45a6-93ef-c0b46d27a5f0";
               encryption_passphrase = "{credential file ${config.sops.secrets."borgmatic_passphrase".path}}";
             };
           };

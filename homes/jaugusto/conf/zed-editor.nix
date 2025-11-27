@@ -41,10 +41,6 @@
           "-background-index"
           "-compile-commands-dir=build"
         ];
-        nil.settings.nix.flake = {
-          autoArchive = true;
-          autoEvalInputs = true;
-        };
       };
 
       languages = {

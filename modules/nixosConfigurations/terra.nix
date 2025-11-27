@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  config = [ ../../systems/x86_64-linux/terra/configuration.nix ];
+  config = [ ../../systems/terra/configuration.nix ];
   internalModules = with inputs.self.modules.nixos; [
     default
   ];

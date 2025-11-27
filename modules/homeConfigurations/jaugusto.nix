@@ -3,7 +3,7 @@
   flake.homeConfigurations.jaugusto = withSystem "x86_64-linux" (
     ctx@{ pkgs, ... }:
     let
-      config = [ ../../homes/x86_64-linux/jaugusto/home.nix ];
+      config = [ ../../homes/jaugusto/home.nix ];
       internalModules = with inputs.self.modules.homeManager; [
         jaugusto
         stylix-dracula
