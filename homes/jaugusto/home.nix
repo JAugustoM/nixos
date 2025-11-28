@@ -25,7 +25,6 @@ let
   packages = [
     ./packages/development.nix
     ./packages/gui.nix
-    ./packages/lsp.nix
     ./packages/tools.nix
   ];
 in
@@ -42,7 +41,7 @@ in
       "/home/jaugusto/.cargo/bin/"
     ];
 
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 
   xdg.autostart.enable = true;

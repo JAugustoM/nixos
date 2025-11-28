@@ -30,7 +30,7 @@ with pkgs;
   markdown-oxide
 
   # Nix
-  nixd
+  nil
   nixfmt
 
   # Python
