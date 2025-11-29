@@ -5,6 +5,7 @@
     let
       config = [ ../../homes/jaugusto/home.nix ];
       internalModules = with inputs.self.modules.homeManager; [
+        default
         jaugusto
         stylix-dracula
       ];

@@ -1,6 +1,6 @@
 { inputs, moduleWithSystem, ... }:
 {
-  flake.modules.homeManager.jaugusto = moduleWithSystem (
+  flake.modules.homeManager.default = moduleWithSystem (
     perSystem@{ ... }:
     home@{ ... }:
     {

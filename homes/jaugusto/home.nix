@@ -1,31 +1,26 @@
-{
-  inputs,
-  system,
-  pkgs,
-  ...
-}:
+{ lib, ... }:
 let
-  configuration = [
-    ./conf/direnv.nix
-    ./conf/eza.nix
-    ./conf/fish.nix
-    ./conf/git.nix
-    ./conf/helix.nix
-    ./conf/keepassxc.nix
-    ./conf/kitty.nix
-    ./conf/nushell.nix
-    ./conf/starship.nix
-    # ./conf/vscode.nix
-    ./conf/yazi.nix
-    ./conf/yt-dlp.nix
-    ./conf/zed-editor.nix
-    ./conf/zsh.nix
+  mkIncludeList = path: files: lib.lists.forEach files (file: ./. + "/${path}/${file}.nix");
+  configuration = mkIncludeList "conf" [
+    "direnv"
+    "eza"
+    "fish"
+    "git"
+    "helix"
+    "keepassxc"
+    "kitty"
+    "nushell"
+    "starship"
+    "yazi"
+    "yt-dlp"
+    "zed-editor"
+    "zsh"
   ];
 
-  packages = [
-    ./packages/development.nix
-    ./packages/gui.nix
-    ./packages/tools.nix
+  packages = mkIncludeList "packages" [
+    "development"
+    "gui"
+    "tools"
   ];
 in
 {
