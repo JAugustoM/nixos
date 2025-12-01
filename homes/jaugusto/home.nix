@@ -7,7 +7,6 @@ let
     "fish"
     "git"
     "helix"
-    "keepassxc"
     "kitty"
     "nushell"
     "starship"

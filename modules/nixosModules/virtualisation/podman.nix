@@ -1,8 +1,8 @@
 { moduleWithSystem, ... }:
 {
   flake.modules.nixos.podman = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    nixos@{ ... }:
+    perSystem@{ ... }:
+    nixos@{ pkgs, ... }:
     {
       virtualisation.containers.enable = true;
       virtualisation = {

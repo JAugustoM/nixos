@@ -5,8 +5,8 @@
 }:
 {
   flake.modules.nixos.desktop = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    nixos@{ config, ... }:
+    perSystem@{ ... }:
+    nixos@{ config, pkgs, ... }:
     {
       options.modules.boot.loader = lib.mkOption {
         type = lib.types.enum [

@@ -1,8 +1,8 @@
 { inputs, moduleWithSystem, ... }:
 {
   flake.modules.homeManager.jaugusto = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    home@{ config, ... }:
+    perSystem@{ ... }:
+    home@{ config, pkgs, ... }:
     let
       user = config.home.username;
     in

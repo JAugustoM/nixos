@@ -1,7 +1,7 @@
 { inputs, moduleWithSystem, ... }:
 {
   flake.modules.nixos.stylix-dracula = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
+    perSystem@{ ... }:
     nixos@{ ... }:
     {
       imports = [

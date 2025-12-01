@@ -4,8 +4,8 @@
 }:
 {
   flake.modules.nixos.desktop = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    nixos@{ ... }:
+    perSystem@{ ... }:
+    nixos@{ pkgs, ... }:
     {
       boot = {
         initrd.systemd.enable = true;
@@ -15,7 +15,7 @@
           tmpfsSize = "50%";
         };
 
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelPackages = pkgs.linuxPackages_cachyos;
       };
     }
   );

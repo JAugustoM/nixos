@@ -1,8 +1,8 @@
 { inputs, moduleWithSystem, ... }:
 {
   flake.modules.nixos.gaming = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    nixos@{ ... }:
+    perSystem@{ ... }:
+    nixos@{ pkgs, ... }:
     {
       imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
 

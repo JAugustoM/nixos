@@ -1,8 +1,8 @@
 { moduleWithSystem, ... }:
 {
   flake.modules.homeManager.jaugusto = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    home@{ config, ... }:
+    perSystem@{ ... }:
+    home@{ config, pkgs, ... }:
     let
       user = config.home.username;
       home = config.home.homeDirectory;
@@ -31,7 +31,6 @@
               ];
               patterns = [
                 "R ${home}"
-                "! ${home}/Games"
                 "! ${home}/.*"
               ];
               excludeHomeManagerSymlinks = true;
@@ -51,7 +50,7 @@
               }
             ];
             storage.extraConfig = {
-              compression = "auto,zstd,7";
+              compression = "auto,zstd,14";
               healthchecks.ping_url = "https://hc-ping.com/3d0e8f5e-b357-45a6-93ef-c0b46d27a5f0";
               encryption_passphrase = "{credential file ${config.sops.secrets."borgmatic_passphrase".path}}";
             };

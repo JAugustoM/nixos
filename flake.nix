@@ -10,8 +10,7 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
-    auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 

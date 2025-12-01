@@ -1,8 +1,8 @@
 { moduleWithSystem, ... }:
 {
   flake.modules.nixos.desktop = moduleWithSystem (
-    perSystem@{ pkgs, ... }:
-    nixos@{ ... }:
+    perSystem@{ ... }:
+    nixos@{ pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
         libreoffice-qt6-fresh
