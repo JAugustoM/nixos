@@ -6,7 +6,6 @@ let
     "eza"
     "fish"
     "git"
-    "helix"
     "kitty"
     "nushell"
     "starship"
@@ -53,5 +52,9 @@ in
     nix-index.enable = true;
     ripgrep.enable = true;
     zoxide.enable = true;
+  };
+
+  services = {
+    megasync.enable = true;
   };
 }

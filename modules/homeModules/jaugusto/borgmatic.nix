@@ -31,6 +31,7 @@
               ];
               patterns = [
                 "R ${home}"
+                "! ${home}/Games"
                 "! ${home}/.*"
               ];
               excludeHomeManagerSymlinks = true;
