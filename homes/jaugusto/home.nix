@@ -20,6 +20,8 @@ let
     "gui"
     "tools"
   ];
+
+  requiredDirs = [ "Cloud/Mega" ];
 in
 {
   imports = configuration ++ packages;
@@ -33,6 +35,14 @@ in
       "/home/jaugusto/bin/"
       "/home/jaugusto/.cargo/bin/"
     ];
+
+    activation = {
+      RequiredDirs =
+        with builtins;
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          ${concatStringsSep "\n" (map (dir: "run mkdir -p ~/${dir}") requiredDirs)}
+        '';
+    };
 
     stateVersion = "25.11";
   };
@@ -52,9 +62,5 @@ in
     nix-index.enable = true;
     ripgrep.enable = true;
     zoxide.enable = true;
-  };
-
-  services = {
-    megasync.enable = true;
   };
 }

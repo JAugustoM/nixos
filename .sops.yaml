@@ -1,7 +1,12 @@
 keys:
   - &jaugusto_key age10s0ym34x66hshr35qhgm2lrmrhm9x3d7zwd55e50yr6jkkwjyqss7mtt7u
+  - &pluto_key age12kf4az8grgdh02rl6hwamgwgp2lxpckvujlps7lq3h5yrmxatq0qa6jsw4
 creation_rules:
   - path_regex: homes/jaugusto/secrets.yaml$
     key_groups:
       - age:
           - *jaugusto_key
+  - path_regex: systems/pluto/secrets.yaml$
+    key_groups:
+      - age:
+          - *pluto_key
