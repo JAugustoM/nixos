@@ -28,10 +28,6 @@
                   path = "/data/Backups/backup-${user}";
                   label = "home";
                 }
-                {
-                  path = "${home}/Cloud/Mega/backup-${user}";
-                  label = "mega";
-                }
               ];
               patterns = [
                 "R ${home}"

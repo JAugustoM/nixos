@@ -25,8 +25,6 @@
             Enabled = true;
             UpdateBinaryPath = false;
           };
-
-          FdoSecrets.Enabled = true;
         };
       };
     }
