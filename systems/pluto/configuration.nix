@@ -28,11 +28,6 @@
     zsh.enable = true;
 
     nh.flake = "/home/jaugusto/.config/nixos";
-
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
   };
 
   security.sudo-rs = {
@@ -54,8 +49,6 @@
       "com.usebottles.bottles"
       "com.github.tchx84.Flatseal"
       "io.github.giantpinkrobots.flatsweep"
-      "com.gitlab.newsflash"
-      "org.gnome.World.PikaBackup"
       "io.github.zaedus.spider"
       "com.stremio.Stremio"
     ];
