@@ -7,6 +7,7 @@ let
     docker
     gaming
     pluto
+    services
     podman
     stylix-dracula
   ];

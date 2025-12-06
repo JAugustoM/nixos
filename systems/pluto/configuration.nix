@@ -16,6 +16,10 @@
     };
   };
 
+  modules = {
+    glance.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     ffmpeg-full
   ];
@@ -40,11 +44,6 @@
     languagetool.enable = true;
     thermald.enable = true;
 
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-    };
-
     flatpak.packages = [
       "com.usebottles.bottles"
       "com.github.tchx84.Flatseal"
@@ -68,7 +67,6 @@
       "dialout"
       "docker"
       "podman"
-      "libvirtd"
     ];
   };
 

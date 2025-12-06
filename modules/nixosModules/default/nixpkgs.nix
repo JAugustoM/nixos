@@ -6,11 +6,11 @@
     {
       imports = [ inputs.chaotic.nixosModules.default ];
 
-      sops.secrets."github_key" = { };
+      sops.secrets."nix_conf" = { };
 
       nix = {
         extraOptions = ''
-          !include ${config.sops.secrets."github_key".path}
+          !include ${config.sops.secrets."nix_conf".path}
         '';
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
         settings = {

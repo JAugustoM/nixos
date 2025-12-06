@@ -1,0 +1,61 @@
+let
+  inherit (builtins) map;
+  feeds = [
+    {
+      url = "https://itsfoss.com/rss/";
+      title = "It's FOSS";
+    }
+    {
+      url = "https://nixos.org/blog/announcements-rss.xml";
+      title = "NixOS";
+    }
+    {
+      url = "https://www.phoronix.com/rss.php";
+      title = "Phoronix";
+    }
+  ];
+in
+{
+  name = "Feeds";
+  slug = "feeds";
+  columns = [
+    {
+      size = "full";
+      widgets = [
+        {
+          type = "group";
+          widgets = map (
+            { url, title }:
+            {
+              type = "rss";
+              cache = "30m";
+              inherit title;
+              style = "detailed-list";
+              feeds = [ { inherit url title; } ];
+            }
+          ) feeds;
+        }
+      ];
+    }
+    {
+      size = "small";
+      widgets = [
+        {
+          type = "releases";
+          cache = "30m";
+          token = "\${GITHUB_TOKEN}";
+          show-source-icon = true;
+          repositories = [
+            "cachix/devenv"
+            "fish-shell/fish-shell"
+            "helix-editor/helix"
+            "kovidgoyal/kitty"
+            "nushell/nushell"
+            "TibixDev/winboat"
+            "zed-industries/zed"
+          ];
+        }
+      ];
+    }
+  ];
+}

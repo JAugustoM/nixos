@@ -7,6 +7,9 @@
   flake.modules.nixos.desktop = moduleWithSystem (
     perSystem@{ ... }:
     nixos@{ config, pkgs, ... }:
+    let
+      cfg = config.modules.boot;
+    in
     {
       options.modules.boot.loader = lib.mkOption {
         type = lib.types.enum [
@@ -17,7 +20,7 @@
         description = "The bootloader to use.";
       };
       config = lib.mkMerge [
-        (lib.mkIf (config.modules.boot.loader == "limine") {
+        (lib.mkIf (cfg.loader == "limine") {
           boot.loader.limine = {
             enable = true;
             maxGenerations = 5;
@@ -28,7 +31,7 @@
             sbctl
           ];
         })
-        (lib.mkIf (config.modules.boot.loader == "systemd-boot") {
+        (lib.mkIf (cfg.loader == "systemd-boot") {
           boot.loader.systemd-boot = {
             enable = true;
             configurationLimit = 5;
