@@ -17,6 +17,7 @@
   };
 
   modules = {
+    caddy.enable = true;
     glance.enable = true;
   };
 

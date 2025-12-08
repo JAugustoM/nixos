@@ -4,8 +4,6 @@
     perSystem@{ ... }:
     nixos@{ config, ... }:
     {
-      imports = [ inputs.chaotic.nixosModules.default ];
-
       sops.secrets."nix_conf" = { };
 
       nix = {

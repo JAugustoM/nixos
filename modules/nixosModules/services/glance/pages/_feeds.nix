@@ -6,10 +6,6 @@ let
       title = "It's FOSS";
     }
     {
-      url = "https://nixos.org/blog/announcements-rss.xml";
-      title = "NixOS";
-    }
-    {
       url = "https://www.phoronix.com/rss.php";
       title = "Phoronix";
     }
@@ -48,6 +44,7 @@ in
           repositories = [
             "cachix/devenv"
             "fish-shell/fish-shell"
+            "glanceapp/glance"
             "helix-editor/helix"
             "kovidgoyal/kitty"
             "nushell/nushell"

@@ -22,7 +22,14 @@
             desktopManager.cosmic.enable = true;
             desktopManager.cosmic.xwayland.enable = true;
             displayManager.cosmic-greeter.enable = true;
+            system76-scheduler.enable = true;
           };
+          environment.cosmic.excludePackages = with pkgs; [
+            cosmic-edit
+            cosmic-player
+            cosmic-store
+            cosmic-term
+          ];
         })
         (lib.mkIf (config.modules.desktop.manager == "plasma") {
           services = {

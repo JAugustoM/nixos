@@ -4,13 +4,9 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    # Hardware
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
