@@ -16,6 +16,7 @@
       audio-format = "opus";
       audio-quality = 0;
       add-metadata = true;
+      cookies = "~/.config/yt-dlp/cookies.txt";
     };
     extraConfig = ''
       --parse-metadata "%(track_number,playlist_autonumber)s:%(track_number)s" 

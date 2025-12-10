@@ -4,6 +4,10 @@
     perSystem@{ ... }:
     nixos@{ config, ... }:
     {
+      imports = [
+        inputs.determinate.nixosModules.default
+      ];
+
       sops.secrets."nix_conf" = { };
 
       nix = {

@@ -2,6 +2,10 @@ let
   inherit (builtins) map;
   feeds = [
     {
+      url = "https://feeds.arstechnica.com/arstechnica/index";
+      title = "Ars Technica";
+    }
+    {
       url = "https://itsfoss.com/rss/";
       title = "It's FOSS";
     }

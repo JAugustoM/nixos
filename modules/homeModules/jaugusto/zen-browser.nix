@@ -21,6 +21,7 @@
         profiles.default = {
           extensions = {
             packages = with pkgs.nur.repos.rycee.firefox-addons; [
+              cookies-txt
               keepassxc-browser
               plasma-integration
               privacy-badger

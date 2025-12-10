@@ -6,6 +6,7 @@
     dualsensectl
     gdu
     imagemagick
+    kew
     nix-output-monitor
     rsgain
     tealdeer
