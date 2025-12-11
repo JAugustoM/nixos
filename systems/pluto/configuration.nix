@@ -19,6 +19,9 @@
   modules = {
     caddy.enable = true;
     glance.enable = true;
+
+    gaming.platforms = [ "steam" ];
+    virtualisation.backends = [ "podman" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -49,7 +52,6 @@
       "com.usebottles.bottles"
       "com.github.tchx84.Flatseal"
       "io.github.giantpinkrobots.flatsweep"
-      "io.github.zaedus.spider"
       "com.stremio.Stremio"
     ];
 
@@ -66,7 +68,6 @@
       "networkmanager"
       "wheel"
       "dialout"
-      "docker"
       "podman"
     ];
   };

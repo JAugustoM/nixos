@@ -4,11 +4,8 @@ let
   internalModules = with inputs.self.modules.nixos; [
     default
     desktop
-    docker
-    gaming
     pluto
     services
-    podman
     stylix-dracula
   ];
   externalModules = with inputs; [
