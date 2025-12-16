@@ -31,6 +31,7 @@
       close_on_file_delete = true;
       load_direnv = "shell_hook";
       inlay_hints.enabled = true;
+      helix_mode = true;
 
       features = {
         edit_prediction_provider = "none";

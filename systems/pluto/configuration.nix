@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   ...
 }:
@@ -12,13 +13,16 @@
   specialisation = {
     Cosmic.configuration = {
       environment.etc."specialisation".text = "Cosmic";
-      modules.desktop.manager = "cosmic";
+      modules.desktop.environment = lib.mkForce "cosmic";
     };
   };
 
   modules = {
     caddy.enable = true;
     glance.enable = true;
+
+    desktop.environment = lib.mkDefault "plasma";
+    home-manager.user = "jaugusto";
 
     gaming.platforms = [ "steam" ];
     virtualisation.backends = [ "podman" ];

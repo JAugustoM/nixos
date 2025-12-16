@@ -32,6 +32,8 @@
         config.allowUnfree = true;
         overlays = [
           inputs.self.overlays.ffmpeg-full
+          inputs.nix4vscode.overlays.default
+          inputs.nur.overlays.default
         ];
       };
     }

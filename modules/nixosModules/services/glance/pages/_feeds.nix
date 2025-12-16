@@ -51,6 +51,7 @@ in
             "glanceapp/glance"
             "helix-editor/helix"
             "kovidgoyal/kitty"
+            "Nexus-Mods/NexusMods.App"
             "nushell/nushell"
             "TibixDev/winboat"
             "zed-industries/zed"

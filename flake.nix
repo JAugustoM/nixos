@@ -9,6 +9,9 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
+    dms.url = "github:AvengeMedia/DankMaterialShell/stable";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
+
     flatpak.url = "github:gmodena/nix-flatpak/latest";
 
     home-manager.url = "github:nix-community/home-manager";

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 let
   mkIncludeList = path: files: lib.lists.forEach files (file: ./. + "/${path}/${file}.nix");
   configuration = mkIncludeList "conf" [
@@ -21,10 +21,18 @@ let
     "tools"
   ];
 
+  internalModules = with inputs.self.modules.homeManager; [
+    jaugusto
+  ];
+
+  externalModules = with inputs; [
+    nix-index-database.homeModules.nix-index
+  ];
+
   requiredDirs = [ "Cloud/Mega" ];
 in
 {
-  imports = configuration ++ packages;
+  imports = configuration ++ packages ++ externalModules ++ internalModules;
 
   home = {
     username = "jaugusto";
@@ -48,6 +56,12 @@ in
   };
 
   xdg.autostart.enable = true;
+
+  stylix = {
+    targets = {
+      zen-browser.profileNames = [ "default" ];
+    };
+  };
 
   programs = {
     bat.enable = true;

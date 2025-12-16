@@ -8,16 +8,17 @@
     perSystem@{ ... }:
     nixos@{ config, pkgs, ... }:
     {
-      options.modules.desktop.manager = lib.mkOption {
+      options.modules.desktop.environment = lib.mkOption {
         type = lib.types.enum [
+          ""
           "cosmic"
           "plasma"
         ];
-        default = "plasma";
+        default = "";
         description = "The desktop manager to use.";
       };
       config = lib.mkMerge [
-        (lib.mkIf (config.modules.desktop.manager == "cosmic") {
+        (lib.mkIf (config.modules.desktop.environment == "cosmic") {
           services = {
             desktopManager.cosmic.enable = true;
             desktopManager.cosmic.xwayland.enable = true;
@@ -31,7 +32,7 @@
             cosmic-term
           ];
         })
-        (lib.mkIf (config.modules.desktop.manager == "plasma") {
+        (lib.mkIf (config.modules.desktop.environment == "plasma") {
           services = {
             displayManager.sddm = {
               enable = true;
