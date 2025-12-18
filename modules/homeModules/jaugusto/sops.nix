@@ -16,7 +16,7 @@
 
       sops.defaultSopsFile = "${inputs.self}/homes/${user}/secrets.yaml";
       sops.defaultSopsFormat = "yaml";
-      sops.age.keyFile = "/home/${user}/.config/sops/age/keys.txt";
+      sops.age.keyFile = "/keys.txt";
     }
   );
 }
