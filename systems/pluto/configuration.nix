@@ -33,13 +33,17 @@
   ];
 
   programs = {
-    firefox.enable = true;
     kdeconnect.enable = true;
     nix-ld.enable = true;
     partition-manager.enable = true;
     zsh.enable = true;
 
     nh.flake = "/home/jaugusto/.config/nixos";
+
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 
   security.sudo-rs = {
