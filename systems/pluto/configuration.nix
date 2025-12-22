@@ -54,6 +54,7 @@
   services = {
     fwupd.enable = true;
     languagetool.enable = true;
+    resolved.enable = true;
     thermald.enable = true;
 
     flatpak.packages = [
