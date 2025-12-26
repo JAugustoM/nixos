@@ -14,7 +14,7 @@
     keybindings = {
       "ctrl+n" = "launch --location=vsplit --cwd=current";
       "ctrl+m" = "launch --location=hsplit --cwd=current";
-      "ctrl+e" = "launch --type=overlay --cwd=current hx .";
+      "ctrl+e" = "launch --type=overlay --cwd=current nvim";
       "ctrl+g" = "launch --type=overlay --cwd=current gitui";
       "ctrl+f" = "toggle_layout stack";
 

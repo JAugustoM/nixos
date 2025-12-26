@@ -5,17 +5,17 @@
   ...
 }:
 {
-  flake.modules.nixos.desktop = moduleWithSystem (
+  flake.modules.nixos.programs = moduleWithSystem (
     perSystem@{ ... }:
     nixos@{ config, pkgs, ... }:
     let
-      cfg = config.modules.gaming;
+      cfg = config.modules.programs.gaming;
       inherit (lib.types) listOf enum;
     in
     {
       imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
 
-      options.modules.gaming.platforms = lib.mkOption {
+      options.modules.programs.gaming.platforms = lib.mkOption {
         type = listOf (enum [
           "heroic"
           "steam"

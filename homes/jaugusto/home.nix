@@ -44,6 +44,11 @@ in
       "/home/jaugusto/.cargo/bin/"
     ];
 
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+
     activation = {
       RequiredDirs =
         with builtins;
