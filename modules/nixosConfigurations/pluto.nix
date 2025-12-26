@@ -5,6 +5,7 @@ let
     default
     desktop
     pluto
+    programs
     services
     stylix-dracula
   ];

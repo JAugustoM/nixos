@@ -1,4 +1,9 @@
-{ inputs, moduleWithSystem, ... }:
+{
+  lib,
+  inputs,
+  moduleWithSystem,
+  ...
+}:
 {
   flake.modules.nixos.default = moduleWithSystem (
     perSystem@{ ... }:
@@ -8,34 +13,40 @@
         inputs.determinate.nixosModules.default
       ];
 
-      sops.secrets."nix_conf" = { };
+      config = lib.mkMerge [
+        {
+          nix = {
+            nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+            settings = {
+              auto-optimise-store = true;
+              experimental-features = [
+                "nix-command"
+                "flakes"
+              ];
+              trusted-users = [
+                "root"
+                "@wheel"
+              ];
+            };
+          };
 
-      nix = {
-        extraOptions = ''
-          !include ${config.sops.secrets."nix_conf".path}
-        '';
-        nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-        settings = {
-          auto-optimise-store = true;
-          experimental-features = [
-            "nix-command"
-            "flakes"
-          ];
-          trusted-users = [
-            "root"
-            "@wheel"
-          ];
-        };
-      };
+          nixpkgs = {
+            config.allowUnfree = true;
+            overlays = [
+              inputs.self.overlays.ffmpeg-full
+              inputs.nix4vscode.overlays.default
+              inputs.nur.overlays.default
+            ];
+          };
+        }
+        (lib.mkIf (config.modules.sops.enable) {
+          sops.secrets."nix_conf" = { };
 
-      nixpkgs = {
-        config.allowUnfree = true;
-        overlays = [
-          inputs.self.overlays.ffmpeg-full
-          inputs.nix4vscode.overlays.default
-          inputs.nur.overlays.default
-        ];
-      };
+          nix.extraOptions = ''
+            !include ${config.sops.secrets."nix_conf".path}
+          '';
+        })
+      ];
     }
   );
 }

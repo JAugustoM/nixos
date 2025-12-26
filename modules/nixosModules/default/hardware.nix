@@ -1,6 +1,6 @@
 { moduleWithSystem, ... }:
 {
-  flake.modules.nixos.desktop = moduleWithSystem (
+  flake.modules.nixos.default = moduleWithSystem (
     perSystem@{ ... }:
     nixos@{ ... }:
     {

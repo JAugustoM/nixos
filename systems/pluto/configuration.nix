@@ -20,12 +20,20 @@
   modules = {
     caddy.enable = true;
     glance.enable = true;
+    sops.enable = true;
 
     desktop.environment = lib.mkDefault "plasma";
     home-manager.user = "jaugusto";
 
-    gaming.platforms = [ "steam" ];
     virtualisation.backends = [ "podman" ];
+
+    programs = {
+      nh.enable = true;
+      nvf.enable = true;
+      office.enable = true;
+
+      gaming.platforms = [ "steam" ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -53,7 +61,6 @@
 
   services = {
     fwupd.enable = true;
-    languagetool.enable = true;
     resolved.enable = true;
     thermald.enable = true;
 
