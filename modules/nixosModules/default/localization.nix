@@ -20,8 +20,6 @@
         LC_TIME = "pt_BR.UTF-8";
       };
 
-      # services.xserver.enable = true;
-
       services.xserver.xkb = {
         layout = "br";
         variant = "";

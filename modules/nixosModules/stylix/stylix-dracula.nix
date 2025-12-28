@@ -13,6 +13,12 @@
         base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
         image = ./wallpapers/City.jpg;
 
+        cursor = {
+          name = "Adwaita";
+          package = pkgs.adwaita-icon-theme;
+          size = 24;
+        };
+
         fonts = {
           sizes = {
             applications = 10;

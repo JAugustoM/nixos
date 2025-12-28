@@ -11,9 +11,9 @@
   facter.reportPath = ./facter.json;
 
   specialisation = {
-    Cosmic.configuration = {
-      environment.etc."specialisation".text = "Cosmic";
-      modules.desktop.environment = lib.mkForce "cosmic";
+    DMS.configuration = {
+      environment.etc."specialisation".text = "DMS";
+      modules.desktop.environment = lib.mkForce "dms";
     };
   };
 
@@ -63,6 +63,11 @@
     fwupd.enable = true;
     resolved.enable = true;
     thermald.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = false;
+
+    tlp.enable = true;
+    tlp.settings = import ./tlpSettings.nix;
 
     flatpak.packages = [
       "com.usebottles.bottles"

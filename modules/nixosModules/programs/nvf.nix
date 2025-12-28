@@ -71,8 +71,23 @@
                 silent = true;
                 action = ":Neotree toggle<CR>";
               }
+              {
+                key = "<leader>bo";
+                desc = "Close other buffers";
+                mode = "n";
+                silent = true;
+                action = ":BufferLineCloseOthers<CR>";
+              }
+              {
+                key = "<leader>bx";
+                desc = "Close chosen buffer";
+                mode = "n";
+                silent = true;
+                action = ":BufferLinePickClose<CR>";
+              }
             ];
 
+            binds.cheatsheet.enable = true;
             binds.whichKey = {
               enable = true;
               setupOpts.preset = "helix";
