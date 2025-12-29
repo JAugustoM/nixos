@@ -49,6 +49,8 @@
 
             dankMaterialShell = {
               enable = true;
+              enableSystemMonitoring = false;
+
               greeter = {
                 enable = true;
                 compositor.name = "niri";

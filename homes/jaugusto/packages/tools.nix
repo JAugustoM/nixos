@@ -11,6 +11,5 @@
     rsgain
     tealdeer
     unrar
-    wl-clipboard
   ];
 }

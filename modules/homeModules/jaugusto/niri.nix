@@ -83,10 +83,10 @@
                 action = dms-ipc "clipboard" "toggle";
                 hotkey-overlay.title = "Toggle Clipboard Manager";
               };
-              "Mod+M" = {
-                action = dms-ipc "processlist" "toggle";
-                hotkey-overlay.title = "Toggle Process List";
-              };
+              # "Mod+M" = {
+              #   action = dms-ipc "processlist" "toggle";
+              #   hotkey-overlay.title = "Toggle Process List";
+              # };
 
               "Print".action = dms-ipc "call" "niri" "screenshot";
               "Ctrl+Print".action = dms-ipc "call" "niri" "screenshotScreen";
@@ -124,8 +124,8 @@
         enable = true;
         target = "environment.d/90-dms.conf";
         text = ''
-          DMS_PREFERRED_BATTERY = "/org/freedesktop/UPower/devices/battery_BAT1";
-          DMS_SCEENSHOT_EDITOR = "satty";
+          DMS_PREFERRED_BATTERY=/org/freedesktop/UPower/devices/battery_BAT1;
+          DMS_SCEENSHOT_EDITOR=satty;
         '';
       };
     }

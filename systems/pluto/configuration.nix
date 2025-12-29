@@ -37,7 +37,9 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cliphist
     ffmpeg-full
+    wl-clipboard
   ];
 
   programs = {
@@ -95,7 +97,12 @@
 
   networking = {
     hostName = "pluto";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
+    };
   };
 
   boot.initrd.luks.devices = {

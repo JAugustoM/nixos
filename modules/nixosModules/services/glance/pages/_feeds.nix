@@ -46,12 +46,14 @@ in
           token = "\${GITHUB_TOKEN}";
           show-source-icon = true;
           repositories = [
+            "AvengeMedia/DankMaterialShell"
             "cachix/devenv"
             "fish-shell/fish-shell"
             "glanceapp/glance"
             "helix-editor/helix"
             "kovidgoyal/kitty"
             "Nexus-Mods/NexusMods.App"
+            "YaLTer/niri"
             "nushell/nushell"
             "TibixDev/winboat"
             "zed-industries/zed"
