@@ -5,6 +5,7 @@
     caligula
     dualsensectl
     gdu
+    git-credential-manager
     imagemagick
     kew
     nix-output-monitor

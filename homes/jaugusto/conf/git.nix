@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, ... }:
 {
 
   programs.git = {
@@ -13,7 +13,11 @@
     settings = {
       user.email = "joseaugustomoraes@protonmail.com";
       user.name = "José Moraes";
-      credential.helper = "store";
+      credential = {
+        credentialStore = "secretservice";
+        helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
+      };
+
     };
   };
 }

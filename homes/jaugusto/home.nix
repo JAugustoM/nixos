@@ -75,7 +75,6 @@ in
     distrobox.enable = true;
     fastfetch.enable = true;
     fzf.enable = true;
-    gh.enable = true;
     gitui.enable = true;
     mangohud.enable = true;
     nix-index.enable = true;

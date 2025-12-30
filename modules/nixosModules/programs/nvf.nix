@@ -22,6 +22,7 @@
 
           settings.vim = {
             git.enable = true;
+            hideSearchHighlight = true;
             searchCase = "smart";
             syntaxHighlighting = true;
 

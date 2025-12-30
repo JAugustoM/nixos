@@ -32,10 +32,10 @@
 
           nixpkgs = {
             config.allowUnfree = true;
-            overlays = [
-              inputs.self.overlays.ffmpeg-full
-              inputs.nix4vscode.overlays.default
-              inputs.nur.overlays.default
+            overlays = with inputs; [
+              self.overlays.ffmpeg-full
+              nix4vscode.overlays.default
+              nur.overlays.default
             ];
           };
         }

@@ -49,18 +49,17 @@
 
             dankMaterialShell = {
               enable = true;
-              enableSystemMonitoring = false;
 
               greeter = {
                 enable = true;
                 compositor.name = "niri";
                 configHome = "/home/${config.modules.home-manager.user}";
               };
+
               systemd = {
                 enable = true;
                 restartIfChanged = true;
               };
-
             };
 
             niri.enable = true;
@@ -74,6 +73,7 @@
             kdePackages.okular
             satty
             xwayland-satellite
+            wl-mirror
           ];
         })
         (lib.mkIf (cfg.environment == "plasma") {
