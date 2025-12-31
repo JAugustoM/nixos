@@ -14,8 +14,8 @@
         image = ./wallpapers/City.jpg;
 
         cursor = {
-          name = "Breeze Dark";
-          package = pkgs.kdePackages.breeze-icons;
+          package = pkgs.adwaita-icon-theme;
+          name = "Adwaita";
           size = 24;
         };
 

@@ -13,7 +13,6 @@
     in
     {
       imports = [
-        inputs.dms.nixosModules.dankMaterialShell
         inputs.dms.nixosModules.greeter
       ];
 
@@ -45,36 +44,30 @@
         })
         (lib.mkIf (cfg.environment == "dms") {
           programs = {
-            dsearch.enable = true;
-
-            dankMaterialShell = {
+            dankMaterialShell.greeter = {
               enable = true;
-
-              greeter = {
-                enable = true;
-                compositor.name = "niri";
-                configHome = "/home/${config.modules.home-manager.user}";
-              };
-
-              systemd = {
-                enable = true;
-                restartIfChanged = true;
-              };
+              compositor.name = "niri";
+              configHome = "/home/${config.modules.home-manager.user}";
             };
 
             niri.enable = true;
           };
 
-          environment.sessionVariables.NIXOS_OZONE_WL = "1";
-          environment.systemPackages = with pkgs; [
-            kdePackages.ark
-            kdePackages.dolphin
-            kdePackages.gwenview
-            kdePackages.okular
-            satty
-            xwayland-satellite
-            wl-mirror
-          ];
+          services = {
+            gnome.core-apps.enable = true;
+            gvfs.enable = true;
+          };
+
+          environment = {
+            sessionVariables.NIXOS_OZONE_WL = "1";
+            systemPackages = with pkgs; [
+              adwaita-icon-theme
+              satty
+              xwayland-satellite
+              wl-mirror
+            ];
+          };
+
         })
         (lib.mkIf (cfg.environment == "plasma") {
           services = {
