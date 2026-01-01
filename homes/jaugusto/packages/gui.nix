@@ -4,7 +4,6 @@
     obsidian
     picard
     lrcget
-    veracrypt
     zapzap
   ];
 }

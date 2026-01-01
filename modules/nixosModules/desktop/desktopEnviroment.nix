@@ -53,15 +53,11 @@
             niri.enable = true;
           };
 
-          services = {
-            gnome.core-apps.enable = true;
-            gvfs.enable = true;
-          };
+          services.gvfs.enable = true;
 
           environment = {
             sessionVariables.NIXOS_OZONE_WL = "1";
             systemPackages = with pkgs; [
-              adwaita-icon-theme
               satty
               xwayland-satellite
               wl-mirror

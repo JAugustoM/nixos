@@ -1,29 +1,35 @@
-{ moduleWithSystem, ... }:
+{ lib, moduleWithSystem, ... }:
 {
   flake.modules.homeManager.jaugusto = moduleWithSystem (
     perSystem@{ ... }:
-    home@{ ... }:
+    home@{ config, ... }:
+    let
+      cfg = config.modules.keepassxc;
+    in
     {
-      programs.keepassxc = {
-        enable = true;
-        autostart = true;
+      options.modules.keepassxc.enable = lib.mkEnableOption "Enable Keepassxc";
+      config = lib.mkIf (cfg.enable) {
+        programs.keepassxc = {
+          enable = true;
+          autostart = true;
 
-        settings = {
-          General = {
-            BackupBeforeSave = true;
-            BackupFilePathPattern = "/data/Backups/Keepassxc/{DB_FILENAME}-{TIME}.kdbx";
-            MinimizeAfterUnlock = true;
-          };
+          settings = {
+            General = {
+              BackupBeforeSave = true;
+              BackupFilePathPattern = "/data/Backups/Keepassxc/{DB_FILENAME}-{TIME}.kdbx";
+              MinimizeAfterUnlock = true;
+            };
 
-          GUI = {
-            ShowTrayIcon = true;
-            MinimizeToTray = true;
-            MinimizeOnClose = true;
-          };
+            GUI = {
+              ShowTrayIcon = true;
+              MinimizeToTray = true;
+              MinimizeOnClose = true;
+            };
 
-          Browser = {
-            Enabled = true;
-            UpdateBinaryPath = false;
+            Browser = {
+              Enabled = true;
+              UpdateBinaryPath = false;
+            };
           };
         };
       };

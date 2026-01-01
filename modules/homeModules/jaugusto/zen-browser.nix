@@ -21,8 +21,9 @@
         profiles.default = {
           extensions = {
             packages = with pkgs.nur.repos.rycee.firefox-addons; [
+              bitwarden
               cookies-txt
-              keepassxc-browser
+              languagetool
               plasma-integration
               privacy-badger
               ublock-origin

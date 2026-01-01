@@ -11,9 +11,9 @@
   facter.reportPath = ./facter.json;
 
   specialisation = {
-    DMS.configuration = {
-      environment.etc."specialisation".text = "DMS";
-      modules.desktop.environment = lib.mkForce "dms";
+    Cosmic.configuration = {
+      environment.etc."specialisation".text = "Cosmic";
+      modules.desktop.environment = lib.mkForce "cosmic";
     };
   };
 
