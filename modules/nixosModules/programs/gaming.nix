@@ -27,6 +27,10 @@
       config = lib.mkMerge [
         (lib.mkIf ((builtins.length cfg.platforms) != 0) {
           programs.gamemode.enable = true;
+
+          hardware = {
+            steam-hardware.enable = true;
+          };
         })
         (lib.mkIf (builtins.elem "heroic" cfg.platforms) {
           environment.systemPackages = with pkgs; [

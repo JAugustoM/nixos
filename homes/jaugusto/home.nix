@@ -68,6 +68,8 @@ in
     };
   };
 
+  modules.dms.enable = true;
+
   programs = {
     bat.enable = true;
     btop.enable = true;

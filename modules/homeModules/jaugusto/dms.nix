@@ -25,6 +25,9 @@
 
           dankMaterialShell = {
             enable = true;
+
+            enableSystemMonitoring = false;
+
             niri = {
               enableKeybinds = true;
               enableSpawn = true;
@@ -65,14 +68,43 @@
                   dms-ipc = spawn "dms" "ipc";
                 in
                 {
-                  "Print".action = dms-ipc "call" "niri" "screenshot";
-                  "Ctrl+Print".action = dms-ipc "call" "niri" "screenshotScreen";
-                  "Alt+Print".action = dms-ipc "call" "niri" "screenshotWindow";
+                  "Print" = {
+                    action = dms-ipc "call" "niri" "screenshot";
+                    hotkey-overlay.title = "Screenshot";
+                  };
+                  "Ctrl+Print" = {
+                    action = dms-ipc "call" "niri" "screenshotScreen";
+                    hotkey-overlay.title = "Screenshot current screen";
+                  };
+                  "Alt+Print" = {
+                    action = dms-ipc "call" "niri" "screenshotWindow";
+                    hotkey-overlay.title = "Screenshot current window";
+                  };
 
-                  # Custom
-                  "Mod+Return".action.spawn = "kitty";
-                  "Mod+E".action.spawn = "nautilus";
-                  "Mod+Q".action = close-window;
+                  "Mod+Return" = {
+                    action.spawn = "kitty";
+                    hotkey-overlay.title = "Open kitty";
+                  };
+                  "Mod+E" = {
+                    action.spawn = [
+                      "flatpak"
+                      "run"
+                      "org.kde.dolphin"
+                    ];
+                    hotkey-overlay.title = "Open dolphin";
+                  };
+                  "Mod+Q" = {
+                    action = close-window;
+                    hotkey-overlay.title = "Close current window";
+                  };
+                  "Mod+H" = {
+                    action = focus-column-left;
+                    hotkey-overlay.title = "Focus column to the left";
+                  };
+                  "Mod+L" = {
+                    action = focus-column-right;
+                    hotkey-overlay.title = "Focus column to the right";
+                  };
                 };
 
               environment = {
@@ -94,6 +126,11 @@
                     options = "caps:escape_shifted_capslock";
                   };
                 };
+              };
+
+              layout = {
+                default-column-display = "tabbed";
+                default-column-width.proportion = 1.0;
               };
             };
           };

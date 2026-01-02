@@ -11,9 +11,9 @@
   facter.reportPath = ./facter.json;
 
   specialisation = {
-    Cosmic.configuration = {
-      environment.etc."specialisation".text = "Cosmic";
-      modules.desktop.environment = lib.mkForce "cosmic";
+    DMS.configuration = {
+      environment.etc."specialisation".text = "DMS";
+      modules.desktop.environment = lib.mkForce "dms";
     };
   };
 
@@ -49,11 +49,6 @@
     zsh.enable = true;
 
     nh.flake = "/home/jaugusto/.config/nixos";
-
-    appimage = {
-      enable = true;
-      binfmt = true;
-    };
   };
 
   security.sudo-rs = {
@@ -71,16 +66,27 @@
     tlp.enable = true;
     tlp.settings = import ./tlpSettings.nix;
 
-    flatpak.packages = [
-      "com.usebottles.bottles"
-      "com.github.tchx84.Flatseal"
-      "io.github.giantpinkrobots.flatsweep"
-      "com.stremio.Stremio"
-    ];
+    flatpak = {
+      packages = [
+        "com.usebottles.bottles"
+        "com.github.tchx84.Flatseal"
+        "com.stremio.Stremio"
+        "io.github.giantpinkrobots.flatsweep"
+        "org.kde.ark"
+        "org.kde.dolphin"
+        "org.kde.gwenview"
+        "org.kde.okular"
+      ];
+    };
 
     udev.packages = with pkgs; [
       platformio-core.udev
     ];
+  };
+
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
   };
 
   users.defaultUserShell = pkgs.zsh;

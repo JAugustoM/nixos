@@ -5,7 +5,7 @@
     nixos@{ ... }:
     {
       hardware = {
-        enableRedistributableFirmware = true;
+        # enableRedistributableFirmware = true;
       };
     }
   );
