@@ -75,6 +75,7 @@
         "org.kde.ark"
         "org.kde.dolphin"
         "org.kde.gwenview"
+        "org.kde.haruna"
         "org.kde.okular"
       ];
     };

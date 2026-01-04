@@ -23,6 +23,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     nix-index-database.url = "github:nix-community/nix-index-database";
