@@ -103,11 +103,6 @@
     };
   };
 
-  fileSystems."/data" = {
-    device = "/dev/disk/by-label/Data";
-    fsType = "btrfs";
-  };
-
   zramSwap = {
     enable = true;
     algorithm = "zstd";

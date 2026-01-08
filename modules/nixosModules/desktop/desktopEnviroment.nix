@@ -74,15 +74,15 @@
             desktopManager.plasma6.enable = true;
           };
 
-          environment.plasma6.excludePackages = with pkgs.kdePackages; [
-            ark
-            discover
-            elisa
-            gwenview
-            okular
-            dolphin
-            dolphin-plugins
-          ];
+          environment = {
+            plasma6.excludePackages = with pkgs.kdePackages; [
+              discover
+              elisa
+            ];
+            systemPackages = with pkgs; [
+              haruna
+            ];
+          };
         })
       ];
     }

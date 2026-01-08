@@ -136,6 +136,24 @@
                 default-column-display = "tabbed";
                 default-column-width.proportion = 1.0;
               };
+
+              window-rules = [
+                {
+                  matches = [
+                    { title = "Picture-in-Picture"; }
+                  ];
+                  open-floating = true;
+                  opacity = 0.7;
+
+                  default-column-width.fixed = 480;
+                  default-window-height.fixed = 270;
+                  default-floating-position = {
+                    relative-to = "bottom-right";
+                    x = 0;
+                    y = 0;
+                  };
+                }
+              ];
             };
           };
         };
