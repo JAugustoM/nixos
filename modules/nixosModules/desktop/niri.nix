@@ -12,27 +12,27 @@
       cfg = config.modules.niri;
     in
     {
-      options.modules.niri = {
-        enable = lib.mkEnableOption "Enable niri";
-      };
+      options.modules.niri.enable = lib.mkEnableOption "Enable niri";
 
-      config = lib.mkIf (cfg.enable) {
+      config = lib.mkIf cfg.enable {
         programs.niri = {
           enable = true;
           useNautilus = false;
         };
 
         environment = {
-          sessionVariables.NIXOS_OZONE_WL = "1";
+          sessionVariables = {
+            XDG_DATA_DIRS = [
+              "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+              "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+            ];
+          };
+
           systemPackages = with pkgs; [
+            gsettings-desktop-schemas
+            gtk3
             xwayland-satellite
           ];
-        };
-
-        security.pam.services.swaylock = { };
-
-        xdg.portal.config.niri = {
-          "org.freedesktop.impl.portal.FileChooser" = lib.mkForce [ "kde" ];
         };
       };
     }

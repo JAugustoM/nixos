@@ -1,6 +1,6 @@
 { inputs, lib, ... }:
 let
-  mkIncludeList = path: files: lib.lists.forEach files (file: ./. + "/${path}/${file}.nix");
+  mkIncludeList = folder: files: lib.lists.forEach files (file: ./. + "/${folder}/${file}.nix");
   configuration = mkIncludeList "conf" [
     "direnv"
     "eza"
@@ -11,7 +11,6 @@ let
     "starship"
     "yazi"
     "yt-dlp"
-    "zed-editor"
     "zsh"
   ];
 
@@ -62,11 +61,19 @@ in
 
   xdg.autostart.enable = true;
 
-  stylix.targets.zen-browser.profileNames = [ "default" ];
+  stylix = {
+    targets.gtk.flatpakSupport.enable = false;
+    targets.zen-browser.profileNames = [ "default" ];
+  };
 
-  modules.niri = {
-    enable = true;
-    shell = "noctalia";
+  modules = {
+    zed-editor.enable = true;
+    zen-browser.enable = true;
+
+    niri = {
+      enable = true;
+      shell = "noctalia";
+    };
   };
 
   programs = {
@@ -77,9 +84,11 @@ in
     fastfetch.enable = true;
     fzf.enable = true;
     gitui.enable = true;
+    imv.enable = true;
     mangohud.enable = true;
     nix-index.enable = true;
     ripgrep.enable = true;
+    zathura.enable = true;
     zoxide.enable = true;
   };
 }

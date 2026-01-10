@@ -12,6 +12,7 @@
   modules = {
     caddy.enable = true;
     glance.enable = true;
+    niri.enable = true;
     sops.enable = true;
 
     desktop.environment = "plasma";
@@ -26,6 +27,8 @@
 
       gaming.platforms = [ "steam" ];
     };
+
+    stylix.theme = "ayu-dark";
   };
 
   environment.systemPackages = with pkgs; [

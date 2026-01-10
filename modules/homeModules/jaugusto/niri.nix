@@ -62,6 +62,22 @@
                 action = focus-column-right;
                 hotkey-overlay.title = "Focus column to the right";
               };
+              "Print" = {
+                action.screenshot = { };
+                hotkey-overlay.title = "Screenshot";
+              };
+              "Ctrl+Print" = {
+                action.screenshot-screen = { };
+                hotkey-overlay.title = "Screenshot current screen";
+              };
+              "Alt+Print" = {
+                action.screenshot-window = { };
+                hotkey-overlay.title = "Screenshot current window";
+              };
+            };
+
+            environment = {
+              NIXOS_OZONE_WL = "1";
             };
 
             hotkey-overlay = {
@@ -91,7 +107,6 @@
                   { title = "Picture-in-Picture"; }
                 ];
                 open-floating = true;
-                opacity = 0.7;
 
                 default-column-width.fixed = 480;
                 default-window-height.fixed = 270;

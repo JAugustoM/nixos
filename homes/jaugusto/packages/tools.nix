@@ -10,6 +10,7 @@
     imagemagick
     kew
     nix-output-monitor
+    nurl
     rsgain
     tealdeer
     unrar

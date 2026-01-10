@@ -27,6 +27,8 @@
 
       gaming.platforms = [ "steam" ];
     };
+
+    stylix.theme = "ayu-dark";
   };
 
   environment.systemPackages = with pkgs; [

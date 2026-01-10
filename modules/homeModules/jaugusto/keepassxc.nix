@@ -8,6 +8,7 @@
     in
     {
       options.modules.keepassxc.enable = lib.mkEnableOption "Enable Keepassxc";
+
       config = lib.mkIf (cfg.enable) {
         programs.keepassxc = {
           enable = true;

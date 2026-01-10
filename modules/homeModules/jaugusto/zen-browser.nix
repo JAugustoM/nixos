@@ -1,106 +1,112 @@
-{ inputs, moduleWithSystem, ... }:
+{
+  lib,
+  inputs,
+  moduleWithSystem,
+  ...
+}:
 {
   flake.modules.homeManager.jaugusto = moduleWithSystem (
     perSystem@{ ... }:
-    home@{ pkgs, ... }:
+    home@{ config, pkgs, ... }:
     let
       inherit (builtins) readFile;
+      cfg = config.modules.zen-browser;
     in
     {
       imports = [
         inputs.zen-browser.homeModules.beta
       ];
 
-      home.file.userChrome = {
-        recursive = true;
-        source = ./include/chrome;
-        target = ".zen/default/chrome";
-      };
+      options.modules.zen-browser.enable = lib.mkEnableOption "Enable zen";
 
-      programs.zen-browser = {
-        enable = true;
-        nativeMessagingHosts = with pkgs; [
-          kdePackages.plasma-browser-integration
-        ];
+      config = lib.mkIf cfg.enable {
+        programs.zen-browser = {
+          enable = true;
+          nativeMessagingHosts = with pkgs; [
+            kdePackages.plasma-browser-integration
+          ];
 
-        profiles.default = {
-          extensions = {
-            packages = with pkgs.nur.repos.rycee.firefox-addons; [
-              bitwarden
-              cookies-txt
-              languagetool
-              plasma-integration
-              privacy-badger
-              ublock-origin
-            ];
-          };
+          profiles.default = {
+            extensions = {
+              packages = with pkgs.nur.repos.rycee.firefox-addons; [
+                bitwarden
+                cookies-txt
+                languagetool
+                plasma-integration
+                privacy-badger
+                ublock-origin
+              ];
+            };
 
-          settings = {
-            "extensions.autoDisableScopes" = 0;
-          };
+            settings = {
+              "extensions.autoDisableScopes" = 0;
+            };
 
-          extraConfig = readFile ./include/user.js;
+            extraConfig = readFile ./include/firefox/user.js;
+            userChrome = readFile ./include/firefox/userChrome.css;
+            userContent = readFile ./include/firefox/userContent.css;
 
-          search = {
-            force = true;
-            default = "ddg";
-            privateDefault = "ddg";
+            search = {
+              force = true;
+              default = "ddg";
+              privateDefault = "ddg";
 
-            engines = {
-              "Nix Packages" = {
-                urls = [
-                  {
-                    template = "https://search.nixos.org/packages";
-                    params = [
-                      {
-                        name = "channel";
-                        value = "unstable";
-                      }
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@np" ];
-              };
+              engines = {
+                "Nix Packages" = {
+                  urls = [
+                    {
+                      template = "https://search.nixos.org/packages";
+                      params = [
+                        {
+                          name = "channel";
+                          value = "unstable";
+                        }
+                        {
+                          name = "query";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+                  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                  definedAliases = [ "@np" ];
+                };
 
-              "Nix Options" = {
-                urls = [
-                  {
-                    template = "https://search.nixos.org/options";
-                    params = [
-                      {
-                        name = "channel";
-                        value = "unstable";
-                      }
-                      {
-                        name = "query";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@no" ];
-              };
+                "Nix Options" = {
+                  urls = [
+                    {
+                      template = "https://search.nixos.org/options";
+                      params = [
+                        {
+                          name = "channel";
+                          value = "unstable";
+                        }
+                        {
+                          name = "query";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+                  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                  definedAliases = [ "@no" ];
+                };
 
-              "NixOS Wiki" = {
-                urls = [
-                  {
-                    template = "https://wiki.nixos.org/w/index.php";
-                    params = [
-                      {
-                        name = "search";
-                        value = "{searchTerms}";
-                      }
-                    ];
-                  }
-                ];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@nw" ];
+                "NixOS Wiki" = {
+                  urls = [
+                    {
+                      template = "https://wiki.nixos.org/w/index.php";
+                      params = [
+                        {
+                          name = "search";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+                  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                  definedAliases = [ "@nw" ];
+                };
               };
             };
           };

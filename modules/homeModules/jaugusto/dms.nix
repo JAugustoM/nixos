@@ -26,33 +26,10 @@
         programs = {
           dankMaterialShell = {
             enable = true;
-            enableSystemMonitoring = false;
 
             niri = {
               enableKeybinds = true;
               enableSpawn = true;
-            };
-
-            plugins = {
-              "Display Mirror" = {
-                enable = true;
-                src = pkgs.fetchFromGitHub {
-                  owner = "jfchenier";
-                  repo = "dms-display-mirror";
-                  rev = "92cd44c4fb67834bf71fdd78f83c29df5e0750b2";
-                  hash = "sha256-JX3pDZ1F5Uu/rOdA4KMhcwH8a6gxsTZjwgcZxNV/Ngc=";
-                };
-              };
-              "Dank Battery Alerts" = {
-                enable = true;
-                src = pkgs.fetchFromGitHub {
-                  owner = "AvengeMedia";
-                  repo = "dms-plugins";
-                  rev = "8fa7c5286171c66a209dd74e9a47d6e72ccfdad6";
-                  hash = "sha256-iKz3cyWkLRyVH2kT6lY8GghTXIE2qu6ZqDEUvhZQWUc=";
-                  rootDir = "DankBatteryAlerts";
-                };
-              };
             };
           };
 

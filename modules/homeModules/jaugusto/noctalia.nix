@@ -20,12 +20,6 @@ in
       ];
 
       config = lib.mkIf (cfg.shell == "noctalia") {
-        home.packages = with pkgs; [
-          cava
-          matugen
-          wlsunset
-        ];
-
         programs = {
           niri.settings = {
             binds =
@@ -75,16 +69,6 @@ in
                   hotkey-overlay.title = "Open session menu";
                 };
               };
-
-            spawn-at-startup = [
-              {
-                command = [
-                  "${pkgs.kdePackages.kservice}/bin/kbuildsycoca6"
-                  "--noincremental"
-                ];
-              }
-              { command = [ "${pkgs.kdePackages.kded}/bin/kded6" ]; }
-            ];
           };
 
           noctalia-shell = {
@@ -109,62 +93,44 @@ in
               };
             };
           };
+        };
 
-          swaylock.enable = true;
+        systemd.user.services.noctalia-shell = {
+          Unit.ConditionEnviroment = "XDG_CURRENT_DESKTOP=niri";
+          Service.Environment = [
+            "QT_QPA_PLATFORMTHEME=Basic"
+          ];
         };
 
         services.swayidle =
           let
-            lock = "${pkgs.swaylock}/bin/swaylock -f";
-            suspend = "${pkgs.systemd}/bin/systemctl suspend";
-            display = status: "${pkgs.niri}/bin/niri msg action power-${status}-monitors";
+            noctalia-shell = "${config.programs.noctalia-shell.package}";
           in
           {
             enable = true;
-            systemdTarget = "noctalia-shell.service";
+
             events = {
-              "before-sleep" = (display "off") + "; " + lock;
-              "after-resume" = display "on";
-              "lock" = (display "off") + "; " + lock;
-              "unlock" = display "on";
+              before-sleep = "${noctalia-shell} ipc call lockScreen lock";
+              lock = "${noctalia-shell} ipc call lockScreen lock";
             };
 
             timeouts = [
               {
                 timeout = 60;
-                command = lock;
+                command = "${noctalia-shell} ipc call lockScreen lock";
               }
+
               {
                 timeout = 90;
-                command = display "off";
-                resumeCommand = display "on";
+                command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
               }
+
               {
                 timeout = 120;
-                command = suspend;
+                command = "${noctalia-shell} ipc call sessionMenu lockAndSuspend";
               }
             ];
           };
-        systemd.user = {
-          services.noctalia-shell = {
-            Service.Environment = [
-              ''QML2_IMPORT_PATH=${
-                let
-                  qmlPath = pkgs.qt6.qtbase.qtQmlPrefix;
-                  modules = with pkgs.kdePackages; [
-                    kirigami
-                    breeze
-                  ];
-                in
-                lib.concatStringsSep ":" (map (p: "${p}/${qmlPath}") modules)
-              }''
-            ];
-            Unit.ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
-          };
-        };
-
-        xdg.configFile."menus/applications.menu".source =
-          "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
       };
     }
   );
