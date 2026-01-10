@@ -11,12 +11,6 @@
         inputs.zen-browser.homeModules.beta
       ];
 
-      home.file.userChrome = {
-        recursive = true;
-        source = ./include/chrome;
-        target = ".zen/default/chrome";
-      };
-
       programs.zen-browser = {
         enable = true;
         nativeMessagingHosts = with pkgs; [
@@ -39,7 +33,9 @@
             "extensions.autoDisableScopes" = 0;
           };
 
-          extraConfig = readFile ./include/user.js;
+          extraConfig = readFile ./include/firefox/user.js;
+          userChrome = readFile ./include/firefox/userChrome.css;
+          userContent = readFile ./include/firefox/userContent.css;
 
           search = {
             force = true;

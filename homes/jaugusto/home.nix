@@ -60,9 +60,37 @@ in
     stateVersion = "25.11";
   };
 
-  xdg.autostart.enable = true;
+  xdg = {
+    autostart.enable = true;
+    mimeApps = {
+      enable = true;
 
-  stylix.targets.zen-browser.profileNames = [ "default" ];
+      defaultApplications = {
+        "text/html" = [ "zen.desktop" ];
+        "x-scheme-handler/http" = [ "zen.desktop" ];
+        "x-scheme-handler/https" = [ "zen.desktop" ];
+        "x-scheme-handler/about" = [ "zen.desktop" ];
+        "x-scheme-handler/unknown" = [ "zen.desktop" ];
+
+        "inode/directory" = [ "org.kde.dolphin.desktop" ];
+
+        "image/jpeg" = [ "org.kde.gwenview.desktop" ];
+        "image/png" = [ "org.kde.gwenview.desktop" ];
+        "image/gif" = [ "org.kde.gwenview.desktop" ];
+        "image/svg+xml" = [ "org.kde.gwenview.desktop" ];
+
+        "application/pdf" = [ "org.kde.okular.desktop" ];
+        "text/plain" = [ "org.kde.kate.desktop" ];
+      };
+
+      associations.added = {
+        "image/jpeg" = [ "zen.desktop" ];
+        "application/pdf" = [ "zen.desktop" ];
+      };
+    };
+  };
+
+  stylix.targets.zen-browser.enable = false;
 
   modules.niri = {
     enable = true;

@@ -107,15 +107,22 @@ in
                 enabled = true;
                 autoSchedule = true;
               };
+              templates = {
+                cava = true;
+                gtk = true;
+                kitty = true;
+                niri = true;
+                qt = true;
+                yazi = true;
+                zed = true;
+              };
             };
           };
-
-          swaylock.enable = true;
         };
 
         services.swayidle =
           let
-            lock = "${pkgs.swaylock}/bin/swaylock -f";
+            lock = "${config.programs.noctalia-shell.package}/bin/noctalia-shell ipc call lockScreen lock";
             suspend = "${pkgs.systemd}/bin/systemctl suspend";
             display = status: "${pkgs.niri}/bin/niri msg action power-${status}-monitors";
           in

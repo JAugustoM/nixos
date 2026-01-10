@@ -27,6 +27,8 @@
 
       gaming.platforms = [ "steam" ];
     };
+
+    stylix.theme = "eldritch";
   };
 
   environment.systemPackages = with pkgs; [

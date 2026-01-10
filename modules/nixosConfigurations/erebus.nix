@@ -6,7 +6,6 @@ let
     desktop
     programs
     services
-    stylix-dracula
   ];
   externalModules = with inputs; [
     disko.nixosModules.disko
