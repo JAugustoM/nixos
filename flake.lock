@@ -100,26 +100,6 @@
         "type": "github"
       }
     },
-    "danksearch": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1766814755,
-        "narHash": "sha256-iVZHhERnR07PMLSjVMW/72ah7ezyqaxdADmJQ8FdToU=",
-        "owner": "AvengeMedia",
-        "repo": "danksearch",
-        "rev": "2356124150c7a35a735d88a3d54a941b6cfe3a02",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "danksearch",
-        "type": "github"
-      }
-    },
     "determinate": {
       "inputs": {
         "determinate-nixd-aarch64-darwin": "determinate-nixd-aarch64-darwin",
@@ -990,6 +970,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768055992,
+        "narHash": "sha256-vbhRHMcRrKzJ8cppwCQL1Hjk0wqDorDTAG894paemiM=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "10bd2aa303be259fe39c7f95433bb4a12657ad72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_5",
@@ -1083,7 +1083,6 @@
     },
     "root": {
       "inputs": {
-        "danksearch": "danksearch",
         "determinate": "determinate",
         "disko": "disko",
         "dms": "dms",
@@ -1099,6 +1098,7 @@
         "nixos-facter-modules": "nixos-facter-modules",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_5",
+        "noctalia": "noctalia",
         "nur": "nur",
         "nvf": "nvf",
         "sops-nix": "sops-nix",

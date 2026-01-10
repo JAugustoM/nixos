@@ -20,7 +20,6 @@
         type = lib.types.enum [
           ""
           "cosmic"
-          "dms"
           "plasma"
         ];
         default = "";
@@ -41,29 +40,6 @@
             cosmic-store
             cosmic-term
           ];
-        })
-        (lib.mkIf (cfg.environment == "dms") {
-          programs = {
-            dankMaterialShell.greeter = {
-              enable = true;
-              compositor.name = "niri";
-              configHome = "/home/${config.modules.home-manager.user}";
-            };
-
-            niri.enable = true;
-          };
-
-          services.gvfs.enable = true;
-
-          environment = {
-            sessionVariables.NIXOS_OZONE_WL = "1";
-            systemPackages = with pkgs; [
-              satty
-              xwayland-satellite
-              wl-mirror
-            ];
-          };
-
         })
         (lib.mkIf (cfg.environment == "plasma") {
           services = {

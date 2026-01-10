@@ -12,6 +12,7 @@
   modules = {
     caddy.enable = true;
     glance.enable = true;
+    niri.enable = true;
     sops.enable = true;
 
     desktop.environment = "plasma";

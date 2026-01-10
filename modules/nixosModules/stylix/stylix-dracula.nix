@@ -10,8 +10,14 @@
 
       stylix = {
         enable = true;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
         image = ./wallpapers/City.jpg;
+
+        cursor = {
+          name = "Bibata-Modern-Ice";
+          package = pkgs.bibata-cursors;
+          size = 24;
+        };
 
         fonts = {
           sizes = {

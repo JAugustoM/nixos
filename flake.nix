@@ -9,9 +9,6 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    danksearch.url = "github:AvengeMedia/danksearch";
-    danksearch.inputs.nixpkgs.follows = "nixpkgs";
-
     dms.url = "github:AvengeMedia/DankMaterialShell/stable";
     dms.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -29,6 +26,9 @@
 
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/nur";
 

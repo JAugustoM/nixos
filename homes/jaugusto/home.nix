@@ -62,13 +62,12 @@ in
 
   xdg.autostart.enable = true;
 
-  stylix = {
-    targets = {
-      zen-browser.profileNames = [ "default" ];
-    };
-  };
+  stylix.targets.zen-browser.profileNames = [ "default" ];
 
-  modules.dms.enable = true;
+  modules.niri = {
+    enable = true;
+    shell = "noctalia";
+  };
 
   programs = {
     bat.enable = true;

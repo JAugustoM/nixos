@@ -11,11 +11,16 @@
         inputs.zen-browser.homeModules.beta
       ];
 
+      home.file.userChrome = {
+        recursive = true;
+        source = ./include/chrome;
+        target = ".zen/default/chrome";
+      };
+
       programs.zen-browser = {
         enable = true;
         nativeMessagingHosts = with pkgs; [
           kdePackages.plasma-browser-integration
-          keepassxc
         ];
 
         profiles.default = {
