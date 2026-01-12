@@ -31,6 +31,13 @@
       };
 
       config = lib.mkIf cfg.enable {
+        dconf.settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = lib.mkForce "prefer-dark";
+            gtk-theme = lib.mkForce "adw-gtk3";
+          };
+        };
+
         programs.niri = {
           package = pkgs.niri;
           settings = {
@@ -87,7 +94,6 @@
 
             input = {
               focus-follows-mouse.enable = true;
-
               keyboard = {
                 xkb = {
                   layout = "br";
@@ -100,6 +106,15 @@
               default-column-display = "tabbed";
               default-column-width.proportion = 1.0;
             };
+
+            spawn-at-startup = [
+              {
+                command = [
+                  "kbuildsycoca6"
+                  "--noincremental"
+                ];
+              }
+            ];
 
             window-rules = [
               {

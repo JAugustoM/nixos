@@ -40,13 +40,25 @@ in
                   action = noctalia-ipc "call" "settings" "toggle";
                   hotkey-overlay.title = "Toogle settings";
                 };
+                "XF86AudioPlay" = {
+                  action = noctalia-ipc "call" "media" "playPause";
+                  hotkey-overlay.title = "Play/Pause media";
+                };
                 "XF86AudioRaiseVolume" = {
                   action = noctalia-ipc "call" "volume" "increase";
                   hotkey-overlay.title = "Increase volume";
                 };
+                "Alt+XF86AudioRaiseVolume" = {
+                  action = noctalia-ipc "call" "media" "next";
+                  hotkey-overlay.title = "Next media track";
+                };
                 "XF86AudioLowerVolume" = {
                   action = noctalia-ipc "call" "volume" "decrease";
                   hotkey-overlay.title = "Decrease volume";
+                };
+                "Alt+XF86AudioLowerVolume" = {
+                  action = noctalia-ipc "call" "media" "previous";
+                  hotkey-overlay.title = "Previous media track";
                 };
                 "XF86AudioMute" = {
                   action = noctalia-ipc "call" "volume" "muteOutput";
@@ -104,10 +116,11 @@ in
 
         services.swayidle =
           let
-            noctalia-shell = "${config.programs.noctalia-shell.package}";
+            noctalia-shell = "${config.programs.noctalia-shell.package}/bin/noctalia-shell";
           in
           {
             enable = true;
+            systemdTarget = "noctalia-shell.service";
 
             events = {
               before-sleep = "${noctalia-shell} ipc call lockScreen lock";

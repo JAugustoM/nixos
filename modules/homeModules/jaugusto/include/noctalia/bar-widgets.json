@@ -105,6 +105,9 @@
       "warningThreshold": 30
     },
     {
+      "id": "KeepAwake"
+    },
+    {
       "displayMode": "onhover",
       "id": "Volume",
       "middleClickCommand": "pwvucontrol || pavucontrol"

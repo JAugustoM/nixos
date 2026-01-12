@@ -84,11 +84,9 @@ in
     fastfetch.enable = true;
     fzf.enable = true;
     gitui.enable = true;
-    imv.enable = true;
     mangohud.enable = true;
     nix-index.enable = true;
     ripgrep.enable = true;
-    zathura.enable = true;
     zoxide.enable = true;
   };
 }

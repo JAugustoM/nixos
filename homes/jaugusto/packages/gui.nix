@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    appflowy
+    affine
     gearlever
     obsidian
     picard
