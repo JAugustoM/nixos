@@ -14,8 +14,6 @@
           useTmpfs = true;
           tmpfsSize = "50%";
         };
-
-        kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
       };
     }
   );

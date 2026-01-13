@@ -13,8 +13,10 @@
     in
     {
       imports = [
-        inputs.dms.homeModules.dankMaterialShell.default
-        inputs.dms.homeModules.dankMaterialShell.niri
+        inputs.danksearch.homeModules.default
+        inputs.dms.homeModules.dank-material-shell
+        inputs.dms.homeModules.niri
+        inputs.dms-plugin-registry.modules.default
       ];
 
       config = lib.mkIf (cfg.shell == "dms") {
@@ -24,12 +26,32 @@
         ];
 
         programs = {
-          dankMaterialShell = {
+          dsearch.enable = true;
+          dank-material-shell = {
             enable = true;
+            enableSystemMonitoring = false;
 
             niri = {
               enableKeybinds = true;
               enableSpawn = true;
+              includes.enable = false;
+            };
+
+            session = {
+              nightModeAutoEnabled = true;
+              nightModeAutoMode = "location";
+              nvidiaGpuTempEnabled = true;
+              wallpaperPath = "/home/jaugusto/.config/nixos/modules/nixosModules/desktop/wallpapers/City.jpg";
+              weatherCoordinates = "-15.7939869,-47.8828000";
+            };
+
+            plugins = {
+              dankBatteryAlerts.enable = true;
+              dankLauncherKeys.enable = true;
+              displayMirror.enable = true;
+              emojiLauncher.enable = true;
+              powerUsagePlugin.enable = true;
+              webSearch.enable = true;
             };
           };
 
@@ -55,7 +77,6 @@
               };
 
             environment = {
-              DMS_PREFERRED_BATTERY = "/org/freedesktop/UPower/devices/battery_BAT1";
               DMS_SCEENSHOT_EDITOR = "satty";
             };
           };

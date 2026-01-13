@@ -1,39 +1,46 @@
-{ moduleWithSystem, ... }:
+{ lib, moduleWithSystem, ... }:
 {
   flake.modules.homeManager.jaugusto = moduleWithSystem (
     perSystem@{ ... }:
     home@{ config, ... }:
     let
+      cfg = config.modules.restic;
       home = config.home.homeDirectory;
     in
     {
-      sops.secrets."restic_repo_pass" = { };
+      options.modules.restic = {
+        enable = lib.mkEnableOption "Enable restic";
+      };
 
-      services.restic = {
-        enable = true;
+      config = lib.mkIf cfg.enable {
+        sops.secrets."restic_repo_pass" = { };
 
-        backups.mega = {
-          repository = "rclone:mega:Backup";
-          initialize = true;
-          inhibitsSleep = true;
+        services.restic = {
+          enable = true;
 
-          paths = [ home ];
-          exclude = [
-            "${home}/.*"
-            "${home}/Games"
-            "${home}/Cloud"
-          ];
+          backups.mega = {
+            repository = "rclone:mega:Backup";
+            initialize = true;
+            inhibitsSleep = true;
 
-          timerConfig = {
-            OnCalendar = "19:00";
-            Persistent = true;
+            paths = [ home ];
+            exclude = [
+              "${home}/.*"
+              "${home}/Games"
+              "${home}/Cloud"
+            ];
+
+            timerConfig = {
+              OnCalendar = "19:00";
+              Persistent = true;
+            };
+
+            passwordFile = config.sops.secrets."restic_repo_pass".path;
+
+            pruneOpts = [
+              "--keep-daily 7"
+            ];
           };
-
-          passwordFile = config.sops.secrets."restic_repo_pass".path;
-
-          pruneOpts = [
-            "--keep-daily 7"
-          ];
         };
       };
     }

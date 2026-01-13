@@ -72,7 +72,7 @@ in
 
     niri = {
       enable = true;
-      shell = "noctalia";
+      shell = "dms";
     };
   };
 

@@ -69,18 +69,6 @@
                 action = focus-column-right;
                 hotkey-overlay.title = "Focus column to the right";
               };
-              "Print" = {
-                action.screenshot = { };
-                hotkey-overlay.title = "Screenshot";
-              };
-              "Ctrl+Print" = {
-                action.screenshot-screen = { };
-                hotkey-overlay.title = "Screenshot current screen";
-              };
-              "Alt+Print" = {
-                action.screenshot-window = { };
-                hotkey-overlay.title = "Screenshot current window";
-              };
             };
 
             environment = {
@@ -105,6 +93,11 @@
             layout = {
               default-column-display = "tabbed";
               default-column-width.proportion = 1.0;
+            };
+
+            outputs.eDP-1 = {
+              scale = 1.25;
+              variable-refresh-rate = true;
             };
 
             spawn-at-startup = [

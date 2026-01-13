@@ -99,10 +99,13 @@
     };
   };
 
-  boot.initrd.luks.devices = {
-    cryptroot = {
-      device = "/dev/disk/by-partlabel/luks";
-      allowDiscards = true;
+  boot = {
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    initrd.luks.devices = {
+      cryptroot = {
+        device = "/dev/disk/by-partlabel/luks";
+        allowDiscards = true;
+      };
     };
   };
 

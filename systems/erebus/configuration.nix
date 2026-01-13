@@ -78,6 +78,10 @@
     udev.packages = with pkgs; [
       platformio-core.udev
     ];
+
+    xserver.videoDrivers = [
+      "nvidia"
+    ];
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -93,17 +97,41 @@
   };
 
   networking = {
-    hostName = "pluto";
+    hostName = "erebus";
     networkmanager = {
       enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
     };
   };
 
-  boot.initrd.luks.devices = {
-    cryptroot = {
-      device = "/dev/disk/by-partlabel/luks";
-      allowDiscards = true;
+  boot = {
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    initrd.luks.devices = {
+      cryptroot = {
+        device = "/dev/disk/by-partlabel/luks";
+        allowDiscards = true;
+      };
     };
+  };
+
+  hardware.nvidia = {
+    open = true;
+
+    modesetting.enable = true;
+
+    prime = {
+      reverseSync.enable = true;
+
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/Data";
+    fsType = "btrfs";
   };
 
   zramSwap = {

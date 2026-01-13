@@ -108,7 +108,7 @@ in
         };
 
         systemd.user.services.noctalia-shell = {
-          Unit.ConditionEnviroment = "XDG_CURRENT_DESKTOP=niri";
+          Unit.ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
           Service.Environment = [
             "QT_QPA_PLATFORMTHEME=Basic"
           ];
