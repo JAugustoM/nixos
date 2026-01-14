@@ -10,6 +10,7 @@
   facter.reportPath = ./facter.json;
 
   modules = {
+    auto-cpufreq.enable = true;
     caddy.enable = true;
     glance.enable = true;
     niri.enable = true;
@@ -28,7 +29,7 @@
       gaming.platforms = [ "steam" ];
     };
 
-    stylix.theme = "ayu-dark";
+    stylix.theme = "eldritch";
   };
 
   environment.systemPackages = with pkgs; [
@@ -55,10 +56,6 @@
     resolved.enable = true;
     thermald.enable = true;
     upower.enable = true;
-    power-profiles-daemon.enable = false;
-
-    tlp.enable = true;
-    tlp.settings = import ./tlpSettings.nix;
 
     btrfs.autoScrub = {
       enable = true;
@@ -122,10 +119,9 @@
     modesetting.enable = true;
 
     prime = {
-      reverseSync.enable = true;
-
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
+      reverseSync.enable = true;
     };
   };
 

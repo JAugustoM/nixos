@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   moduleWithSystem,
   ...
 }:
@@ -12,10 +11,6 @@
       cfg = config.modules.desktop;
     in
     {
-      imports = [
-        inputs.dms.nixosModules.greeter
-      ];
-
       options.modules.desktop.environment = lib.mkOption {
         type = lib.types.enum [
           ""
