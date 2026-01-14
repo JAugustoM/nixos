@@ -23,7 +23,6 @@
           type = lib.types.enum [
             ""
             "dms"
-            "noctalia"
           ];
           default = "";
           description = "Shell to use with niri";
@@ -106,6 +105,9 @@
                   "kbuildsycoca6"
                   "--noincremental"
                 ];
+              }
+              {
+                command = [ "kded6" ];
               }
             ];
 

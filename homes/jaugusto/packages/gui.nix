@@ -6,6 +6,7 @@
     obsidian
     picard
     lrcget
+    winboat
     zapzap
   ];
 }
