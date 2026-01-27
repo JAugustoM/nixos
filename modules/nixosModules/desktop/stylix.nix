@@ -35,8 +35,9 @@
       config = {
         stylix = {
           enable = true;
-          base16Scheme = if (cfg.theme != "") then "${schemes}/base16/${cfg.theme}.yaml" else null;
+          base16Scheme = lib.mkIf (cfg.theme != "") "${schemes}/base16/${cfg.theme}.yaml";
           image = ./wallpapers/${cfg.wallpaper}.jpg;
+          polarity = "dark";
 
           cursor = {
             name = "Bibata-Modern-Ice";

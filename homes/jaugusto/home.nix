@@ -62,7 +62,6 @@ in
   xdg.autostart.enable = true;
 
   stylix = {
-    targets.gtk.flatpakSupport.enable = false;
     targets.zen-browser.profileNames = [ "default" ];
   };
 

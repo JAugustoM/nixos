@@ -10,6 +10,7 @@
     home@{ config, pkgs, ... }:
     let
       cfg = config.modules.niri;
+      dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/jaugusto/.config/nixos/modules/homeModules/jaugusto/include";
     in
     {
       imports = [
@@ -25,24 +26,37 @@
           wl-mirror
         ];
 
+        xdg.configFile.dms = {
+          source = "${dotfiles}/dms";
+          recursive = true;
+          target = "niri/dms";
+        };
+
         programs = {
           dsearch.enable = true;
           dank-material-shell = {
             enable = true;
             enableSystemMonitoring = false;
 
-            niri = {
-              enableKeybinds = true;
-              enableSpawn = true;
-              includes.enable = false;
+            niri.includes.filesToInclude = [
+              "alttab"
+              "binds"
+              "layout"
+              "outputs"
+              "wpblur"
+            ];
+
+            systemd = {
+              enable = true;
+              target = "niri.service";
             };
 
             session = {
+              nightModeEnable = true;
               nightModeAutoEnabled = true;
               nightModeAutoMode = "location";
-              nvidiaGpuTempEnabled = true;
+
               wallpaperPath = "/home/jaugusto/.config/nixos/modules/nixosModules/desktop/wallpapers/City.jpg";
-              weatherCoordinates = "-15.7939869,-47.8828000";
             };
 
             plugins = {
@@ -55,30 +69,8 @@
             };
           };
 
-          niri.settings = {
-            binds =
-              with config.lib.niri.actions;
-              let
-                dms-ipc = spawn "dms" "ipc";
-              in
-              {
-                "Print" = {
-                  action = dms-ipc "call" "niri" "screenshot";
-                  hotkey-overlay.title = "Screenshot";
-                };
-                "Ctrl+Print" = {
-                  action = dms-ipc "call" "niri" "screenshotScreen";
-                  hotkey-overlay.title = "Screenshot current screen";
-                };
-                "Alt+Print" = {
-                  action = dms-ipc "call" "niri" "screenshotWindow";
-                  hotkey-overlay.title = "Screenshot current window";
-                };
-              };
-
-            environment = {
-              DMS_SCEENSHOT_EDITOR = "satty";
-            };
+          niri.settings.environment = {
+            DMS_SCEENSHOT_EDITOR = "satty";
           };
         };
       };

@@ -12,11 +12,6 @@
       cfg = config.modules.niri;
     in
     {
-      imports = [
-        inputs.niri.homeModules.config
-        inputs.niri.homeModules.stylix
-      ];
-
       options.modules.niri = {
         enable = lib.mkEnableOption "Enable niri";
         shell = lib.mkOption {
@@ -30,13 +25,6 @@
       };
 
       config = lib.mkIf cfg.enable {
-        dconf.settings = {
-          "org/gnome/desktop/interface" = {
-            color-scheme = lib.mkForce "prefer-dark";
-            gtk-theme = lib.mkForce "adw-gtk3";
-          };
-        };
-
         programs.niri = {
           package = pkgs.niri;
           settings = {
@@ -68,6 +56,10 @@
                 action = focus-column-right;
                 hotkey-overlay.title = "Focus column to the right";
               };
+              "Mod+Shift+Slash" = {
+                action = show-hotkey-overlay;
+                hotkey-overlay.title = "Show a list of important niri hotkeys";
+              };
             };
 
             environment = {
@@ -92,11 +84,6 @@
             layout = {
               default-column-display = "tabbed";
               default-column-width.proportion = 1.0;
-            };
-
-            outputs.eDP-1 = {
-              scale = 1.25;
-              variable-refresh-rate = true;
             };
 
             spawn-at-startup = [
