@@ -42,10 +42,6 @@
               "extensions.autoDisableScopes" = 0;
             };
 
-            extraConfig = readFile ./include/firefox/user.js;
-            # userChrome = readFile ./include/firefox/userChrome.css;
-            # userContent = readFile ./include/firefox/userContent.css;
-
             search = {
               force = true;
               default = "ddg";

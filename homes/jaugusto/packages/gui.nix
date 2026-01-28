@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     affine
+    forge-mtg
     gearlever
     obsidian
     picard

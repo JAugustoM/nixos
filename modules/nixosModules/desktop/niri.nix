@@ -26,25 +26,15 @@
         };
 
         environment = {
-          sessionVariables = lib.mkMerge [
-            {
-              XDG_DATA_DIRS = [
-                "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
-                "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
-              ];
-            }
-            (lib.mkIf (desktop == "plasma") {
-              XDG_CONFIG_DIRS = [
-                "${pkgs.kdePackages.plasma-workspace}/etc/xdg"
-              ];
+          sessionVariables = lib.mkIf (desktop == "plasma") {
+            XDG_CONFIG_DIRS = [
+              "${pkgs.kdePackages.plasma-workspace}/etc/xdg"
+            ];
 
-              XDG_MENU_PREFIX = "plasma-";
-            })
-          ];
+            XDG_MENU_PREFIX = "plasma-";
+          };
 
           systemPackages = with pkgs; [
-            gsettings-desktop-schemas
-            gtk3
             xwayland-satellite
           ];
         };
