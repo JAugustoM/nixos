@@ -8,7 +8,6 @@ let
     "git"
     "kitty"
     "nushell"
-    "starship"
     "yazi"
     "yt-dlp"
     "zsh"
