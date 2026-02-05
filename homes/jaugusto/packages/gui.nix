@@ -1,9 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    affine
-    forge-mtg
-    gearlever
+    anytype
     obsidian
     picard
     lrcget

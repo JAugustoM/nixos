@@ -20,52 +20,50 @@
           defaultEditor = true;
 
           extraPackages = with pkgs; [
-            bash-language-server
-            shellcheck
-            shfmt
+            codebook
+
+            # C/C++
             clang-tools
             neocmakelsp
-            fish-lsp
+
+            # Just
             just-lsp
-            markdown-oxide
+
+            # Markdown
+            marksman
+
+            # Nix
             nixd
             nixfmt
-            python313Packages.python-lsp-server
+
+            # Python
             ruff
-            systemd-lsp
+            ty
+
+            # Rust
+            rust-analyzer
             taplo
-            biome
-            typescript-language-server
+
+            # YAML
             yaml-language-server
           ];
 
           languages = {
             language-server = {
-              clangd.args = [
-                (
-                  "--query-driver="
-                  + "/nix/store/*gcc-arm-embedded*/bin/arm-none-eabi-gcc,"
-                  + "/nix/store/*gcc-arm-embedded*/bin/arm-none-eabi-g++"
-                )
-              ];
-
-              nixd.config.options = {
-                nixos.expr = "(builtins.getFlake (builtins.toString ${inputs.self})).nixosConfigurations.pluto.options";
-                home-manager = "(builtins.getFlake (builtins.toString ${inputs.self})).homeConfigurations.jaugusto.options";
-              };
-
-              rust-analyzer.config = {
-                cargo.features = "all";
-                check.command = "clippy";
+              codebook = {
+                command = "codebook-lsp";
+                args = [ "serve" ];
               };
             };
+
             language = [
               {
                 name = "markdown";
-                language-servers = [
-                  "markdown-oxide"
-                  "ltex-ls-plus"
-                ];
+                language-servers = [ "marksman" "codebook" ];
+              }
+              {
+                name = "rust";
+                language-servers = [ "rust-analyzer" "codebook" ];
               }
             ];
           };
@@ -97,6 +95,8 @@
 
               indent-guides = {
                 render = true;
+                character = "┆";
+                skip-levels = 1;
               };
 
               inline-diagnostics = {
@@ -106,6 +106,7 @@
 
             keys.normal = {
               X = "select_line_above";
+              D = "@xd";
               A-q = ":write-quit-all";
             };
 

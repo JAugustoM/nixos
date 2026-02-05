@@ -23,7 +23,6 @@
 
     programs = {
       nh.enable = true;
-      nvf.enable = true;
       office.enable = true;
 
       gaming.platforms = [ "steam" ];
@@ -63,11 +62,19 @@
       fileSystems = [ "/" ];
     };
 
+    clamav = {
+      daemon.enable = true;
+      fangfrisch.enable = true;
+      updater.enable = true;
+      scanner.enable = true;
+    };
+
     flatpak = {
       packages = [
         "com.usebottles.bottles"
         "com.github.tchx84.Flatseal"
         "com.stremio.Stremio"
+        "io.appflowy.AppFlowy"
         "io.github.giantpinkrobots.flatsweep"
       ];
     };

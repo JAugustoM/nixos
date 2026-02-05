@@ -20,7 +20,7 @@
 
         services.borgmatic = {
           enable = true;
-          frequency = "*-*-* 21:00:00";
+          frequency = "*-*-* 19:00:00";
         };
 
         programs.borgmatic = {

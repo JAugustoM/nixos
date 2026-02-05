@@ -43,8 +43,8 @@ in
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "hx";
+      VISUAL = "hx";
     };
 
     activation = {
@@ -65,6 +65,7 @@ in
   };
 
   modules = {
+    helix.enable = true;
     zed-editor.enable = true;
     zen-browser.enable = true;
 

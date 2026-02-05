@@ -26,6 +26,8 @@
           wl-mirror
         ];
 
+        stylix.targets.dank-material-shell.enable = false;
+
         xdg.configFile.dms = {
           source = "${dotfiles}/dms";
           recursive = true;
