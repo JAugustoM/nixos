@@ -35,11 +35,6 @@
           services.caddy.virtualHosts."${url}".extraConfig = ''
             reverse_proxy 127.0.0.1:8080
           '';
-
-          networking.firewall.allowedTCPPorts = [
-            80
-            443
-          ];
         })
       ];
     }

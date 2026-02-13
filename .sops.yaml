@@ -10,3 +10,7 @@ creation_rules:
     key_groups:
       - age:
           - *pluto_key
+  - path_regex: systems/erebus/secrets.yaml$
+    key_groups:
+      - age:
+          - *pluto_key

@@ -14,6 +14,7 @@
     caddy.enable = true;
     glance.enable = true;
     niri.enable = true;
+    searx.enable = true;
     sops.enable = true;
 
     desktop.environment = "plasma";
@@ -23,7 +24,6 @@
 
     programs = {
       nh.enable = true;
-      nvf.enable = true;
       office.enable = true;
 
       gaming.platforms = [ "steam" ];
@@ -66,15 +66,16 @@
     flatpak = {
       packages = [
         "com.usebottles.bottles"
-        "com.github.tchx84.Flatseal"
         "com.stremio.Stremio"
+        "io.appflowy.AppFlowy"
+        "io.freetubeapp.FreeTube"
         "io.github.giantpinkrobots.flatsweep"
       ];
     };
 
-    udev.packages = with pkgs; [
-      platformio-core.udev
-    ];
+    # udev.packages = with pkgs; [
+    #   platformio-core.udev
+    # ];
 
     xserver.videoDrivers = [
       "nvidia"

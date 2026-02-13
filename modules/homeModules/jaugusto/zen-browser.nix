@@ -44,8 +44,8 @@
 
             search = {
               force = true;
-              default = "ddg";
-              privateDefault = "ddg";
+              default = "SearXNG";
+              privateDefault = "SearXNG";
 
               engines = {
                 "Nix Packages" = {
@@ -102,6 +102,21 @@
                   ];
                   icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                   definedAliases = [ "@nw" ];
+                };
+
+                "SearXNG" = {
+                  urls = [
+                    {
+                      template = "https://erebus.snapper-boa.ts.net:8088/search";
+                      params = [
+                        {
+                          name = "q";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+                  definedAliases = [ "@sx" ];
                 };
               };
             };

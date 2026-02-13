@@ -1,10 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    affine
-    forge-mtg
-    gearlever
     obsidian
+    kodi-wayland
     picard
     lrcget
     winboat
