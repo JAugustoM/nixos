@@ -26,8 +26,6 @@ let
   externalModules = with inputs; [
     nix-index-database.homeModules.nix-index
   ];
-
-  requiredDirs = [ "Cloud/Mega" ];
 in
 {
   imports = configuration ++ packages ++ externalModules ++ internalModules;
@@ -47,27 +45,15 @@ in
       VISUAL = "hx";
     };
 
-    activation = {
-      RequiredDirs =
-        with builtins;
-        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          ${concatStringsSep "\n" (map (dir: "run mkdir -p ~/${dir}") requiredDirs)}
-        '';
-    };
-
     stateVersion = "25.11";
   };
 
   xdg.autostart.enable = true;
 
-  stylix = {
-    targets.zen-browser.profileNames = [ "default" ];
-  };
-
   modules = {
     helix.enable = true;
     zed-editor.enable = true;
-    zen-browser.enable = true;
+    # zen-browser.enable = true;
 
     niri = {
       enable = true;

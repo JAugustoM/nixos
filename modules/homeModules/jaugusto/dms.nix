@@ -62,11 +62,10 @@
             };
 
             plugins = {
-              dankBatteryAlerts.enable = true;
+              dankKDEConnect.enable = true;
               dankLauncherKeys.enable = true;
               displayMirror.enable = true;
               emojiLauncher.enable = true;
-              powerUsagePlugin.enable = true;
               webSearch.enable = true;
             };
           };

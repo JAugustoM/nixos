@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -34,6 +35,7 @@
 
   environment.systemPackages = with pkgs; [
     ffmpeg-full
+    vivaldi
   ];
 
   programs = {
@@ -53,6 +55,7 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
+    protonmail-bridge.enable = true;
     resolved.enable = true;
     thermald.enable = true;
     upower.enable = true;
@@ -72,10 +75,6 @@
         "io.github.giantpinkrobots.flatsweep"
       ];
     };
-
-    # udev.packages = with pkgs; [
-    #   platformio-core.udev
-    # ];
 
     xserver.videoDrivers = [
       "nvidia"
@@ -105,7 +104,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    kernelPackages = pkgs.linuxPackages_6_18;
     initrd.luks.devices = {
       cryptroot = {
         device = "/dev/disk/by-partlabel/luks";
