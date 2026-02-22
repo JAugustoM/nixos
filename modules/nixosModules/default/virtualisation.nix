@@ -2,7 +2,7 @@
 {
   flake.modules.nixos.default = moduleWithSystem (
     perSystem@{ ... }:
-    nixos@{ config, ... }:
+    nixos@{ config, pkgs, ... }:
     let
       cfg = config.modules.virtualisation;
       inherit (lib.types) listOf enum;
@@ -11,6 +11,7 @@
       options.modules.virtualisation.backends = lib.mkOption {
         type = listOf (enum [
           "docker"
+          "libvirtd"
           "podman"
         ]);
         default = [ ];
@@ -23,6 +24,9 @@
             docker.enable = true;
             docker.storageDriver = "btrfs";
           };
+        })
+        (lib.mkIf (builtins.elem "libvirtd" cfg.backends) {
+          virtualisation.libvirtd.enable = true;
         })
         (lib.mkIf (builtins.elem "podman" cfg.backends) {
           virtualisation = {

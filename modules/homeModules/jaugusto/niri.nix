@@ -41,7 +41,7 @@
                 hotkey-overlay.title = "Open dolphin";
               };
               "Mod+W" = {
-                action = spawn "vivaldi";
+                action = spawn "zen-beta";
                 hotkey-overlay.title = "Open browser";
               };
               "Mod+Q" = {

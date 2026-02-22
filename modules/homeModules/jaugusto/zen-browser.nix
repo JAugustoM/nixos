@@ -20,6 +20,8 @@
       options.modules.zen-browser.enable = lib.mkEnableOption "Enable zen";
 
       config = lib.mkIf cfg.enable {
+        stylix.targets.zen-browser.profileNames = [ "default" ];
+
         programs.zen-browser = {
           enable = true;
           nativeMessagingHosts = with pkgs; [
@@ -30,8 +32,6 @@
             extensions = {
               packages = with pkgs.nur.repos.rycee.firefox-addons; [
                 bitwarden
-                cookies-txt
-                languagetool
                 plasma-integration
                 privacy-badger
                 ublock-origin

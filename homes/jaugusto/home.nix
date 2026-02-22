@@ -53,7 +53,7 @@ in
   modules = {
     helix.enable = true;
     zed-editor.enable = true;
-    # zen-browser.enable = true;
+    zen-browser.enable = true;
 
     niri = {
       enable = true;

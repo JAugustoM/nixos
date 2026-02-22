@@ -21,7 +21,10 @@
     desktop.environment = "plasma";
     home-manager.user = "jaugusto";
 
-    virtualisation.backends = [ "podman" ];
+    virtualisation.backends = [
+      "libvirtd"
+      "podman"
+    ];
 
     programs = {
       nh.enable = true;
@@ -55,7 +58,6 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
-    protonmail-bridge.enable = true;
     resolved.enable = true;
     thermald.enable = true;
     upower.enable = true;
@@ -73,6 +75,7 @@
         "io.appflowy.AppFlowy"
         "io.freetubeapp.FreeTube"
         "io.github.giantpinkrobots.flatsweep"
+        "org.gnome.Boxes"
       ];
     };
 
@@ -89,6 +92,7 @@
       "networkmanager"
       "wheel"
       "dialout"
+      "libvirtd"
       "podman"
     ];
   };
