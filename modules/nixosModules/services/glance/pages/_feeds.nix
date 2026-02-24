@@ -43,7 +43,6 @@ in
         {
           type = "releases";
           cache = "30m";
-          token = "\${GITHUB_TOKEN}";
           show-source-icon = true;
           repositories = [
             "AppFlowy-IO/AppFlowy"

@@ -17,14 +17,12 @@
 
       config = lib.mkMerge [
         (lib.mkIf (cfg.enable) {
-          sops.secrets."searx_secret" = { };
-
           services.searx = {
             enable = true;
+            environmentFile = "/home/jaugusto/.searxng.env";
             settings = {
               server = {
                 base_url = "https://${url}";
-                secret_key = config.sops.secrets."searx_secret".path;
                 method = "GET";
               };
 

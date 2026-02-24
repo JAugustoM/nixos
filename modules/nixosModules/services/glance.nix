@@ -16,12 +16,9 @@
 
       config = lib.mkMerge [
         (lib.mkIf (cfg.enable) {
-          sops.secrets."glance_env" = { };
-
           # Port 8080
           services.glance = {
             enable = true;
-            environmentFile = config.sops.secrets."glance_env".path;
 
             settings = {
               theme = lib.mkForce (import ./glance/_dracula-theme.nix);

@@ -51,6 +51,7 @@ in
   xdg.autostart.enable = true;
 
   modules = {
+    borgmatic.enable = true;
     helix.enable = true;
     zed-editor.enable = true;
     zen-browser.enable = true;

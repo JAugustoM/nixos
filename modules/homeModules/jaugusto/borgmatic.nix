@@ -14,8 +14,6 @@
       };
 
       config = lib.mkIf cfg.enable {
-        sops.secrets."borgmatic_passphrase" = { };
-
         home.packages = [ pkgs.borgmatic ];
 
         services.borgmatic = {
@@ -59,8 +57,8 @@
               ];
               storage.extraConfig = {
                 compression = "auto,zstd,14";
-                healthchecks.ping_url = "https://hc-ping.com/3d0e8f5e-b357-45a6-93ef-c0b46d27a5f0";
-                encryption_passphrase = "{credential file ${config.sops.secrets."borgmatic_passphrase".path}}";
+                # healthchecks.ping_url = "";
+                encryption_passphrase = "{credential file ${home}/.borg_pass";
               };
             };
           };

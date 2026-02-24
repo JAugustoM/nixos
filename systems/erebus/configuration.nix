@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -16,7 +15,6 @@
     glance.enable = true;
     niri.enable = true;
     searx.enable = true;
-    sops.enable = true;
 
     desktop.environment = "plasma";
     home-manager.user = "jaugusto";
@@ -68,16 +66,13 @@
       fileSystems = [ "/" ];
     };
 
-    flatpak = {
-      packages = [
-        "com.usebottles.bottles"
-        "com.stremio.Stremio"
-        "io.appflowy.AppFlowy"
-        "io.freetubeapp.FreeTube"
-        "io.github.giantpinkrobots.flatsweep"
-        "org.gnome.Boxes"
-      ];
-    };
+    flatpak.packages = [
+      "com.usebottles.bottles"
+      "com.stremio.Stremio"
+      "io.appflowy.AppFlowy"
+      "io.github.giantpinkrobots.flatsweep"
+      "org.gnome.Boxes"
+    ];
 
     xserver.videoDrivers = [
       "nvidia"
@@ -101,19 +96,15 @@
     hostName = "erebus";
     networkmanager = {
       enable = true;
-      plugins = with pkgs; [
-        networkmanager-openvpn
-      ];
+      plugins = [ pkgs.networkmanager-openvpn ];
     };
   };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_18;
-    initrd.luks.devices = {
-      cryptroot = {
-        device = "/dev/disk/by-partlabel/luks";
-        allowDiscards = true;
-      };
+    initrd.luks.devices.cryptroot = {
+      device = "/dev/disk/by-partlabel/luks";
+      allowDiscards = true;
     };
   };
 

@@ -46,13 +46,6 @@
             ];
           };
         }
-        (lib.mkIf (config.modules.sops.enable) {
-          sops.secrets."nix_conf" = { };
-
-          nix.extraOptions = ''
-            !include ${config.sops.secrets."nix_conf".path}
-          '';
-        })
       ];
     }
   );
