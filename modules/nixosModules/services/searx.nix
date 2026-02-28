@@ -21,16 +21,20 @@
             enable = true;
             environmentFile = "/home/jaugusto/.searxng.env";
             settings = {
+              search = {
+                autocomplete = "duckduckgo";
+                favicon_resolver = "duckduckgo";
+                formats = [
+                  "html"
+                  "json"
+                ];
+              };
+
               server = {
                 base_url = "https://${url}";
                 method = "GET";
               };
 
-              engines = lib.mapAttrsToList (name: value: { inherit name; } // value) {
-                "ahmia".disabled = true;
-                "startpage".disabled = true;
-                "torch".disabled = true;
-              };
             };
           };
         })

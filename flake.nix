@@ -1,16 +1,12 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-
-    auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
-    auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
 
     danksearch.url = "github:AvengeMedia/danksearch";
     danksearch.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,8 +34,8 @@
 
     nur.url = "github:nix-community/nur";
 
-    nix4vscode.url = "github:nix-community/nix4vscode";
-    nix4vscode.inputs.nixpkgs.follows = "nixpkgs";
+    # nix4vscode.url = "github:nix-community/nix4vscode";
+    # nix4vscode.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +48,11 @@
 
     tt-schemes.url = "github:tinted-theming/schemes";
     tt-schemes.flake = false;
+
+    vicinae.url = "github:vicinaehq/vicinae";
+
+    vicinae-extensions.url = "github:vicinaehq/extensions";
+    vicinae-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";

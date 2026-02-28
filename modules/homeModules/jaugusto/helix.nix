@@ -48,6 +48,7 @@
             yaml-language-server
           ];
 
+          #TODO mkOutOfStoreSymlink
           languages = {
             language-server = {
               codebook = {
@@ -59,11 +60,24 @@
             language = [
               {
                 name = "markdown";
-                language-servers = [ "marksman" "codebook" ];
+                language-servers = [
+                  "marksman"
+                  "codebook"
+                ];
+              }
+              {
+                name = "nix";
+                auto-format = true;
+                formatter = {
+                  command = "nixfmt";
+                };
               }
               {
                 name = "rust";
-                language-servers = [ "rust-analyzer" "codebook" ];
+                language-servers = [
+                  "rust-analyzer"
+                  "codebook"
+                ];
               }
             ];
           };

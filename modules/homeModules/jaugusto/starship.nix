@@ -7,11 +7,7 @@
 {
   flake.modules.homeManager.jaugusto = moduleWithSystem (
     perSystem@{ ... }:
-    home@{ config, pkgs, ... }:
-    let
-      cfg = config.modules.sops;
-      user = config.home.username;
-    in
+    home@{ pkgs, ... }:
     {
       programs.starship = {
         enable = true;

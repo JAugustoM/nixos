@@ -41,7 +41,9 @@ in
     ];
 
     sessionVariables = {
+      CARAPACE_BRIDGES = "zsh,fish,bash,inshellisense";
       EDITOR = "hx";
+      LANGUAGE = "en_US";
       VISUAL = "hx";
     };
 
@@ -53,13 +55,9 @@ in
   modules = {
     borgmatic.enable = true;
     helix.enable = true;
+    vicinae.enable = true;
     zed-editor.enable = true;
     zen-browser.enable = true;
-
-    niri = {
-      enable = true;
-      shell = "dms";
-    };
   };
 
   programs = {

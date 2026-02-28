@@ -9,6 +9,7 @@
     git-credential-manager
     imagemagick
     kew
+    libgourou
     nix-output-monitor
     nurl
     rsgain

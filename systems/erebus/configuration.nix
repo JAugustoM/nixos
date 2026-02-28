@@ -10,17 +10,14 @@
   facter.reportPath = ./facter.json;
 
   modules = {
-    auto-cpufreq.enable = true;
     caddy.enable = true;
     glance.enable = true;
-    niri.enable = true;
     searx.enable = true;
 
     desktop.environment = "plasma";
     home-manager.user = "jaugusto";
 
     virtualisation.backends = [
-      "libvirtd"
       "podman"
     ];
 
@@ -56,6 +53,7 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
+    power-profiles-daemon.enable = false;
     resolved.enable = true;
     thermald.enable = true;
     upower.enable = true;
@@ -67,12 +65,16 @@
     };
 
     flatpak.packages = [
-      "com.usebottles.bottles"
+      "com.github.johnfactotum.Foliate"
       "com.stremio.Stremio"
       "io.appflowy.AppFlowy"
       "io.github.giantpinkrobots.flatsweep"
-      "org.gnome.Boxes"
     ];
+
+    tlp = {
+      enable = true;
+      settings = import ./tlpSettings.nix;
+    };
 
     xserver.videoDrivers = [
       "nvidia"
@@ -101,7 +103,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_18;
+    kernelPackages = pkgs.linuxPackages_6_19;
     initrd.luks.devices.cryptroot = {
       device = "/dev/disk/by-partlabel/luks";
       allowDiscards = true;
