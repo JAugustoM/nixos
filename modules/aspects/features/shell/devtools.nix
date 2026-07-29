@@ -13,21 +13,24 @@
 
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
-        # cargo
-        # rustc
+        glow
       ];
 
       programs = {
         devenv.enable = true;
         tealdeer.enable = true;
+        uv.enable = true;
+
+        delta = {
+          enable = true;
+          enableGitIntegration = true;
+        };
 
         direnv = {
           enable = true;
           silent = true;
           nix-direnv.enable = true;
         };
-
-        uv.enable = true;
       };
     };
   };

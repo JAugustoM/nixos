@@ -19,7 +19,7 @@
 
           stylix = {
             enable = true;
-            base16Scheme = "${pkgs.base16-schemes}/share/themes/${user.style}.yaml";
+            base16Scheme = "${pkgs.base16-schemes}/share/themes/${user.theme}.yaml";
             image = ../../../include/wallpapers/${user.wallpaper}.jpg;
             polarity = "dark";
 

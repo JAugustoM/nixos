@@ -1,15 +1,16 @@
-{ den, ... }:
+{ den, __findFile, ... }:
 {
   den.aspects.shell.default = {
     includes = [
-      den.aspects.shell.devtools
-      den.aspects.shell.eza
-      den.aspects.shell.fish
-      den.aspects.shell.kitty
-      den.aspects.shell.nh
-      den.aspects.shell.starship
-      den.aspects.shell.yazi
-      den.aspects.shell.yt-dlp
+      <shell/devtools>
+      <shell/eza>
+      <shell/fish>
+      <shell/herdr>
+      <shell/kitty>
+      <shell/nh>
+      <shell/starship>
+      <shell/yazi>
+      <shell/yt-dlp>
     ];
 
     homeManager = {
