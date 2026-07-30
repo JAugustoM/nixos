@@ -5,6 +5,7 @@
       <shell/devtools>
       <shell/eza>
       <shell/fish>
+      <shell/ghostty>
       <shell/herdr>
       <shell/kitty>
       <shell/nh>

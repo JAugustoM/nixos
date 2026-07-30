@@ -54,9 +54,9 @@
 
           packages = with pkgs; [
             affine
-            euphonica
             foliate
-            harmonoid
+            gapless
+            kew
             haruna
             kdePackages.kdenlive
             kdePackages.okular
@@ -70,8 +70,6 @@
             "$HOME/.local/bin"
           ];
         };
-
-        services.mpd.enable = true;
 
         programs = {
           discord.enable = true;
