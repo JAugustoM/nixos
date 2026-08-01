@@ -12,7 +12,7 @@ in
         inherit jaugusto;
       };
       secureBoot = true;
-      tailnet = ".snapper-boa.ts.net";
+      tailnet = "snapper-boa.ts.net";
     };
     gaia = { };
   };

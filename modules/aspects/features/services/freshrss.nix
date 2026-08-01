@@ -3,7 +3,7 @@
   den.aspects.services.freshrss =
     { host, ... }:
     let
-      domain = host.hostName + host.tailnet;
+      domain = "${host.hostName}.${host.tailnet}";
     in
     {
       includes = [

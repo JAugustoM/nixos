@@ -6,6 +6,8 @@
         useRoutingFeatures = "client";
         permitCertUid = "caddy";
       };
+
+      networking.firewall.trustedInterfaces = [ "tailscale0" ];
     };
   };
 }

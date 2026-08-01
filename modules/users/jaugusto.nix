@@ -12,6 +12,7 @@
       <runners/vicinae>
       <runners/walker>
       <services/freshrss>
+      <services/navidrome>
       <services/syncthing>
       <services/tailscale>
       <services/udiskie>
@@ -55,12 +56,12 @@
           packages = with pkgs; [
             affine
             foliate
-            gapless
-            kew
             haruna
             kdePackages.kdenlive
             kdePackages.okular
             lrcget
+            motrix-next
+            nocturne
             obsidian
             picard
             unrar
