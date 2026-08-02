@@ -25,7 +25,7 @@
             extract-audio = true;
             format = "bestaudio";
             audio-format = "opus";
-            output = "~/Downloads/%(channel)s/%(playlist_title)s/%(playlist_index)s-%(title)s.%(ext)s";
+            output = "~/Downloads/%(channel)s/%(playlist_title)s/%(title)s.%(ext)s";
           };
         };
       };

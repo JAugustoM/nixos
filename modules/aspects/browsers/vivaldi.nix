@@ -12,9 +12,9 @@
             }
           );
           extensions = [
-            "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
-            "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
             "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+            "oboonakemofpalcgghocfoadofidjkkk" # KeePassXC
+            "ofeajdebdjajhkmcmamagokecnbephhl" # Motrix Next
           ];
         };
       };

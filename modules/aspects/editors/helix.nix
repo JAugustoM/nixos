@@ -90,7 +90,6 @@
           '"' = '"'
           "'" = "'"
           '`' = '`'
-          '<' = '>'
 
           [editor.indent-guides]
           render = true

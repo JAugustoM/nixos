@@ -1,4 +1,8 @@
 { den, __findFile, ... }:
+let
+  name = "José Moraes";
+  email = "joseaugustomoraes@protonmail.com";
+in
 {
   den.aspects.jaugusto = { user, ... }: {
     includes = [
@@ -10,12 +14,11 @@
       <gaming/steam>
       <greeters/cosmic-greeter>
       <runners/vicinae>
-      <runners/walker>
-      <services/freshrss>
       <services/navidrome>
       <services/syncthing>
       <services/tailscale>
       <services/udiskie>
+      <services/yarr>
       <specialisations/faculdade>
       <shell/default>
       <virtualisation/podman>
@@ -25,23 +28,34 @@
       <stylix>
     ];
 
-    nixos = {
+    nixos = { pkgs, ... }: {
       users.users.jaugusto = {
-        description = "José Augusto";
+        description = name;
         extraGroups = [
           "dialout"
           "input"
         ];
       };
 
-      programs.partition-manager.enable = true;
+      programs = {
+        gpu-screen-recorder.enable = true;
+        partition-manager.enable = true;
+      };
 
       services.flatpak.packages = [
         "com.stremio.Stremio"
         "com.usebottles.bottles"
+        "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
         "io.github.giantpinkrobots.flatsweep"
         "org.freedesktop.Platform.codecs-extra"
+        "org.gnome.Boxes"
+        "org.gnome.Boxes.Extension.OsinfoDb"
       ];
+
+      services.mysql = {
+        enable = true;
+        package = pkgs.mysql84;
+      };
     };
 
     homeManager =
@@ -56,12 +70,12 @@
           packages = with pkgs; [
             affine
             foliate
+            gelly
+            heroic
             haruna
             kdePackages.kdenlive
             kdePackages.okular
             lrcget
-            motrix-next
-            nocturne
             obsidian
             picard
             unrar
@@ -73,6 +87,7 @@
         };
 
         programs = {
+          dbeaver.enable = true;
           discord.enable = true;
           zapzap.enable = true;
 
@@ -92,8 +107,8 @@
               tag.gpgsign = true;
 
               user = {
-                email = "joseaugustomoraes@protonmail.com";
-                name = "José Moraes";
+                email = email;
+                name = name;
                 signingkey = "~/.ssh/id_ed25519.pub";
               };
             };

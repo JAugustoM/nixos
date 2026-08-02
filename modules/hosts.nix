@@ -1,7 +1,7 @@
 let
   jaugusto = {
     include = "/home/jaugusto/.config/nixos/include";
-    theme = "dracula";
+    theme = "ayu-dark";
     wallpaper = "City";
   };
 in
