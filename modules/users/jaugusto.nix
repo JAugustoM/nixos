@@ -15,10 +15,10 @@ in
       <greeters/cosmic-greeter>
       <runners/vicinae>
       <services/navidrome>
+      <services/glance>
       <services/syncthing>
       <services/tailscale>
       <services/udiskie>
-      <services/yarr>
       <specialisations/faculdade>
       <shell/default>
       <virtualisation/podman>
@@ -40,6 +40,11 @@ in
       programs = {
         gpu-screen-recorder.enable = true;
         partition-manager.enable = true;
+
+        appimage = {
+          enable = true;
+          binfmt = true;
+        };
       };
 
       services.flatpak.packages = [
@@ -69,6 +74,7 @@ in
 
           packages = with pkgs; [
             affine
+            brmodelo
             foliate
             gelly
             heroic
@@ -78,7 +84,6 @@ in
             lrcget
             obsidian
             picard
-            unrar
           ];
 
           sessionPath = [

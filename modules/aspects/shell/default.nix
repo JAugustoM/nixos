@@ -4,7 +4,7 @@
     includes = [
       <shell/devtools>
       <shell/fish>
-      <shell/herdr>
+      # <shell/herdr>
       <shell/kitty>
       <shell/nh>
       <shell/yazi>
@@ -19,7 +19,6 @@
         distrobox.enable = true;
         fastfetch.enable = true;
         fzf.enable = true;
-        jjui.enable = true;
         lazygit.enable = true;
         mangohud.enable = true;
         nix-index.enable = true;
