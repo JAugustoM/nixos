@@ -43,22 +43,14 @@
 
         clang.enable = true;
         cmake.enable = true;
+        go.enable = true;
         json.enable = true;
         just.enable = true;
+        markdown.enable = true;
         sql.enable = true;
         toml.enable = true;
         xml.enable = true;
         yaml.enable = true;
-
-        dart = {
-          enable = true;
-          flutter-tools.enable = true;
-        };
-
-        markdown = {
-          enable = true;
-          extensions.render-markdown-nvim.enable = true;
-        };
 
         nix = {
           enable = true;

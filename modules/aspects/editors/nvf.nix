@@ -21,15 +21,6 @@
         inputs.nvf.nixosModules.default
       ];
 
-      nixpkgs.overlays = [
-        (final: prev: {
-          cpplint = prev.cpplint.overrideAttrs (oldAttrs: {
-            doCheck = false;
-            doInstallCheck = false;
-          });
-        })
-      ];
-
       programs.nvf = {
         enable = true;
         settings.vim = {

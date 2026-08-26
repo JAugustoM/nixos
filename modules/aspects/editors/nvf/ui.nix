@@ -2,7 +2,13 @@
   den.aspects.editors.nvf.ui = {
     nixos.programs.nvf.settings.vim = {
       dashboard.alpha.enable = true;
-      statusline.lualine.enable = true;
+      statusline.lualine = {
+        enable = true;
+        integrations.breadcrumbs = {
+          navbuddy.enable = true;
+          nvim-navic.enable = true;
+        };
+      };
       tabline.nvimBufferline.enable = true;
 
       filetree.neo-tree = {
@@ -60,11 +66,6 @@
         fastaction.enable = true;
         illuminate.enable = true;
         smartcolumn.enable = true;
-
-        breadcrumbs = {
-          enable = true;
-          navbuddy.enable = true;
-        };
 
         noice = {
           enable = true;

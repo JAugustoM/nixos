@@ -6,7 +6,6 @@
         enableGitIntegration = true;
 
         settings = {
-          editor = "nvim";
           shell = "fish";
 
           enabled_layouts = "splits,stack";

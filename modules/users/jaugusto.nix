@@ -15,7 +15,8 @@ in
       <greeters/cosmic-greeter>
       <runners/vicinae>
       <services/navidrome>
-      <services/glance>
+      # <services/glance>
+      <services/peertube>
       <services/syncthing>
       <services/tailscale>
       <services/udiskie>
@@ -38,19 +39,22 @@ in
       };
 
       programs = {
-        gpu-screen-recorder.enable = true;
         partition-manager.enable = true;
 
         appimage = {
           enable = true;
           binfmt = true;
         };
+        gpu-screen-recorder = {
+          enable = true;
+          ui.enable = true;
+        };
       };
 
       services.flatpak.packages = [
         "com.stremio.Stremio"
-        "com.usebottles.bottles"
         "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+        "io.appflowy.AppFlowy"
         "io.github.giantpinkrobots.flatsweep"
         "org.freedesktop.Platform.codecs-extra"
         "org.gnome.Boxes"
@@ -73,17 +77,18 @@ in
           file."Pictures/Wallpapers".source = link "${user.include}/wallpapers";
 
           packages = with pkgs; [
-            affine
+            bottles
             brmodelo
-            foliate
+            camunda-modeler
             gelly
             heroic
             haruna
             kdePackages.kdenlive
             kdePackages.okular
+            lazyjournal
             lrcget
-            obsidian
             picard
+            ventoy
           ];
 
           sessionPath = [
@@ -94,6 +99,7 @@ in
         programs = {
           dbeaver.enable = true;
           discord.enable = true;
+          obsidian.enable = true;
           zapzap.enable = true;
 
           git = {

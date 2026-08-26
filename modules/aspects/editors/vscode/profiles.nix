@@ -9,7 +9,7 @@
         "Rust"
       ];
 
-      programs.vscode.profiles =
+      programs.vscodium.profiles =
         let
           defaultSettings = {
             "cSpell.language" = "en,pt,pt_BR";
@@ -52,7 +52,6 @@
             "streetsidesoftware.code-spell-checker"
             "streetsidesoftware.code-spell-checker-portuguese-brazilian"
             "usernamehw.errorlens"
-            "v1hz.kdl"
             "yzhang.markdown-all-in-one"
           ];
         in
