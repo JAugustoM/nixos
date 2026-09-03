@@ -15,7 +15,6 @@
       ];
 
       environment.systemPackages = with pkgs; [
-        satty
         wl-mirror
       ];
 
@@ -41,7 +40,7 @@
       in
       {
         home.file = {
-          ".config/DankMaterialShell".source = link "${user.include}/dms";
+          ".config/DankMaterialShell/settings.json".source = link "${user.include}/dms/settings.json";
           ".config/niri/dms".source = link "${user.include}/niri/dms";
         };
       };

@@ -1,9 +1,6 @@
 { inputs, ... }:
 {
   flake-file.inputs = {
-    nur = {
-      url = "github:nix-community/nur";
-    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,12 +9,6 @@
   };
 
   den.aspects.browsers.zen = {
-    nixos = {
-      nixpkgs.overlays = [
-        inputs.nur.overlays.default
-      ];
-    };
-
     homeManager =
       { pkgs, ... }:
       {
@@ -29,18 +20,28 @@
 
         programs.zen-browser = {
           enable = true;
+
           nativeMessagingHosts = with pkgs; [
             keepassxc
           ];
 
-          profiles.default = {
-            extensions = {
-              packages = with pkgs.nur.repos.rycee.firefox-addons; [
-                keepassxc-browser
-                ublock-origin
-              ];
+          policies =
+            let
+              mkExtensionSettings = builtins.mapAttrs (
+                _: pluginId: {
+                  install_url = "https://addons.mozilla.org/firefox/downloads/latest/${pluginId}/latest.xpi";
+                  installation_mode = "force_installed";
+                }
+              );
+            in
+            {
+              ExtensionSettings = mkExtensionSettings {
+                "uBlock0@raymondhill.net" = "ublock-origin";
+                "keepassxc-browser@keepassxc.org" = "keepassxc-browser";
+              };
             };
 
+          profiles.default = {
             settings = {
               "extensions.autoDisableScopes" = 0;
             };

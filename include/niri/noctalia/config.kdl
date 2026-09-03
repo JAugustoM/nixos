@@ -1,8 +1,13 @@
-// spawn-at-startup "noctalia-shell"
-
 window-rule {
   geometry-corner-radius 20
   clip-to-geometry true
+}
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }
 
 debug {
@@ -10,23 +15,8 @@ debug {
 }
 
 layer-rule {
-  match namespace="^noctalia-overview*"
+  match namespace="^noctalia-backdrop"
   place-within-backdrop true
-}
-
-layer-rule { 
-    match namespace="(toast|osd|noctalia-popup)" 
-    background-effect { 
-        blur false 
-    } 
-}
-
-layer-rule { 
-    match namespace="noctalia" 
-    background-effect { 
-        blur false 
-        xray false
-    } 
 }
 
 binds {
@@ -34,6 +24,7 @@ binds {
     Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+    Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
     // Audio & Brightness
     XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }

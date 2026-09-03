@@ -2,6 +2,7 @@
 {
   den.aspects.shell.default = {
     includes = [
+      <shell/beets>
       <shell/devtools>
       <shell/fish>
       # <shell/herdr>

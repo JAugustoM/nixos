@@ -161,13 +161,6 @@ hotkey-overlay {
     skip-at-startup
 }
 
-window-rule {
-    match title="filechooser"
-    open-floating true
-    default-column-width { proportion 0.6; }
-    default-window-height { proportion 0.6; }
-}
-
 prefer-no-csd
 
 

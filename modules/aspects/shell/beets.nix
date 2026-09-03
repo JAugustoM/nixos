@@ -4,7 +4,7 @@
       programs.beets = {
         enable = true;
         settings = fromTOML ''
-          plugins = ["scrub", "fetchart", "embedart", "inline", "replaygain", "lyrics", "lastgenre"]
+          plugins = ["scrub", "fetchart", "embedart", "inline", "replaygain", "lyrics", "lastgenre", "musicbrainz", "chroma"]
 
           [scrub]
           auto = true
@@ -34,11 +34,15 @@
 
           [lyrics]
           auto = true
+          synced = true
           fallback = ""
 
           [lastgenre]
           auto = true
           source = "album"    
+
+          [chroma]
+          auto = true
         '';
       };
     };

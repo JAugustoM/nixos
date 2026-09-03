@@ -1,8 +1,7 @@
-environment {
-  DMS_SCREENSHOT_EDITOR "satty"
-}
-
 binds {
+    Mod+W      hotkey-overlay-title="Open web browser" { spawn-sh "dms ipc call defaultApp browser"; }
+    Mod+E      hotkey-overlay-title="Open files"       { spawn-sh "dms ipc call defaultApp fileManager"; }
+
     XF86AudioRaiseVolume hotkey-overlay-title="Increase Audio" allow-when-locked=true { 
         spawn-sh "dms ipc call audio increment 10";
     }
@@ -66,14 +65,14 @@ binds {
     }
 
     Print hotkey-overlay-title="Print Selection" {
-        spawn-sh "dms ipc call niri screenshot";
+        spawn-sh "dms screenshot";
     }
 
     Shift+Print hotkey-overlay-title="Print Screen" {
-        spawn-sh "dms ipc call niri screenshotScreen";
+        spawn-sh "dms screenshot full";
     }
 
     Ctrl+Print hotkey-overlay-title="Print Window" {
-        spawn-sh "dms ipc call niri screenshotWindow";
+        spawn-sh "dms screenshot window";
     }
 }

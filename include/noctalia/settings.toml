@@ -1,0 +1,73 @@
+[backdrop]
+enabled = true
+
+[bar.default]
+auto_hide = true
+end = ["tray", "notifications", "spacer_2", "bluetooth", "network", "battery"]
+margin_ends = 0
+reserve_space = false
+start = ["workspaces", "mirror", "spacer_2", "media"]
+
+[battery]
+warning_threshold = 30
+
+margin_ends = 0
+reserve_space = false
+start = ["workspaces", "spacer_2", "media"]
+
+[location]
+auto_locate = true
+
+[nightlight]
+enabled = true
+
+[plugins]
+enabled = ["elijaharch/wl-screen-mirror", "noctalia/screen_recorder"]
+
+[shell]
+niri_overview_type_to_launch_enabled = true
+launch_apps_as_systemd_services = true
+polkit_agent = true
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.panel]
+control_center_placement = "floating"
+session_placement = "floating"
+session_position = "center"
+
+[shell.session]
+grid = true
+grid_columns = 2
+
+[[shell.session.actions]]
+action = "logout"
+countdown_seconds = 30.0
+enabled = true
+shortcut = "l"
+variant = "default"
+
+[[shell.session.actions]]
+action = "lock_and_suspend"
+countdown_seconds = 30.0
+enabled = true
+shortcut = "s"
+variant = "default"
+
+[[shell.session.actions]]
+action = "reboot"
+countdown_seconds = 30.0
+enabled = true
+shortcut = "r"
+variant = "default"
+
+[[shell.session.actions]]
+action = "shutdown"
+countdown_seconds = 30.0
+enabled = true
+shortcut = "q"
+variant = "destructive"
+
+[system.monitor]
+enabled = false

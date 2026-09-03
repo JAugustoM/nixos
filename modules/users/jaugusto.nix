@@ -9,14 +9,14 @@ in
       <den/primary-user>
       (den.batteries.user-shell "fish")
       <browsers/zen>
-      <desktop/cosmic>
+      <desktop/niri>
+      <desktop/noctalia>
+      <fileManagers/dolphin>
       <gaming/retroarch>
       <gaming/steam>
-      <greeters/cosmic-greeter>
-      <runners/vicinae>
+      <greeters/noctalia-greeter>
       <services/navidrome>
       <services/glance>
-      <services/peertube>
       <services/syncthing>
       <services/tailscale>
       <services/udiskie>
@@ -85,9 +85,6 @@ in
             haruna
             kdePackages.kdenlive
             kdePackages.okular
-            lazyjournal
-            # lrcget
-            # picard
             ventoy
             winboat
           ];

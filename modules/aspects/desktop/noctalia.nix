@@ -1,7 +1,7 @@
 {
   den.aspects.desktop.noctalia = { user, ... }: {
     homeManager =
-      { config, ... }:
+      { config, pkgs, ... }:
       let
         inherit (config.xdg) configHome;
         link = config.lib.file.mkOutOfStoreSymlink;
@@ -12,8 +12,17 @@
           systemd.enable = true;
         };
 
-        home.file."${configHome}/niri/noctalia/config.kdl".source =
-          link "${user.include}/niri/noctalia/config.kdl";
+        home.packages = with pkgs; [
+          wl-mirror
+        ];
+
+        home.file = {
+          # Niri Config
+          "${configHome}/niri/noctalia/config.kdl".source = link "${user.include}/niri/noctalia/config.kdl";
+
+          # Noctalia Config
+          "${configHome}/noctalia/settings.toml".source = link "${user.include}/noctalia/settings.toml";
+        };
       };
   };
 }
