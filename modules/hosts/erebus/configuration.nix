@@ -6,7 +6,6 @@
       <boot/plymouth>
       <networking>
       <nvidia>
-      <powersave>
     ];
     nixos =
       { pkgs, ... }:
@@ -29,7 +28,10 @@
         services = {
           fstrim.enable = true;
           fwupd.enable = true;
+          ntpd-rs.enable = true;
           power-profiles-daemon.enable = false;
+          thermald.enable = true;
+          upower.enable = true;
 
           btrfs.autoScrub = {
             enable = true;
@@ -37,13 +39,9 @@
             fileSystems = [ "/" ];
           };
 
-          scx = {
-            enable = true;
-            scheduler = "scx_bpfland";
-          };
-
           tlp = {
             enable = true;
+            pd.enable = true;
             settings = import ./_tlp.nix;
           };
         };

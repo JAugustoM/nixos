@@ -1,4 +1,9 @@
 { den, ... }:
+let
+  rssFeed =
+    { url, title }:
+    ''{ type = "rss", title = "${title}", style = "detailed-list", feeds = [ { url = "${url}" } ] }'';
+in
 {
   den.aspects.services.glance =
     { host, ... }:
@@ -16,8 +21,9 @@
           enable = true;
 
           settings = fromTOML ''
-            [server]    
+            [server]
             proxied = true
+            base-url = "/glance"
 
             [[pages]]
             name = "Home"
@@ -52,10 +58,22 @@
             [[pages.columns.widgets]]
             type = "group"
             widgets = [
-              { type = "rss", title = "It's FOSS", style = "detailed-list", feeds = [ { url = "https://feed.itsfoss.com/" } ] },
-              { type = "rss", title = "Phoronix", style = "detailed-list", feeds = [ { url = "https://www.phoronix.com/rss.php" } ] },
-              { type = "rss", title = "Ars Technica", style = "detailed-list", feeds = [ { url = "https://feeds.arstechnica.com/arstechnica/index" } ] },
-              { type = "rss", title = "Ladybird", style = "detailed-list", feeds = [ { url = "https://ladybird.org/posts.rss" } ] }
+              ${
+                rssFeed {
+                  url = "https://feed.itsfoss.com/";
+                  title = "It's FOSS";
+                }
+              },
+              ${
+                rssFeed {
+                  url = "https://www.phoronix.com/rss.php";
+                  title = "Phoronix";
+                }
+              },
+              ${rssFeed {
+                url = "https://feeds.arstechnica.com/arstechnica/index";
+                title = "Ars Technica";
+              }}
             ]
 
 
@@ -65,17 +83,23 @@
             [[pages.columns.widgets]]
             type = "releases"
             repositories = [
-              "pop-os/cosmic-epoch",
+              "AvengeMedia/DankMaterialShell",
               "fish-shell/fish-shell",
               "kovidgoyal/kitty",
-              "nushell/nushell"
+              "marc2332/freya",
+              "noctalia-dev/noctalia",
+              "noctalia-dev/umbriel",
+              "nushell/nushell",
+              "pop-os/cosmic-epoch"
             ]
           '';
         };
 
         caddy.virtualHosts."${domain}" = {
           extraConfig = ''
-            reverse_proxy 127.0.0.1:8080
+            handle_path /glance* {              
+              reverse_proxy 127.0.0.1:8080
+            }
           '';
         };
       };

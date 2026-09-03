@@ -15,13 +15,14 @@ in
       <greeters/cosmic-greeter>
       <runners/vicinae>
       <services/navidrome>
-      # <services/glance>
+      <services/glance>
       <services/peertube>
       <services/syncthing>
       <services/tailscale>
       <services/udiskie>
       <specialisations/faculdade>
       <shell/default>
+      <virtualisation/docker>
       <virtualisation/podman>
       <editors>
       <flatpak>
@@ -53,12 +54,11 @@ in
 
       services.flatpak.packages = [
         "com.stremio.Stremio"
+        "com.usebottles.bottles"
         "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
         "io.appflowy.AppFlowy"
         "io.github.giantpinkrobots.flatsweep"
         "org.freedesktop.Platform.codecs-extra"
-        "org.gnome.Boxes"
-        "org.gnome.Boxes.Extension.OsinfoDb"
       ];
 
       services.mysql = {
@@ -77,18 +77,19 @@ in
           file."Pictures/Wallpapers".source = link "${user.include}/wallpapers";
 
           packages = with pkgs; [
-            bottles
             brmodelo
             camunda-modeler
+            drawio
             gelly
             heroic
             haruna
             kdePackages.kdenlive
             kdePackages.okular
             lazyjournal
-            lrcget
-            picard
+            # lrcget
+            # picard
             ventoy
+            winboat
           ];
 
           sessionPath = [
