@@ -11,7 +11,7 @@ in
       <browsers/zen>
       <desktop/niri>
       <desktop/noctalia>
-      <fileManagers/dolphin>
+      <fileManagers/thunar>
       <gaming/retroarch>
       <gaming/steam>
       <greeters/noctalia-greeter>
@@ -38,6 +38,8 @@ in
           "input"
         ];
       };
+
+      networking.firewall.allowedTCPPorts = [ 8010 ];
 
       programs = {
         partition-manager.enable = true;
@@ -81,11 +83,10 @@ in
             camunda-modeler
             drawio
             gelly
+            gnome-text-editor
             heroic
-            haruna
-            kdePackages.kdenlive
-            kdePackages.okular
-            ventoy
+            papers
+            vlc
             winboat
           ];
 
@@ -95,6 +96,7 @@ in
         };
 
         programs = {
+          antigravity.enable = true;
           dbeaver.enable = true;
           discord.enable = true;
           obsidian.enable = true;

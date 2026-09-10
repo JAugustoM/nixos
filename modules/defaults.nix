@@ -29,6 +29,11 @@
           useUserPackages = true;
         };
 
+        programs.tack = {
+          enable = true;
+          nixConfTokens = true;
+        };
+
         system.stateVersion = "26.05";
       };
 

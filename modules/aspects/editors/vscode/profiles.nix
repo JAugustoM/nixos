@@ -40,7 +40,6 @@
             "[markdown]" = {
               "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
             };
-
           };
           defaultExtensions = pkgs.nix4vscode.forOpenVsx [
             "aaron-bond.better-comments"
@@ -49,6 +48,7 @@
             "mkhl.direnv"
             "nefrob.vscode-just-syntax"
             "PKief.material-icon-theme"
+            "saoudrizwan.claude-dev"
             "streetsidesoftware.code-spell-checker"
             "streetsidesoftware.code-spell-checker-portuguese-brazilian"
             "usernamehw.errorlens"

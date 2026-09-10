@@ -3,9 +3,10 @@
   den.aspects.editors = {
     includes = with den.aspects.editors; [
       helix
-      nvf
+      # nvf
+      # lazyvim
       vscode
-      zed
+      # zed
     ];
 
     homeManager = {

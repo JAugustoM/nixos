@@ -28,10 +28,7 @@ in
             [[pages]]
             name = "Home"
 
-            [[pages.columns]]
-            size = "full"
-
-            [[pages.columns.widgets]]
+            [[pages.head-widgets]]
             type = "search"
             hide-header = true
             new-tab = true
@@ -40,17 +37,6 @@ in
               { title = "Nix Packages", shortcut = "!np", url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}" },
               { title = "Nix Options", shortcut = "!no", url = "https://search.nixos.org/options?channel=unstable&query={QUERY}" }
             ]
-
-            [[pages.columns.widgets]]
-            type = "group"
-            widgets = [
-              { type = "reddit", subreddit = "NixOS", show-thumbnails = true, show-flairs = true },
-              { type = "reddit", subreddit = "gamingnews", show-thumbnails = true, show-flairs = true },
-              { type = "reddit", subreddit = "hardware", show-thumbnails = true, show-flairs = true },
-            ]
-
-            [[pages]]
-            name = "News"
 
             [[pages.columns]]
             size = "full"
@@ -84,13 +70,16 @@ in
             type = "releases"
             repositories = [
               "AvengeMedia/DankMaterialShell",
+              "cachix/devenv",
               "fish-shell/fish-shell",
               "kovidgoyal/kitty",
+              "lapce/lapce",
               "marc2332/freya",
               "noctalia-dev/noctalia",
               "noctalia-dev/umbriel",
               "nushell/nushell",
-              "pop-os/cosmic-epoch"
+              "pop-os/cosmic-epoch",
+              "winboat-org/winboat"
             ]
           '';
         };

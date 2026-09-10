@@ -13,8 +13,7 @@
 
         shellAliases = {
           check-flake = ''nix repl --expr "builtins.getFlake (builtins.toString $NH_FLAKE)"'';
-          flakeup = "nix flake update --flake $NH_FLAKE";
-          reset-ssh = "systemctl --user restart gpg-agent.socket gpg-agent-ssh.socket && gpg-connect-agent updatestartuptty /bye";
+          tackup = "nix run $NH_FLAKE#write-tack";
         };
       };
     };
