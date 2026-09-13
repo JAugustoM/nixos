@@ -6,7 +6,7 @@ auto_hide = true
 end = ["tray", "notifications", "spacer_2", "bluetooth", "network", "battery"]
 margin_ends = 0
 reserve_space = false
-start = ["workspaces", "mirror", "spacer_2", "media"]
+start = ["workspaces", "mirror", "widget", "spacer_2", "media"]
 
 [battery]
 warning_threshold = 30
@@ -22,7 +22,11 @@ auto_locate = true
 enabled = true
 
 [plugins]
-enabled = ["elijaharch/wl-screen-mirror", "noctalia/screen_recorder"]
+enabled = [
+  "elijaharch/wl-screen-mirror",
+  "noctalia/screen_recorder",
+  "alexander/screen-toolkit",
+]
 
 [shell]
 niri_overview_type_to_launch_enabled = true

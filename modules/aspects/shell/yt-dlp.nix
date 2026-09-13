@@ -25,7 +25,8 @@
             extract-audio = true;
             format = "bestaudio";
             audio-format = "opus";
-            output = "~/Downloads/%(channel)s/%(playlist_title)s/%(title)s.%(ext)s";
+            embed-metadata = true;
+            output = "~/Downloads/%(channel)s/%(album)s/%(title)s.%(ext)s";
           };
         };
       };

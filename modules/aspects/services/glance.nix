@@ -72,13 +72,15 @@ in
               "AvengeMedia/DankMaterialShell",
               "cachix/devenv",
               "fish-shell/fish-shell",
+              "helix-editor/helix",
               "kovidgoyal/kitty",
-              "lapce/lapce",
               "marc2332/freya",
               "noctalia-dev/noctalia",
               "noctalia-dev/umbriel",
               "nushell/nushell",
               "pop-os/cosmic-epoch",
+              "raphamorim/rio",
+              "unstablebuild/rune",
               "winboat-org/winboat"
             ]
           '';

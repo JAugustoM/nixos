@@ -1,37 +1,39 @@
 {
   den.aspects.editors.nvf.utility = {
-    nixos = { pkgs, ... }: {
+    nixos = {
       programs.nvf.settings.vim = {
         comments.comment-nvim.enable = true;
-        git.enable = true;
 
         mini = {
           ai.enable = true;
           pairs.enable = true;
         };
 
-        telescope = {
-          enable = true;
-
-          extensions = [
-            {
-              name = "fzf";
-              packages = [ pkgs.vimPlugins.telescope-fzf-native-nvim ];
-              setup = {
-                fzf = {
-                  fuzzy = true;
-                  override_generic_sorter = true;
-                  override_file_sorter = true;
-                };
-              };
-            }
-          ];
-        };
-
         utility = {
           direnv.enable = true;
           motion.flash-nvim.enable = true;
           surround.enable = true;
+
+          snacks-nvim = {
+            enable = true;
+            setupOpts = {
+              animate.enabled = true;
+              bigfile.enabled = true;
+              dashboard.enabled = true;
+              explorer.enabled = true;
+              indent.enabled = true;
+              input.enabled = true;
+              picker.enabled = true;
+              quickfile.enabled = true;
+              scroll.enabled = true;
+              words.enabled = true;
+
+              notifier = {
+                enabled = true;
+                timeout = 3000;
+              };
+            };
+          };
         };
       };
     };

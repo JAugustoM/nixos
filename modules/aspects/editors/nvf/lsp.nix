@@ -76,11 +76,11 @@
         inlayHints.enable = true;
 
         mappings = {
-          goToDefinition = "gd";
-          goToDeclaration = "gD";
-          goToType = "gy";
-          listImplementations = "gI";
-          listReferences = "gr";
+          # goToDefinition = "gd";
+          # goToDeclaration = "gD";
+          # goToType = "gy";
+          # listImplementations = "gI";
+          # listReferences = "gr";
           hover = "K";
           renameSymbol = "<leader>cr";
           codeAction = "<leader>ca";

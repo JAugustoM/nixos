@@ -13,7 +13,18 @@
         };
 
         home.packages = with pkgs; [
+          bc
+          curl
+          grim
+          hyprpicker
+          imagemagick
+          jq
+          slurp
+          swappy
+          tesseract
+          translate-shell
           wl-mirror
+          zbar
         ];
 
         home.file = {

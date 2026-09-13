@@ -7,7 +7,6 @@ in
   den.aspects.jaugusto = { user, ... }: {
     includes = [
       <den/primary-user>
-      (den.batteries.user-shell "fish")
       <browsers/zen>
       <desktop/niri>
       <desktop/noctalia>
@@ -82,6 +81,7 @@ in
             brmodelo
             camunda-modeler
             drawio
+            gearlever
             gelly
             gnome-text-editor
             heroic

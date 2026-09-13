@@ -7,6 +7,7 @@
 
         settings = {
           shell = "fish";
+          editor = "hx";
 
           enabled_layouts = "splits,stack";
           notify_on_cmd_finish = "invisible";

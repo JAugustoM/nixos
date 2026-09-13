@@ -5,9 +5,10 @@
       <shell/beets>
       <shell/devtools>
       <shell/fish>
-      # <shell/herdr>
-      <shell/kitty>
+      <shell/herdr>
+      # <shell/kitty>
       <shell/nh>
+      <shell/rio>
       <shell/yazi>
       <shell/yt-dlp>
     ];
@@ -30,6 +31,11 @@
           enable = true;
           git = true;
           icons = "always";
+        };
+
+        nix-your-shell = {
+          enable = true;
+          nix-output-monitor.enable = true;
         };
 
         starship = {

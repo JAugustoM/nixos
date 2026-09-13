@@ -17,8 +17,7 @@
 
             "<leader>lw" = "Workspace";
 
-            "<leader>c" = "Git Conflict";
-            "<leader>t" = "Git Blame";
+            "<leader>c" = "Code";
           };
         };
       };

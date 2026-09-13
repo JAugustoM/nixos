@@ -9,6 +9,13 @@
       # zed
     ];
 
+    nixos = {
+      environment.variables = {
+        EDITOR = "hx";
+        VISUAL = "hx";
+      };
+    };
+
     homeManager = {
       home.sessionVariables = {
         EDITOR = "hx";

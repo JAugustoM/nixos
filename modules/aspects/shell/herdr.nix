@@ -6,6 +6,8 @@
         herdr = {
           enable = true;
           settings = fromTOML ''
+            onboarding = false
+
             [keys]    
             prefix = "ctrl+s"
 
@@ -20,6 +22,9 @@
             description = "Open helix"
             key = "ctrl+e"
             type = "pane"
+
+            [terminal]
+            default_shell = "fish"
 
             [theme]
             name = "${user.theme}"

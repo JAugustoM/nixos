@@ -1,7 +1,7 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open terminal"    { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open terminal"    { spawn "rio"; }
     Mod+W      hotkey-overlay-title="Open web browser" { spawn "zen-beta"; }
     Mod+E      hotkey-overlay-title="Open files"       { spawn "thunar"; }
 

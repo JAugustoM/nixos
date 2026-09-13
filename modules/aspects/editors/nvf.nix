@@ -16,14 +16,19 @@
       den.aspects.editors.nvf.utility
     ];
 
-    nixos = {
+    nixos = { pkgs, ... }: {
       imports = [
         inputs.nvf.nixosModules.default
       ];
 
       programs.nvf = {
         enable = true;
+
         settings.vim = {
+          extraPackages = with pkgs; [
+            fd
+          ];
+
           enableLuaLoader = true;
           searchCase = "smart";
           syntaxHighlighting = true;
