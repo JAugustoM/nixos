@@ -59,7 +59,6 @@ in
         "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
         "io.appflowy.AppFlowy"
         "io.github.giantpinkrobots.flatsweep"
-        "org.freedesktop.Platform.codecs-extra"
       ];
 
       services.mysql = {
@@ -86,6 +85,7 @@ in
             gnome-text-editor
             heroic
             papers
+            planify
             vlc
             winboat
           ];
@@ -96,7 +96,7 @@ in
         };
 
         programs = {
-          antigravity.enable = true;
+          calibre.enable = true;
           dbeaver.enable = true;
           discord.enable = true;
           obsidian.enable = true;

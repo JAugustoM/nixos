@@ -1,26 +1,19 @@
-{ inputs, ... }:
 {
-  flake-file.inputs = {
-    helix-git.url = "github:helix-editor/helix";
-  };
-
   den.aspects.editors.helix = {
-    nixos = {
-      nixpkgs.overlays = [ inputs.helix-git.overlays.default ];
-    };
     homeManager = { pkgs, ... }: {
       home = {
-        packages = with pkgs; [
-          steel
-        ];
+        # packages = with pkgs; [
+        #   steel
+        # ];
 
-        sessionVariables = {
-          STEEL_HOME = "$HOME/.local/share/steel";
-        };
+        # sessionVariables = {
+        #   STEEL_HOME = "$HOME/.local/share/steel";
+        # };
       };
 
       programs.helix = {
         enable = true;
+        package = pkgs.helix_git;
 
         extraPackages = with pkgs; [
           #  C/C++
@@ -128,15 +121,15 @@
 
           [[language]]
           name = "c"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "cpp"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "c"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "cmake"
@@ -144,38 +137,38 @@
 
           [[language]]
           name = "dart"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "markdown"
           language-servers = ["markdown-oxide", "rumdl", "codebook"]
           formatter = { command = "rumdl", args = ["check", "--fix", "--stdin"] }
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "nix"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "python"
           language-servers = ["pyrefly", "ruff"]
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "rust"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "slint"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "toml"
-          auto-format = true              
+          auto-format = true
 
           [[language]]
           name = "yaml"
-          auto-format = true              
+          auto-format = true
         '';
       };
     };

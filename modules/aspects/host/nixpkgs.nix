@@ -1,9 +1,17 @@
 { inputs, ... }:
 {
+  flake-file.inputs = {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+  };
+
   den.aspects.nixpkgs = {
     nixos =
       { pkgs, ... }:
       {
+        imports = [
+          inputs.chaotic.nixosModules.default
+        ];
+
         nix = {
           package = pkgs.lixPackageSets.stable.lix;
           nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

@@ -75,6 +75,8 @@ in
               "helix-editor/helix",
               "kovidgoyal/kitty",
               "marc2332/freya",
+              "mitos-editor/mitos",
+              "neurocyte/flow",
               "noctalia-dev/noctalia",
               "noctalia-dev/umbriel",
               "nushell/nushell",

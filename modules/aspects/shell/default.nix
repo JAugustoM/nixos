@@ -2,13 +2,14 @@
 {
   den.aspects.shell.default = {
     includes = [
+      <shell/agents>
       <shell/beets>
       <shell/devtools>
       <shell/fish>
-      <shell/herdr>
-      # <shell/kitty>
+      # <shell/herdr>
+      <shell/kitty>
       <shell/nh>
-      <shell/rio>
+      # <shell/rio>
       <shell/yazi>
       <shell/yt-dlp>
     ];

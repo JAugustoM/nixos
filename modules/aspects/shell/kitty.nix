@@ -1,12 +1,12 @@
 {
-  den.aspects.shell.kitty = {
+  den.aspects.shell.kitty = { user, ... }: {
     homeManager = {
       programs.kitty = {
         enable = true;
         enableGitIntegration = true;
 
         settings = {
-          shell = "fish";
+          shell = user.shell;
           editor = "hx";
 
           enabled_layouts = "splits,stack";

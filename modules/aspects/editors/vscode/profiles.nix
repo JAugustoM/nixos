@@ -1,6 +1,6 @@
 { ... }:
 {
-  den.aspects.editors.vscode = {
+  den.aspects.editors.vscode = { user, ... }: {
     homeManager = { pkgs, ... }: {
       stylix.targets.vscodium.profileNames = [
         "default"
@@ -33,7 +33,7 @@
             "nix.enableLanguageServer" = true;
             "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
 
-            "terminal.integrated.defaultProfile.linux" = "fish";
+            "terminal.integrated.defaultProfile.linux" = user.shell;
 
             "workbench.iconTheme" = "material-icon-theme";
 

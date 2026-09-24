@@ -4,6 +4,7 @@
     includes = [
       <boot/limine>
       <boot/plymouth>
+      <cachyos>
       <networking>
       <nvidia>
     ];
@@ -47,7 +48,6 @@
         };
 
         boot = {
-          kernelPackages = pkgs.linuxPackages_latest;
           initrd.luks.devices.cryptroot = {
             allowDiscards = true;
             crypttabExtraOpts = [ "tpm2-device=auto " ];

@@ -13,7 +13,7 @@
           Security = {
             ClearClipboardTimeout = 20;
             LockDatabaseIdle = true;
-            LockDatabaseIdleSeconds = 300;
+            LockDatabaseIdleSeconds = 1800;
             LockDatabaseScreenLock = true;
           };
           Browser = {
@@ -22,6 +22,7 @@
             UpdateBinaryPath = false;
           };
           GUI = {
+            ApplicationTheme = "dark";
             MinimizeToTray = true;
             MinimizeOnClose = true;
             MinimizeOnStartup = true;

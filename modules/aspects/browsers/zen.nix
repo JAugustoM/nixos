@@ -38,6 +38,7 @@
               ExtensionSettings = mkExtensionSettings {
                 "uBlock0@raymondhill.net" = "ublock-origin";
                 "keepassxc-browser@keepassxc.org" = "keepassxc-browser";
+                "rayburst-connect@aninsomniacy.dev" = "rayburst-connect";
               };
             };
 

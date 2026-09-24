@@ -24,7 +24,7 @@
             type = "pane"
 
             [terminal]
-            default_shell = "fish"
+            default_shell = ${user.shell}
 
             [theme]
             name = "${user.theme}"
