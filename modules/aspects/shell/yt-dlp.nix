@@ -5,9 +5,9 @@
       {
         home.packages = with pkgs; [
           aria2
+          bun
           atomicparsley
           brotli
-          deno
           python3Packages.certifi
           python3Packages.curl-cffi
           python3Packages.mutagen

@@ -1,10 +1,14 @@
 {
   den.aspects.desktop.noctalia = { user, ... }: {
     homeManager =
-      { config, pkgs, ... }:
+      {
+        config,
+        pkgs,
+        link,
+        ...
+      }:
       let
         inherit (config.xdg) configHome;
-        link = config.lib.file.mkOutOfStoreSymlink;
       in
       {
         programs.noctalia = {

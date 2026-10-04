@@ -37,10 +37,14 @@
         system.stateVersion = "26.05";
       };
 
-      homeManager = {
+      homeManager = { config, ... }: {
         imports = [
           inputs.nix-index-database.homeModules.nix-index
         ];
+
+        _module.args = {
+          link = config.lib.file.mkOutOfStoreSymlink;
+        };
 
         xdg.userDirs.enable = true;
 

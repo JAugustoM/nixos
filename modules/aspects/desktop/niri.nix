@@ -19,10 +19,7 @@
       };
 
     homeManager =
-      { config, ... }:
-      let
-        link = config.lib.file.mkOutOfStoreSymlink;
-      in
+      { link, ... }:
       {
         home.file.".config/niri/config.kdl".source = link "${user.include}/niri/config.kdl";
       };

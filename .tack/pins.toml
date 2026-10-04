@@ -47,7 +47,7 @@ url = "github:nix-community/nix4vscode"
 follows = { nixpkgs = "nixpkgs" }
 
 [inputs.nixpkgs]
-url = "github:nixos/nixpkgs?ref=nixos-unstable"
+url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
 
 [inputs.nvf]
 url = "github:NotAShelf/nvf"

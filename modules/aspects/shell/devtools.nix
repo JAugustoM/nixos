@@ -24,6 +24,7 @@
       ];
 
       programs = {
+        bun.enable = true;
         devenv.enable = true;
         tealdeer.enable = true;
         uv.enable = true;
@@ -31,12 +32,6 @@
         delta = {
           enable = true;
           enableGitIntegration = true;
-        };
-
-        direnv = {
-          enable = true;
-          silent = true;
-          nix-direnv.enable = true;
         };
       };
     };

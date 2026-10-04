@@ -6,6 +6,7 @@
       <shell/beets>
       <shell/devtools>
       <shell/fish>
+      <shell/gpg>
       # <shell/herdr>
       <shell/kitty>
       <shell/nh>

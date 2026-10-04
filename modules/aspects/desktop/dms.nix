@@ -34,10 +34,7 @@
     };
 
     homeManager =
-      { config, ... }:
-      let
-        link = config.lib.file.mkOutOfStoreSymlink;
-      in
+      { link, ... }:
       {
         home.file = {
           ".config/DankMaterialShell/settings.json".source = link "${user.include}/dms/settings.json";

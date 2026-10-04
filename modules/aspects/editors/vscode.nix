@@ -20,7 +20,10 @@
         programs.vscodium.enable = true;
 
         home.packages = with pkgs; [
+          biome
           clang-tools
+          graphviz
+          jre
           just-lsp
           nixd
           nixfmt

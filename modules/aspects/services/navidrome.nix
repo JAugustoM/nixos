@@ -31,7 +31,7 @@
       };
 
       systemd.tmpfiles.rules = [
-        "d /mnt/music 0750 root music-share -"
+        "d /mnt/music 0750 jaugusto music-share -"
       ];
 
       fileSystems."/mnt/music" = {

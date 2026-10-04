@@ -4,9 +4,11 @@
     homeManager = { pkgs, ... }: {
       stylix.targets.vscodium.profileNames = [
         "default"
-        "Flutter"
+        # "Flutter"
+        "Haskell"
         "Python"
         "Rust"
+        "Web"
       ];
 
       programs.vscodium.profiles =
@@ -44,8 +46,9 @@
           defaultExtensions = pkgs.nix4vscode.forOpenVsx [
             "aaron-bond.better-comments"
             "christian-kohler.path-intellisense"
+            "datakurre.devenv"
+            "jebbs.plantuml"
             "jnoortheen.nix-ide"
-            "mkhl.direnv"
             "nefrob.vscode-just-syntax"
             "PKief.material-icon-theme"
             "saoudrizwan.claude-dev"
@@ -65,28 +68,39 @@
             extensions = defaultExtensions;
           };
 
-          Flutter = {
-            userSettings = defaultSettings // {
-              "[dart]" = {
-                "editor.formatOnSave" = true;
-                "editor.formatOnType" = true;
+          # Flutter = {
+          #   userSettings = defaultSettings // {
+          #     "[dart]" = {
+          #       "editor.formatOnSave" = true;
+          #       "editor.formatOnType" = true;
 
-                "editor.rulers" = [ 80 ];
+          #       "editor.rulers" = [ 80 ];
 
-                "editor.selectionHighlight" = false;
+          #       "editor.selectionHighlight" = false;
 
-                "editor.tabCompletion" = "onlySnippets";
+          #       "editor.tabCompletion" = "onlySnippets";
 
-                "editor.wordBasedSuggestions" = "off";
-              };
-            };
+          #       "editor.wordBasedSuggestions" = "off";
+          #     };
+          #   };
+
+          #   extensions =
+          #     defaultExtensions
+          #     ++ pkgs.nix4vscode.forOpenVsx [
+          #       "Dart-Code.dart-code"
+          #       "Dart-Code.flutter"
+          #       "tombi-toml.tombi"
+          #     ];
+          # };
+
+          Haskell = {
+            userSettings = defaultSettings;
 
             extensions =
               defaultExtensions
               ++ pkgs.nix4vscode.forOpenVsx [
-                "Dart-Code.dart-code"
-                "Dart-Code.flutter"
-                "tombi-toml.tombi"
+                "haskell.haskell"
+                "haskell.language-haskell"
               ];
           };
 
@@ -116,6 +130,32 @@
                 "rust-lang.rust-analyzer"
                 "Slint.slint"
                 "tombi-toml.tombi"
+              ];
+          };
+
+          Web = {
+            userSettings = defaultSettings // {
+              "json.schemaDownload.trustedDomains" = {
+                "https://schemastore.azurewebsites.net/" = true;
+                "https://raw.githubusercontent.com/microsoft/vscode/" = true;
+                "https://raw.githubusercontent.com/devcontainers/spec/" = true;
+                "https://www.schemastore.org/" = true;
+                "https://json.schemastore.org/" = true;
+                "https://json-schema.org/" = true;
+                "https://developer.microsoft.com/json-schemas/" = true;
+                "https://biomejs.dev" = true;
+              };
+
+              "svelte.enable-ts-plugin" = true;
+            };
+
+            extensions =
+              defaultExtensions
+              ++ pkgs.nix4vscode.forOpenVsx [
+                "biomejs.biome"
+                "ecmel.vscode-html-css"
+                "Vue.volar"
+                "svelte.svelte-vscode"
               ];
           };
         };

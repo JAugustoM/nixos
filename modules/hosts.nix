@@ -2,7 +2,7 @@ let
   jaugusto = {
     include = "/home/jaugusto/.config/nixos/include";
     shell = "fish";
-    theme = "dracula";
+    theme = "kanagawa";
     wallpaper = "City";
   };
 in

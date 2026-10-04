@@ -21,6 +21,15 @@
           (ffmpeg-full.override { withUnfree = true; })
         ];
 
+        fileSystems."/mnt/backup" = {
+          device = "/dev/disk/by-label/Backup";
+          fsType = "btrfs";
+          options = [
+            "users"
+            "nofail"
+          ];
+        };
+
         security.sudo-rs = {
           enable = true;
           execWheelOnly = true;

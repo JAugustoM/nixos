@@ -14,6 +14,9 @@ in
       <gaming/retroarch>
       <gaming/steam>
       <greeters/noctalia-greeter>
+      <pass/keepassxc>
+      <services/borgmatic>
+      <services/commafeed>
       <services/navidrome>
       <services/glance>
       <services/syncthing>
@@ -25,7 +28,6 @@ in
       <virtualisation/podman>
       <editors>
       <flatpak>
-      <keepassxc>
       <stylix>
     ];
 
@@ -59,6 +61,9 @@ in
         "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
         "io.appflowy.AppFlowy"
         "io.github.giantpinkrobots.flatsweep"
+        "org.gnome.Boxes"
+        "org.gnome.Boxes.Extension.OsinfoDb"
+        "rs.ruffle.Ruffle"
       ];
 
       services.mysql = {
@@ -68,10 +73,7 @@ in
     };
 
     homeManager =
-      { config, pkgs, ... }:
-      let
-        link = config.lib.file.mkOutOfStoreSymlink;
-      in
+      { link, pkgs, ... }:
       {
         home = {
           file."Pictures/Wallpapers".source = link "${user.include}/wallpapers";
@@ -83,7 +85,7 @@ in
             gearlever
             gelly
             gnome-text-editor
-            heroic
+            gopass
             papers
             planify
             vlc

@@ -9,10 +9,7 @@
 
   den.aspects.runners.vicinae = { user, ... }: {
     homeManager =
-      { config, pkgs, ... }:
-      let
-        link = config.lib.file.mkOutOfStoreSymlink;
-      in
+      { link, pkgs, ... }:
       {
         home.file.".config/vicinae/settings.json".source = link "${user.include}/vicinae/settings.json";
 

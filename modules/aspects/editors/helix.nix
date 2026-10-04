@@ -22,9 +22,6 @@
           #  CMake
           neocmakelsp
 
-          #  Dart
-          dart
-
           #  Json
           vscode-json-languageserver
 
